@@ -36,11 +36,12 @@ main {
        the moment the chip named its product. */
     box-sizing: border-box;
     margin: 20px auto;
+    float:left;
 }
 
 .float-box {
     float: left;
-    width: 60%;
+    margin-right: 5px;
 }
 
 .stat-box {
@@ -62,6 +63,7 @@ main {
     font-weight: bold;
     color: var(--amber-glow);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    float:left;
 }
 
 .helper-box {
@@ -113,7 +115,7 @@ main {
     white-space: nowrap;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     transition: 0.2s;
-    float:left;
+    float:right;
 }
 
 .new-game-btn:hover {

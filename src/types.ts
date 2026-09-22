@@ -6,6 +6,8 @@ export interface Species {
     range: string;
     size: string;
     wingspan: string;
+    bill: string;
+    color_male: string;
     description: string;
     image?: string;
     icon?: string;

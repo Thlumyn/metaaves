@@ -27,6 +27,8 @@ const species: Species[] = Object.entries(rawGameData.species).map(
         range: s.range || "",
         size: s.size || "",
         wingspan: s.wingspan || "",
+        bill: s.bill || "",
+        color_male: s.color_male || "",
         description: s.description || "",
     })
 );

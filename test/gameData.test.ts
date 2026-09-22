@@ -4,43 +4,47 @@ import rawGameData from "../src/aves/index.json";
 
 const species: Species[] = [
     {
-        id: "trex",
-        species: "Tyrannosaurus rex",
-        scientific: "Tyrant Lizard King",
-        clade: "tyrannosauroidea",
-        range: "Cretaceous",
-        size: "12 m",
-        wingspan: "8 t",
+       id: "emu",
+        species: "Emu",
+        scientific: "Dromaius novaehollandiae",
+        clade: "casuariiformes",
+        range: "australia",
+        size: "x",
+        wingspan: "x",
+        bill: "short, robust, pointed",
+        color_male: "brown",
         description: "",
     },
     {
-        id: "allosaurus",
-        species: "Allosaurus",
-        scientific: "Different Lizard",
-        clade: "theropoda",
-        range: "Jurassic",
-        size: "8.5 m",
-        wingspan: "2 t",
+        id: "common_ostrich",
+        species: "Common Ostrich",
+        scientific: "Struthio camelus",
+        clade: "struthiformes",
+        range: "southern africa",
+        size: "x",
+        wingspan: "x",
+        bill: "short, robust, pointed",
+        color_male: "black",
         description: "",
     },
 ];
 
 const clades: Record<string, Clade> = {
-    tyrannosauroidea: {
-        id: "tyrannosauroidea",
-        name: "Tyrannosauroidea",
-        parent: "theropoda",
+    struthiformes: {
+        id: "struthiformes",
+        name: "Struthiformes",
+        parent: "palaeognathae",
         description: "",
     },
-    theropoda: {
-        id: "theropoda",
-        name: "Theropoda",
-        parent: "aves",
+    casuariiformes: {
+        id: "casuariiformes",
+        name: "Casuariiformes",
+        parent: "palaeognathae",
         description: "",
     },
-    aves: {
-        id: "aves",
-        name: "Aves",
+    palaeognathae: {
+        id: "palaeognathae",
+        name: "Palaeognathae",
         description: "",
     },
 };
@@ -49,23 +53,22 @@ describe("GameData", () => {
     const gameData = new GameData(species, clades);
 
     test("finds species by name case-insensitively", () => {
-        expect(gameData.findSpeciesByName("tyrannosaurus rex")?.id).toBe(
-            "trex"
+        expect(gameData.findSpeciesByName("emu")?.id).toBe(
+            "emu"
         );
-        expect(gameData.findSpeciesByName("ALLOSAURUS")?.id).toBe("allosaurus");
+        expect(gameData.findSpeciesByName("EMU")?.id).toBe("emu");
         expect(gameData.findSpeciesByName("unknown")).toBeNull();
     });
 
     test("computes lineage from clade to root", () => {
-        expect(gameData.lineage("tyrannosauroidea")).toEqual([
-            "tyrannosauroidea",
-            "theropoda",
-            "aves",
+        expect(gameData.lineage("struthiformes")).toEqual([
+            "struthiformes",
+            "palaeognathae"
         ]);
     });
 
     test("computes lowest common ancestor between species", () => {
-        expect(gameData.computeLCA("trex", "allosaurus")).toBe("theropoda");
+        expect(gameData.computeLCA("emu", "common_ostrich")).toBe("palaeognathae");
     });
 
     test("returns deterministic daily index", () => {
@@ -78,11 +81,11 @@ describe("GameData", () => {
     });
 
     test("findSpeciesById returns correct species", () => {
-        expect(gameData.findSpeciesById("trex")?.species).toBe(
-            "Tyrannosaurus rex"
+        expect(gameData.findSpeciesById("emu")?.species).toBe(
+            "Emu"
         );
-        expect(gameData.findSpeciesById("allosaurus")?.species).toBe(
-            "Allosaurus"
+        expect(gameData.findSpeciesById("common_ostrich")?.species).toBe(
+            "Common Ostrich"
         );
     });
 
@@ -91,17 +94,17 @@ describe("GameData", () => {
     });
 
     test("findCladeById returns correct clade", () => {
-        expect(gameData.findCladeById("tyrannosauroidea")?.name).toBe(
-            "Tyrannosauroidea"
+        expect(gameData.findCladeById("casuariiformes")?.name).toBe(
+            "Casuariiformes"
         );
-        expect(gameData.findCladeById("theropoda")?.name).toBe("Theropoda");
+        expect(gameData.findCladeById("palaeognathae")?.name).toBe("Palaeognathae");
     });
 
     test("findCladeById is case-insensitive", () => {
-        expect(gameData.findCladeById("TYRANNOSAUROIDEA")?.name).toBe(
-            "Tyrannosauroidea"
+        expect(gameData.findCladeById("palaeognathae")?.name).toBe(
+            "Palaeognathae"
         );
-        expect(gameData.findCladeById("ThErOpOdA")?.name).toBe("Theropoda");
+        expect(gameData.findCladeById("pAlAeOgnathAe")?.name).toBe("Palaeognathae");
     });
 
     test("findCladeById returns null for non-existent id", () => {
@@ -131,8 +134,8 @@ describe("GameData", () => {
     });
 
     test("computeLCA returns null for non-existent species", () => {
-        expect(gameData.computeLCA("trex", "nonexistent")).toBeNull();
-        expect(gameData.computeLCA("nonexistent", "trex")).toBeNull();
+        expect(gameData.computeLCA("emu", "nonexistent")).toBeNull();
+        expect(gameData.computeLCA("nonexistent", "emu")).toBeNull();
         expect(gameData.computeLCA("nonexistent1", "nonexistent2")).toBeNull();
     });
 
@@ -186,6 +189,8 @@ describe("daily species mapping", () => {
             range: "",
             size: "",
             wingspan: "",
+            bill: "",
+            color_male: "",
             description: "",
         }));
         return new GameData(list, clades);
@@ -262,6 +267,8 @@ describe("daily species mapping on the real species list", () => {
             range: s.range || "",
             size: s.size || "",
             wingspan: s.wingspan || "",
+            bill: s.bill || "",
+            color_male: s.color_male || "",
             description: s.description || "",
         })
     );

@@ -8,6 +8,8 @@ interface RawSpecies {
     range: string;
     size: string;
     wingspan: string;
+    bill: string;
+    color_male: string;
     description: string;
     image?: string;
     icon?: string;
@@ -47,6 +49,8 @@ export function buildGameData(raw: RawGameData): GameData {
         range: s.range || "",
         size: s.size || "",
         wingspan: s.wingspan || "",
+        bill: s.bill || "",
+        color_male: s.color_male || "",
         description: s.description || "",
         image: s.image || undefined,
         icon: s.icon || undefined,

@@ -41,7 +41,9 @@ export function createLockedSpeciesCard(
                     <strong>Clade:</strong> <span>???</span><br/>
                     <strong>Range:</strong> <span>???</span><br/>
                     <strong>Size:</strong> <span>???</span><br/>
-                    <strong>wingspan:</strong> <span>???</span>
+                    <strong>Wingspan:</strong> <span>???</span><br/>
+                    <strong>Bill:</strong> <span>???</span><br/>
+                    <strong>Color:</strong> <span>???</span>
                 </div>
                 <div class="card-fact">
                     <strong>Description:</strong> <span>This bird remains a mystery. Play more to unlock!</span>
@@ -99,7 +101,9 @@ export function createSpeciesCard(
                     <strong>Clade:</strong> <span>${clade ? clade.name : "—"}</span><br/>
                     <strong>Range:</strong> <span>${species.range || "—"}</span><br/>
                     <strong>${species.size ? "Size" : "Info"}:</strong> <span>${species.size || "—"}</span><br/>
-                    <strong>wingspan:</strong> <span>${species.wingspan || "—"}</span>
+                    <strong>Wingspan:</strong> <span>${species.wingspan || "—"}</span><br/>
+                    <strong>Bill:</strong> <span>${species.bill || "—"}</span><br/>
+                    <strong>Color:</strong> <span>${species.color_male || "—"}</span>
                 </div>
                 <div class="card-fact">
                     <strong>Description:</strong> <span>${species.description || "—"}</span>

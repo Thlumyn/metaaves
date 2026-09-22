@@ -53,6 +53,8 @@ def merge_csv(csv_path: str) -> None:
             species_size, species_weight = tuple(map(str.strip, new_data["info_content"].split("/")))
             species["size"] = species_size
             species["wingspan"] = species_wingspan
+            species["bill"] = species_bill
+            species["color_male"] = species_color_male
             species["description"] = new_data["description"]
 
     for clade_id, clade in data["clades"].items():

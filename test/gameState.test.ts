@@ -18,43 +18,47 @@ import { StorageProvider } from "../src/storage";
 const makeGameData = () => {
     const species: Species[] = [
         {
-            id: "trex",
-            species: "Tyrannosaurus rex",
-            scientific: "Tyrant Lizard King",
-            clade: "tyrannosauroidea",
-            range: "Cretaceous",
-            size: "12 m",
-            wingspan: "8 t",
+        id: "emu",
+            species: "Emu",
+            scientific: "Dromaius novaehollandiae",
+            clade: "casuariiformes",
+            range: "australia",
+            size: "x",
+            wingspan: "x",
+            bill: "short, robust, pointed",
+            color_male: "brown",
             description: "",
         },
         {
-            id: "allosaurus",
-            species: "Allosaurus",
-            scientific: "Different Lizard",
-            clade: "theropoda",
-            range: "Jurassic",
-            size: "8.5 m",
-            wingspan: "2 t",
+            id: "common_ostrich",
+            species: "Common Ostrich",
+            scientific: "Struthio camelus",
+            clade: "struthiformes",
+            range: "southern africa",
+            size: "x",
+            wingspan: "x",
+            bill: "short, robust, pointed",
+            color_male: "black",
             description: "",
         },
     ];
 
     const clades: Record<string, Clade> = {
-        tyrannosauroidea: {
-            id: "tyrannosauroidea",
-            name: "Tyrannosauroidea",
-            parent: "theropoda",
+        struthiformes: {
+            id: "struthiformes",
+            name: "Struthiformes",
+            parent: "palaeognathae",
             description: "",
         },
-        theropoda: {
-            id: "theropoda",
-            name: "Theropoda",
-            parent: "aves",
+        casuariiformes: {
+            id: "casuariiformes",
+            name: "Casuariiformes",
+            parent: "palaeognathae",
             description: "",
         },
-        aves: {
-            id: "aves",
-            name: "Aves",
+        palaeognathae: {
+            id: "palaeognathae",
+            name: "Palaeognathae",
             description: "",
         },
     };
@@ -65,59 +69,59 @@ const makeGameData = () => {
 describe("GameState", () => {
     test("wins when guessing target", () => {
         const data = makeGameData();
-        const state = new GameState(data, "trex", new Set());
+        const state = new GameState(data, "emu", new Set());
 
-        const result = state.makeGuess("Tyrannosaurus rex");
+        const result = state.makeGuess("Emu");
 
         expect(result.isCorrect).toBe(true);
         expect(state.isWin()).toBe(true);
         expect(state.isGameOver()).toBe(true);
-        expect(state.lastGuessId).toBe("trex");
+        expect(state.lastGuessId).toBe("emu");
     });
 
     test("tracks guesses and LCA when incorrect", () => {
         const data = makeGameData();
-        const state = new GameState(data, "trex", new Set());
+        const state = new GameState(data, "emu", new Set());
 
-        const result = state.makeGuess("Allosaurus");
+        const result = state.makeGuess("Common Ostrich");
 
         expect(result.isCorrect).toBe(false);
-        expect(result.lca).toBe("theropoda");
-        expect(state.guesses.has("allosaurus")).toBe(true);
-        expect(state.lastGuessId).toBe("allosaurus");
+        expect(result.lca).toBe("palaeognathae");
+        expect(state.guesses.has("common_ostrich")).toBe(true);
+        expect(state.lastGuessId).toBe("common_ostrich");
         expect(state.isWin()).toBe(false);
         expect(state.isGameOver()).toBe(false);
     });
 
     test("prevents duplicate guesses", () => {
         const data = makeGameData();
-        const state = new GameState(data, "trex", new Set());
+        const state = new GameState(data, "emu", new Set());
 
-        state.makeGuess("Allosaurus");
+        state.makeGuess("Common Ostrich");
         // The message is player-facing (src/game.ts renders it into
         // #input-error), so it names the species the player repeated.
-        expect(() => state.makeGuess("Allosaurus")).toThrow(
-            /already guessed "Allosaurus"/i
+        expect(() => state.makeGuess("Common Ostrich")).toThrow(
+            /already guessed "Common Ostrich"/i
         );
     });
 
     test("useHint adds clade to hintClades and costs guesses", () => {
         const data = makeGameData();
-        const state = new GameState(data, "trex", new Set());
+        const state = new GameState(data, "emu", new Set());
 
         expect(state.numberOfGuesses()).toBe(0);
-        state.useHint("theropoda");
-        expect(state.hintClades.has("theropoda")).toBe(true);
+        state.useHint("palaeognathae");
+        expect(state.hintClades.has("palaeognathae")).toBe(true);
         expect(state.numberOfGuesses()).toBe(HINT_COST);
         expect(state.guessesLeft()).toBe(25 - HINT_COST);
     });
 
     test("useHint prevents duplicate hints", () => {
         const data = makeGameData();
-        const state = new GameState(data, "trex", new Set());
+        const state = new GameState(data, "emu", new Set());
 
-        state.useHint("theropoda");
-        expect(() => state.useHint("theropoda")).toThrow(
+        state.useHint("palaeognathae");
+        expect(() => state.useHint("palaeognathae")).toThrow(
             /already been revealed/i
         );
     });
@@ -128,7 +132,7 @@ describe("GameState", () => {
         // 1 - less than HINT_COST.
         const state = new GameState(
             data,
-            "trex",
+            "emu",
             new Set(),
             undefined,
             new Set([
@@ -149,7 +153,7 @@ describe("GameState", () => {
         const data = makeGameData();
         const state = new GameState(
             data,
-            "trex",
+            "emu",
             new Set(),
             undefined,
             new Set([
@@ -171,7 +175,7 @@ describe("GameState", () => {
         // 8 hints = 24, + 1 guess = 25 => game over
         const state = new GameState(
             data,
-            "trex",
+            "emu",
             new Set(),
             undefined,
             new Set([
@@ -187,7 +191,7 @@ describe("GameState", () => {
         );
         expect(state.isGameOver()).toBe(false);
 
-        state.makeGuess("Allosaurus");
+        state.makeGuess("Common Ostrich");
         expect(state.isGameOver()).toBe(true);
         expect(state.isLoss()).toBe(true);
     });
@@ -228,30 +232,30 @@ describe("saveGameState and loadGameState", () => {
     });
 
     test("saves and loads game state correctly", () => {
-        const state = new GameState(gameData, "trex", new Set(["allosaurus"]));
-        state.lastGuessId = "allosaurus";
+        const state = new GameState(gameData, "emu", new Set(["common_ostrich"]));
+        state.lastGuessId = "common_ostrich";
 
         saveGameState(state, 1, storage, "daily");
         const loaded = loadGameState(gameData, 1, storage, "daily");
 
-        expect(loaded.targetId).toBe("trex");
-        expect(loaded.guesses.has("allosaurus")).toBe(true);
-        expect(loaded.lastGuessId).toBe("allosaurus");
+        expect(loaded.targetId).toBe("emu");
+        expect(loaded.guesses.has("common_ostrich")).toBe(true);
+        expect(loaded.lastGuessId).toBe("common_ostrich");
     });
 
     test("saves and loads hint clades", () => {
         const state = new GameState(
             gameData,
-            "trex",
+            "emu",
             new Set(),
             undefined,
-            new Set(["theropoda"])
+            new Set(["palaeognathae"])
         );
 
         saveGameState(state, 1, storage, "daily");
         const loaded = loadGameState(gameData, 1, storage, "daily");
 
-        expect(loaded.hintClades.has("theropoda")).toBe(true);
+        expect(loaded.hintClades.has("palaeognathae")).toBe(true);
     });
 
     test("creates new state if no saved state exists", () => {
@@ -262,7 +266,7 @@ describe("saveGameState and loadGameState", () => {
     });
 
     test("handles corrupted saved state gracefully", () => {
-        storage.setItem("gameState-dinosaur-#00001", "invalid json");
+        storage.setItem("gameState-bird-#00001", "invalid json");
 
         const loaded = loadGameState(gameData, 1, storage, "daily");
 
@@ -271,13 +275,13 @@ describe("saveGameState and loadGameState", () => {
     });
 
     test("saves practice mode state separately", () => {
-        const state = new GameState(gameData, "trex", new Set(["allosaurus"]));
+        const state = new GameState(gameData, "emu", new Set(["common_ostrich"]));
 
         saveGameState(state, 1, storage, "practice");
         const loadedPractice = loadGameState(gameData, 1, storage, "practice");
         const loadedDaily = loadGameState(gameData, 1, storage, "daily");
 
-        expect(loadedPractice.guesses.has("allosaurus")).toBe(true);
+        expect(loadedPractice.guesses.has("common_ostrich")).toBe(true);
         expect(loadedDaily.guesses.size).toBe(0);
     });
 
@@ -285,7 +289,7 @@ describe("saveGameState and loadGameState", () => {
         const createdDate = new Date("2026-01-15T12:00:00Z");
         const state = new GameState(
             gameData,
-            "trex",
+            "emu",
             new Set(),
             undefined,
             new Set(),
@@ -310,7 +314,7 @@ describe("formatGameStateForSharing", () => {
     // The grid's closeness tiers are pinned in test/share.test.ts against the
     // REAL taxonomy; these cases only guard the surrounding message shape.
     test("formats win message correctly", () => {
-        const state = new GameState(gameData, "trex", new Set(["trex"]));
+        const state = new GameState(gameData, "emu", new Set(["emu"]));
         const message = formatGameStateForSharing(state);
 
         expect(message).toContain("✅");
@@ -323,7 +327,7 @@ describe("formatGameStateForSharing", () => {
         const guesses = new Set(
             Array.from({ length: MAX_GUESSES }, (_, i) => `species${i}`)
         );
-        const state = new GameState(gameData, "trex", guesses);
+        const state = new GameState(gameData, "emu", guesses);
         const message = formatGameStateForSharing(state);
 
         expect(message).toContain("💀");
@@ -332,7 +336,7 @@ describe("formatGameStateForSharing", () => {
     });
 
     test("throws error for incomplete game", () => {
-        const state = new GameState(gameData, "trex", new Set());
+        const state = new GameState(gameData, "emu", new Set());
 
         expect(() => formatGameStateForSharing(state)).toThrow(
             "Game is not over yet"
@@ -342,8 +346,8 @@ describe("formatGameStateForSharing", () => {
     test("the grid has one cell per guess, ending on the win", () => {
         const state = new GameState(
             gameData,
-            "trex",
-            new Set(["allosaurus", "trex"])
+            "emu",
+            new Set(["common_ostrich", "emu"])
         );
         const message = formatGameStateForSharing(state);
 
@@ -359,19 +363,19 @@ describe("parseGameStateKey", () => {
     // human-facing number 1-based). Asserting the raw seed here documents the
     // inverse; the round-trip block below is the real seam guard.
     test("parses daily game state key", () => {
-        const result = parseGameStateKey("gameState-dinosaur-#00001");
+        const result = parseGameStateKey("gameState-bird-#00001");
 
         expect(result).not.toBeNull();
-        expect(result?.puzzleId).toBe("dinosaur-#00001");
+        expect(result?.puzzleId).toBe("bird-#00001");
         expect(result?.seed).toBe(0);
         expect(result?.gameMode).toBe("daily");
     });
 
     test("parses practice game state key", () => {
-        const result = parseGameStateKey("gameState-practice-dinosaur-#00005");
+        const result = parseGameStateKey("gameState-practice-bird-#00005");
 
         expect(result).not.toBeNull();
-        expect(result?.puzzleId).toBe("dinosaur-#00005");
+        expect(result?.puzzleId).toBe("bird-#00005");
         expect(result?.seed).toBe(4);
         expect(result?.gameMode).toBe("practice");
     });
@@ -383,10 +387,10 @@ describe("parseGameStateKey", () => {
     });
 
     test("handles different puzzle numbers", () => {
-        const result1 = parseGameStateKey("gameState-dinosaur-#00042");
+        const result1 = parseGameStateKey("gameState-bird-#00042");
         expect(result1?.seed).toBe(41);
 
-        const result2 = parseGameStateKey("gameState-dinosaur-#12345");
+        const result2 = parseGameStateKey("gameState-bird-#12345");
         expect(result2?.seed).toBe(12344);
     });
 });
@@ -414,8 +418,8 @@ describe("gameStateKey <-> parseGameStateKey round-trip", () => {
     test("keys are always 5 digits, even at the modulus edge", () => {
         // seed 99999 previously rendered as a 6-digit "100000" key that the
         // parse regex rejected outright; the wrap keeps it 5 digits.
-        expect(gameStateKey(99999, "daily")).toBe("gameState-dinosaur-#00000");
-        expect(parseGameStateKey("gameState-dinosaur-#00000")?.seed).toBe(
+        expect(gameStateKey(99999, "daily")).toBe("gameState-bird-#00000");
+        expect(parseGameStateKey("gameState-bird-#00000")?.seed).toBe(
             99999
         );
     });

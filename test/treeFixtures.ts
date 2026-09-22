@@ -30,6 +30,8 @@ export const species: Species[] = [
         range: "",
         size: "",
         wingspan: "",
+        bill: "",
+        color_male: "",
         description: "",
     },
     {
@@ -40,6 +42,8 @@ export const species: Species[] = [
         range: "",
         size: "",
         wingspan: "",
+        bill: "",
+        color_male: "",
         description: "",
     },
     {
@@ -50,6 +54,8 @@ export const species: Species[] = [
         range: "",
         size: "",
         wingspan: "",
+        bill: "",
+        color_male: "",
         description: "",
     },
     {
@@ -60,6 +66,8 @@ export const species: Species[] = [
         range: "",
         size: "",
         wingspan: "",
+        bill: "",
+        color_male: "",
         description: "",
     },
 ];

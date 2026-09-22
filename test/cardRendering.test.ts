@@ -29,14 +29,16 @@ const DEFAULT_ICON = "assets/default_icon.svg";
 
 function makeSpecies(overrides: Partial<Species> = {}): Species {
     return {
-        id: "trex",
-        species: "Tyrannosaurus rex",
-        scientific: "Tyrant Lizard King",
-        clade: "passeriformes",
-        range: "Late Cretaceous",
-        size: "12 meters",
-        wingspan: "8,000 kilograms",
-        description: "A very large theropod.",
+        id: "emu",
+        species: "Emu",
+        scientific: "Dromaius novaehollandiae",
+        clade: "dromaius",
+        range: "australia",
+        size: "x",
+        wingspan: "x",
+        bill: "short, robust, pointed",
+        color_male: "brown",
+        description: "A very large bird.",
         image: "https://example.com/species/trex.png",
         icon: "https://example.com/clades/tyrannosauridae.svg",
         ...overrides,
@@ -45,10 +47,10 @@ function makeSpecies(overrides: Partial<Species> = {}): Species {
 
 function makeClade(overrides: Partial<Clade> = {}): Clade {
     return {
-        id: "tyrannosauridae",
-        name: "Tyrannosauridae",
-        parent: "tyrannosauroidea",
-        description: "Big-headed theropods.",
+        id: "dromaius",
+        name: "Dromaius",
+        parent: "casuariidae",
+        description: "emus.",
         image: "https://example.com/clades/tyrannosauridae.svg",
         ...overrides,
     };

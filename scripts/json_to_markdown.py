@@ -16,6 +16,8 @@ SPECIES_FIELDS = [
     "range",
     "size",
     "wingspan",
+    "bill",
+    "color_male",
     "image",
     "icon",
 ]

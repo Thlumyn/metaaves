@@ -1,6 +1,6 @@
 # How to play
 
-Type a dinosaur species into the input and press Enter. The tree redraws to
+Type a bird species into the input and press Enter. The tree redraws to
 show where that guess sits relative to the mystery species. Repeat until you
 find it, or until the guess budget runs out.
 
@@ -16,9 +16,9 @@ on a cold-to-hot closeness scale, brightest green closest, on the same steps as
 the squares in the grid you share at the end of a round.
 
 The tree is built by
-[`src/treeBuilder.ts`](https://github.com/alexjercan/metajurassic/blob/master/src/treeBuilder.ts),
+[`src/treeBuilder.ts`](https://github.com/thlumyn/metaaves/blob/master/src/treeBuilder.ts),
 over the species graph in
-[`src/gameData.ts`](https://github.com/alexjercan/metajurassic/blob/master/src/gameData.ts).
+[`src/gameData.ts`](https://github.com/thlumyn/metaaves/blob/master/src/gameData.ts).
 
 Clicking any node opens the info panel with details of that species or clade.
 After each guess the panel holds the clade directly above the `?` - the
@@ -29,11 +29,11 @@ labelled tab at the top right, which names the clade it is holding.
 ## The guess budget
 
 Each round gives you a fixed number of attempts, defined by `MAX_GUESSES` in
-[`src/constants.ts`](https://github.com/alexjercan/metajurassic/blob/master/src/constants.ts).
+[`src/constants.ts`](https://github.com/thlumyn/metaaves/blob/master/src/constants.ts).
 The number is deliberately not written out anywhere in prose - not on the board,
 not in the FAQ, and not here. Every player-facing surface interpolates the
 constant instead, and
-[`test/markupConstants.test.ts`](https://github.com/alexjercan/metajurassic/blob/master/test/markupConstants.test.ts)
+[`test/markupConstants.test.ts`](https://github.com/thlumyn/metaaves/blob/master/test/markupConstants.test.ts)
 fails the build if a literal creeps back into a page template. The board shows
 you the live count.
 
@@ -43,13 +43,13 @@ attempt.
 ## Hints
 
 When you are stuck you can buy a hint. It costs `HINT_COST` guesses, again from
-[`src/constants.ts`](https://github.com/alexjercan/metajurassic/blob/master/src/constants.ts),
+[`src/constants.ts`](https://github.com/thlumyn/metaaves/blob/master/src/constants.ts),
 and hints are not capped per round - `MAX_HINTS` is `-1`, which the constant's
 own comment records as a deliberate choice rather than an oversight.
 
 A hint reveals one more clade in the answer's lineage. Which one is the
 interesting part, and it is decided by `findNextHintCladeId` in
-[`src/hintRule.ts`](https://github.com/alexjercan/metajurassic/blob/master/src/hintRule.ts):
+[`src/hintRule.ts`](https://github.com/thlumyn/metaaves/blob/master/src/hintRule.ts):
 
 - Of the clades more specific than anything already on screen, it returns the
   **shallowest** one that cuts the still-possible species to at most
@@ -63,9 +63,9 @@ levels routinely hold ~66% and ~65% of the field, so advancing exactly one
 level per hint spends a hint on a step worth almost nothing. The measured
 before-and-after, and the reason the threshold is set against a _rescue_ bar
 rather than a return-on-investment one, are in
-[`tasks/20260729-141424/DECISION.md`](https://github.com/alexjercan/metajurassic/blob/master/tasks/20260729-141424/DECISION.md)
+[`tasks/20260729-141424/DECISION.md`](https://github.com/thlumyn/metaaves/blob/master/tasks/20260729-141424/DECISION.md)
 and
-[`tasks/20260729-160500/SPIKE.md`](https://github.com/alexjercan/metajurassic/blob/master/tasks/20260729-160500/SPIKE.md).
+[`tasks/20260729-160500/SPIKE.md`](https://github.com/thlumyn/metaaves/blob/master/tasks/20260729-160500/SPIKE.md).
 
 A hint is a way out of a round you were going to lose, not a shortcut to a
 quick win.
@@ -76,7 +76,7 @@ One mystery species per day, the same for everyone, derived from the calendar
 rather than from your storage. The seed counts **calendar days** since a fixed
 first day, and maps through a deterministic seeded permutation of the species
 list to pick that day's answer -
-[`src/gameData.ts`](https://github.com/alexjercan/metajurassic/blob/master/src/gameData.ts).
+[`src/gameData.ts`](https://github.com/thlumyn/metaaves/blob/master/src/gameData.ts).
 
 Two properties are load-bearing and pinned by tests:
 
@@ -101,4 +101,4 @@ The share text is one square per guess, in the order you made them, coloured by
 how close that guess landed - the same cold-to-hot steps the tree uses. A bulb
 marks each hint you bought. Practice rounds are labelled as practice, so a share
 never passes one off as the daily. Built by
-[`src/shareText.ts`](https://github.com/alexjercan/metajurassic/blob/master/src/shareText.ts).
+[`src/shareText.ts`](https://github.com/thlumyn/metaaves/blob/master/src/shareText.ts).

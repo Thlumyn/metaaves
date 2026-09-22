@@ -14,7 +14,7 @@ describe("onboarding brief copy", () => {
         const copy = briefCopy();
 
         // The first screen used to state none of these.
-        expect(copy.objective).toMatch(/find the mystery dinosaur/i);
+        expect(copy.objective).toMatch(/find the mystery bird/i);
         expect(copy.mystery).toMatch(/\?/);
         expect(copy.feedback).toMatch(/clade/i);
         expect(copy.budget).toMatch(/guesses/i);

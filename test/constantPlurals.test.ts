@@ -122,7 +122,7 @@ describe("every constant-reading sentence reads in the singular at 1", () => {
         const { buildGameData } = require("../src/jsonLoader") as {
             buildGameData: typeof import("../src/jsonLoader").buildGameData;
         };
-        const data = buildGameData(require("../src/jurassic/index.json"));
+        const data = buildGameData(require("../src/aves/index.json"));
         const wrong = data.findSpeciesByName("Stegosaurus");
         if (!wrong) throw new Error("test fixture species missing");
 

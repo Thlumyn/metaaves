@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Metajurassic: static TypeScript/webpack dinosaur-guessing game, deployed to
+Metaaves: static TypeScript/webpack bird-guessing game, deployed to
 GitHub Pages. Guesses reveal distance from the target on an evolutionary tree.
 
 Start here, then run `tatr ls --sort priority`.
@@ -12,7 +12,7 @@ Start here, then run `tatr ls --sort priority`.
 - Domain docs: `README.md`, shipped code under `src/`, and task `DECISION.md` files; code defines current behavior.
 - Research/network: prefer local code and records; store research in `tasks/<id>/NOTES.md` or `SPIKE.md`; use network only when required.
 - Checks/records: `npm run ci` and `tatr check`; keep code and task records green.
-- Knowledge: central repo `/home/alex/personal/agent-knowledge`; project=metajurassic; tags=typescript,game,content. Advisory only; failed writes stay in RETRO.
+- Knowledge: central repo `/home/thlumyn/personal/agent-knowledge`; project=metaaves; tags=typescript,game,content. Advisory only; failed writes stay in RETRO.
 
 ## Repository map
 
@@ -20,8 +20,8 @@ Start here, then run `tatr ls --sort priority`.
 |------|---------|
 | `src/` | App source. Core: `game/` (DOM wiring and the round's units), `gameState.ts`, `gameData.ts`, `treeBuilder.ts`, `hintRule.ts`, `puzzleKey.ts`, `shareText.ts`, `rankLadder.ts`. UI widgets: `src/ui/`. |
 | `src/*.html`, `src/style.css`, `src/partials/` | Page templates and Tailwind styles. `src/style.css` is the entry: `@tailwind` directives plus one `@import` per surface partial, in cascade order. `webpack-partials.js` adds the shared header/footer and injects `src/_head.html` (social/SEO metadata) at each page's `<!-- social-head -->` marker, filling per-page options from `webpack.config.js`. |
-| `src/jurassic/species/*.md`, `src/jurassic/clades/*.md` | Canonical content. |
-| `src/jurassic/index.json` | Generated runtime graph. Never hand-edit. `species` and `clades` are in sorted id order, and that order picks the daily answer, so a re-order re-points every puzzle. |
+| `src/aves/species/*.md`, `src/aves/clades/*.md` | Canonical content. |
+| `src/aves/index.json` | Generated runtime graph. Never hand-edit. `species` and `clades` are in sorted id order, and that order picks the daily answer, so a re-order re-points every puzzle. |
 | `scripts/*.py` | Content conversion and pipeline tests. |
 | `scripts/playtest/*.ts` | Game simulations and visual walkthrough. Outside CI. |
 | `scripts/og-image.ts` | Renders `src/assets/og-image.html` to the committed `src/assets/og-image.png` link-preview card. Outside CI. |
@@ -29,7 +29,7 @@ Start here, then run `tatr ls --sort priority`.
 | `e2e/` | Playwright browser tests. |
 | `tasks/` | Versioned tatr task, review, decision, retro, and notes records. |
 
-Ignored outputs: `dist/`, `*.csv`, `*metajurassic.json`, `coverage/`,
+Ignored outputs: `dist/`, `*.csv`, `*metaaves.json`, `coverage/`,
 `test-results/`, `playtest-shots/`.
 
 ## Environment and commands
@@ -71,14 +71,14 @@ Author markdown first. Regenerate the checked-in runtime graph.
 
 | Command | Direction |
 |---------|-----------|
-| `python3 scripts/markdown_to_json.py` | Markdown -> `src/jurassic/index.json` plus ignored tree JSON |
+| `python3 scripts/markdown_to_json.py` | Markdown -> `src/aves/index.json` plus ignored tree JSON |
 | `python3 scripts/json_to_markdown.py` | JSON -> markdown source layout |
 | `python3 scripts/csv_to_json.py <csv>` | CSV merge -> JSON; sync changes back to markdown |
 
 - Pipeline rejects non-string values and serialized collections before writes.
 - After an intended CSV merge: run `json_to_markdown.py`, review markdown, then
   run `markdown_to_json.py`.
-- Content tests use the real `src/jurassic/index.json`, not mocks.
+- Content tests use the real `src/aves/index.json`, not mocks.
 - `test/contentSource.test.ts`: markdown/JSON round-trip and stale payload guard.
 - `test/dataIntegrity.test.ts`: graph, uniqueness, media, and render-safety rules.
 - Related history: `tasks/20260729-092352/`.
@@ -121,7 +121,7 @@ Outside `npm run ci`.
 |------|-------------|--------|
 | Local | Nix dev shell | `npm run ci`; run `npm run build` when relevant |
 | `.github/workflows/ci.yml` | Ubuntu, Node 20 and 22 | Gate steps separately; build job on Node 22 |
-| `.github/workflows/gh-pages.yaml` | Ubuntu, Node 18 | Build with `PUBLIC_PATH=/metajurassic/`; deploy `dist/` from `master` |
+| `.github/workflows/gh-pages.yaml` | Ubuntu, Node 18 | Build with `PUBLIC_PATH=/metaaves/`; deploy `dist/` from `master` |
 
 Environment-specific failure: check Node-version drift first.
 

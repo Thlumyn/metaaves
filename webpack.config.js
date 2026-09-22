@@ -4,7 +4,7 @@ const HtmlPartialsPlugin = require("./webpack-partials");
 const CopyPlugin = require("copy-webpack-plugin");
 const getPort = require("get-port");
 
-// PUBLIC_PATH should be "/" for local dev (default) or "/metajurassic/" for GitHub Pages.
+// PUBLIC_PATH should be "/" for local dev (default) or "/metaaves/" for GitHub Pages.
 const publicPath = process.env.PUBLIC_PATH || "/";
 
 // Canonical production origin for the absolute social URLs in src/_head.html.
@@ -14,7 +14,7 @@ const publicPath = process.env.PUBLIC_PATH || "/";
 // and SITE_URL in e2e/social.spec.ts - keep the three in sync by hand; the
 // runtime bundle importing build config would be the worse coupling. See
 // tasks/20260729-101751/DECISION.md.
-const SITE_URL = "https://alexjercan.github.io/metajurassic";
+const SITE_URL = "https://thlumyn.github.io/metaaves";
 
 // Per-page social/SEO copy. Each entry feeds one HtmlWebpackPlugin instance;
 // pagePath is the trailing-slash path the page is served under and is what
@@ -22,39 +22,39 @@ const SITE_URL = "https://alexjercan.github.io/metajurassic";
 const PAGES = {
     index: {
         pagePath: "",
-        pageTitle: "Metajurassic - the daily dinosaur guessing game",
+        pageTitle: "Metaaves - the daily bird guessing game",
         pageDescription:
-            "Guess today's dinosaur. Every guess reveals how close you are on the evolutionary tree.",
+            "Guess today's bird. Every guess reveals how close you are on the evolutionary tree.",
     },
     practice: {
         pagePath: "practice/",
-        pageTitle: "Metajurassic Practice - unlimited dinosaur rounds",
+        pageTitle: "Metaaves Practice - unlimited bird rounds",
         pageDescription:
-            "Play Metajurassic as often as you like. Seeded practice rounds are reproducible, so you can share the exact puzzle you played.",
+            "Play Metaaves as often as you like. Seeded practice rounds are reproducible, so you can share the exact puzzle you played.",
     },
     faq: {
         pagePath: "faq/",
-        pageTitle: "Metajurassic FAQ - how the game works",
+        pageTitle: "Metaaves FAQ - how the game works",
         pageDescription:
-            "How guesses, closeness, hints and the daily puzzle work in Metajurassic.",
+            "How guesses, closeness, hints and the daily puzzle work in Metaaves.",
     },
     species: {
         pagePath: "species/",
-        pageTitle: "Metajurassic Species Archive",
+        pageTitle: "Metaaves Species Archive",
         pageDescription:
-            "Browse every dinosaur in Metajurassic, with its lineage and where it sits on the evolutionary tree.",
+            "Browse every bird in Metaaves, with its lineage and where it sits on the evolutionary tree.",
     },
     clades: {
         pagePath: "clades/",
-        pageTitle: "Metajurassic Clades Archive",
+        pageTitle: "Metaaves Clades Archive",
         pageDescription:
-            "Browse the clades of the Metajurassic tree, from the broad branches down to the individual species.",
+            "Browse the clades of the Metaaves tree, from the broad branches down to the individual species.",
     },
     profile: {
         pagePath: "profile/",
-        pageTitle: "Metajurassic Profile - your streak and stats",
+        pageTitle: "Metaaves Profile - your streak and stats",
         pageDescription:
-            "Your Metajurassic streak, win rate, rank and guess history, kept in this browser.",
+            "Your Metaaves streak, win rate, rank and guess history, kept in this browser.",
     },
 };
 
@@ -129,7 +129,7 @@ module.exports = async () => {
                 ...PAGES.profile,
             }),
             new CopyPlugin({
-                patterns: [{ from: "src/jurassic", to: "jurassic" }],
+                patterns: [{ from: "src/aves", to: "aves" }],
             }),
             new CopyPlugin({
                 patterns: [{ from: "src/favicon.svg", to: "favicon.svg" }],

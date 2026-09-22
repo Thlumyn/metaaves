@@ -106,7 +106,7 @@ async function seedPreviousDayWin(page: Page): Promise<void> {
     const digits = todayKey.match(/#(\d{5})$/);
     if (!digits) throw new Error(`unexpected daily key shape: ${todayKey}`);
     const counter = String(Number(digits[1]) - 1).padStart(5, "0");
-    const yesterday = `gameState-dinosaur-#${counter}`;
+    const yesterday = `gameState-bird-#${counter}`;
 
     await page.evaluate(
         ([key, target]) => {
@@ -141,7 +141,7 @@ test.describe("sharing a finished game", () => {
             () => window.__sharePayloads?.[0]?.text ?? ""
         );
 
-        expect(text).toContain("✅ Dinosaur #");
+        expect(text).toContain("✅ bird #");
         expect(text).toContain("I figured it out in 4 guesses!");
         expect(text).toContain(EXPECTED_GRID);
         // Real stats, computed from the storage this very game was saved to.
@@ -179,7 +179,7 @@ test.describe("sharing a finished game", () => {
         );
 
         expect(text).toContain(EXPECTED_GRID);
-        expect(text).toContain("#metajurassic");
+        expect(text).toContain("#metaaves");
         expect(text).not.toContain("5.2");
 
         // The silent write is the one that needs a visible confirmation.
@@ -270,7 +270,7 @@ test.describe("sharing a lost game", () => {
             () => window.__sharePayloads?.[0]?.text ?? ""
         );
 
-        expect(text).toContain("💀 Dinosaur #");
+        expect(text).toContain("💀 Bird #");
         expect(text).toContain(
             `I couldn't figure it out in ${MAX_GUESSES} guesses.`
         );

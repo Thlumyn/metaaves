@@ -42,7 +42,7 @@ for (const route of routes) {
     }) => {
         await page.goto(route.path);
         await expect(page.locator("header .game-title")).toHaveText(
-            "Metajurassic"
+            "Metaaves"
         );
         await expect(route.primary(page).first()).toBeVisible();
     });

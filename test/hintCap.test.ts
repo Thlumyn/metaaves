@@ -14,7 +14,7 @@
 import { buildGameData } from "../src/jsonLoader";
 import { GameState } from "../src/gameState";
 import { MAX_HINTS, HINT_COST, MAX_GUESSES } from "../src/constants";
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 
 const data = buildGameData(rawGameData);
 const target = data.species[0];

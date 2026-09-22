@@ -36,7 +36,7 @@ image: https://example.com/species/zuniceratops.png
 icon: {icon}
 ---
 
-A small horned dinosaur.
+A small horned bird.
 """
 
 CLADE_MD = """---
@@ -44,7 +44,7 @@ clade: Ceratopsoidea
 image: https://example.com/clades/ceratopsoidea.svg
 ---
 
-Horned dinosaurs.
+Horned birds.
 """
 
 GOOD_ICON = "https://example.com/clades/ceratopsoidea.svg"
@@ -104,7 +104,7 @@ class MarkdownToJsonTest(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp()
         self.addCleanup(shutil.rmtree, self.tmp)
-        self.content = os.path.join(self.tmp, "jurassic")
+        self.content = os.path.join(self.tmp, "aves")
         os.makedirs(os.path.join(self.content, "species"))
         os.makedirs(os.path.join(self.content, "clades"))
         with open(os.path.join(self.content, "clades", "ceratopsoidea.md"), "w") as f:
@@ -120,7 +120,7 @@ class MarkdownToJsonTest(unittest.TestCase):
     def generate(self):
         return run_script(
             "markdown_to_json.py",
-            "--jurassic-path",
+            "--aves-path",
             self.content,
             "--index-path",
             self.index,
@@ -211,7 +211,7 @@ class JsonToMarkdownTest(unittest.TestCase):
         self.addCleanup(shutil.rmtree, self.tmp)
         # json_to_markdown.py resolves its paths relative to the CWD, so it runs
         # against a scratch tree rather than the repo's real content.
-        self.content = os.path.join(self.tmp, "src", "jurassic")
+        self.content = os.path.join(self.tmp, "src", "aves")
         os.makedirs(os.path.join(self.content, "species"))
         os.makedirs(os.path.join(self.content, "clades"))
         self.index = os.path.join(self.content, "index.json")
@@ -228,14 +228,14 @@ class JsonToMarkdownTest(unittest.TestCase):
                     "wingspan": "150 kilograms",
                     "image": "https://example.com/species/zuniceratops.png",
                     "icon": icon,
-                    "description": "A small horned dinosaur.",
+                    "description": "A small horned bird.",
                 }
             },
             "clades": {
                 "ceratopsoidea": {
                     "clade": "Ceratopsoidea",
                     "image": "https://example.com/clades/ceratopsoidea.svg",
-                    "description": "Horned dinosaurs.",
+                    "description": "Horned birds.",
                 }
             },
         }

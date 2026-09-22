@@ -1,6 +1,6 @@
 import { dateToSeed, GameData } from "../src/gameData";
 import { Clade, Species } from "../src/types";
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 
 const species: Species[] = [
     {
@@ -35,12 +35,12 @@ const clades: Record<string, Clade> = {
     theropoda: {
         id: "theropoda",
         name: "Theropoda",
-        parent: "dinosauria",
+        parent: "aves",
         description: "",
     },
-    dinosauria: {
-        id: "dinosauria",
-        name: "Dinosauria",
+    aves: {
+        id: "aves",
+        name: "Aves",
         description: "",
     },
 };
@@ -60,7 +60,7 @@ describe("GameData", () => {
         expect(gameData.lineage("tyrannosauroidea")).toEqual([
             "tyrannosauroidea",
             "theropoda",
-            "dinosauria",
+            "aves",
         ]);
     });
 

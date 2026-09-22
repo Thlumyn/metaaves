@@ -25,7 +25,7 @@
    Showing it does grow .bottom-bar, which takes height from .game-area and
    makes #arena scroll - so a rejected guess shifts the board slightly. Taking
    it out of flow to avoid that shift was worse: the messages run to two or
-   three lines (they quote the name the player typed, and a long dinosaur name
+   three lines (they quote the name the player typed, and a long bird name
    is 23 characters), a fixed padding reservation only ever covers one, and the
    remaining lines were drawn behind the footer. Unreadable feedback is a worse
    failure than a small transient shift, and the shift only happens on an error

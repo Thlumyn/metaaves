@@ -1,4 +1,4 @@
-// Frontmatter parsing for the authored content under `src/jurassic/`.
+// Frontmatter parsing for the authored content under `src/aves/`.
 //
 // This lives in its own module so there is ONE parser. `parseFrontMatter` is
 // read by `test/contentSource.test.ts`, which parses the markdown off disk to
@@ -8,7 +8,7 @@
 // `hand-copied-logic-mirrors-rot-update-them-in-the-same-change`).
 //
 // No shipped browser path parses frontmatter - the app loads the generated
-// `src/jurassic/index.json` - so this module stays under `src/` as the
+// `src/aves/index.json` - so this module stays under `src/` as the
 // TypeScript mirror of `scripts/markdown_to_json.py`, not as test
 // scaffolding. See tasks/20260730-120401/DECISION.md.
 //

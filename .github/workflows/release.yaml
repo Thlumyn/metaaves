@@ -47,7 +47,7 @@ jobs:
             - name: Build the game and the docs site
               run: npm run build
               env:
-                  PUBLIC_PATH: /metajurassic/
+                  PUBLIC_PATH: /metaaves/
 
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
@@ -92,5 +92,5 @@ jobs:
                   ' CHANGELOG.md > "$body_file"
                   test -s "$body_file"
                   gh release create "$GITHUB_REF_NAME" \
-                      --title "metajurassic v${version}" \
+                      --title "metaaves v${version}" \
                       --notes-file "$body_file"

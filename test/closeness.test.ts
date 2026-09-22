@@ -14,11 +14,11 @@ import {
 import { buildGameData } from "../src/jsonLoader";
 import { readFileSync } from "fs";
 import { join } from "path";
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 
 // The whole point of this task is that the board and the pasted share grid
 // speak ONE closeness language, so these run against the REAL content graph
-// (`src/jurassic/index.json`) rather than a fixture: a fixture tree would only
+// (`src/aves/index.json`) rather than a fixture: a fixture tree would only
 // prove the arithmetic agrees with itself. See LESSONS.md
 // `mock-fixtures-hide-real-data-defects-test-the-real-payload`.
 const data = buildGameData(rawGameData);

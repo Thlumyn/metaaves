@@ -27,7 +27,7 @@ export interface ShareStats {
 // og:image) and in e2e/social.spec.ts. Kept in sync by hand: importing build
 // config into the runtime bundle would be the worse coupling. See
 // tasks/20260729-101751/DECISION.md.
-const SHARE_URL = "https://alexjercan.github.io/metajurassic";
+const SHARE_URL = "https://thlumyn.github.io/metaaves";
 
 // One cell per tier, cold first, INDEXED BY `closenessTier`. The tier
 // boundaries live in src/closeness.ts and only there; the board's node colours
@@ -90,7 +90,7 @@ function shareMessage(
     const lines = [headline, sentence, grid];
     if (statsLine) lines.push(statsLine);
 
-    return `${lines.join("\n")}\n\n${SHARE_URL}\n#metajurassic`;
+    return `${lines.join("\n")}\n\n${SHARE_URL}\n#metaaves`;
 }
 
 export function formatGameStateForSharing(
@@ -112,14 +112,14 @@ export function formatGameStateForSharing(
         const hints = state.hintClades.size;
         const help = hints > 0 ? ` (${plural(hints, "hint", "hints")})` : "";
         return shareMessage(
-            `✅ ${label}Dinosaur ${puzzleNumber} 🦖`,
+            `✅ ${label}Bird ${puzzleNumber} 🦖`,
             `I figured it out in ${plural(guessCount, "guess", "guesses")}${help}!`,
             buildShareGrid(state),
             statsLine
         );
     } else if (state.isLoss()) {
         return shareMessage(
-            `💀 ${label}Dinosaur ${puzzleNumber} 🦖`,
+            `💀 ${label}Bird ${puzzleNumber} 🦖`,
             `I couldn't figure it out in ${plural(MAX_GUESSES, "guess", "guesses")}.`,
             buildShareGrid(state),
             statsLine

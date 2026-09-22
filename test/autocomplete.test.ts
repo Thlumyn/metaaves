@@ -1,9 +1,9 @@
 import { MAX_SUGGESTIONS, findMatches } from "../src/ui/autocomplete";
 import { buildGameData } from "../src/jsonLoader";
 import type { RawGameData } from "../src/jsonLoader";
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 
-// These run against the REAL species list (`src/jurassic/index.json`), in the
+// These run against the REAL species list (`src/aves/index.json`), in the
 // same order the game builds it (`src/game.ts`: `data.species.map(s => s.species)`),
 // because both defects these tests pin are about ORDER: which names survive
 // the truncation to 8, and which of the survivors comes first. A hand-written

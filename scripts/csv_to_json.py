@@ -7,7 +7,7 @@ from typing import Dict
 
 from markdown_to_json import ContentError, validate_attributes
 
-JURASSIC_PATH = os.path.join("src", "jurassic")
+JURASSIC_PATH = os.path.join("src", "aves")
 CLADES_PATH = os.path.join(JURASSIC_PATH, "clades")
 SPECIES_PATH = os.path.join(JURASSIC_PATH, "species")
 INDEX_JSON_PATH = os.path.join(JURASSIC_PATH, "index.json")

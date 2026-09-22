@@ -45,7 +45,7 @@ describe("loadAllGames", () => {
         };
 
         storage.setItem(
-            "gameState-dinosaur-#00001",
+            "gameState-bird-#00001",
             JSON.stringify(gameState1)
         );
 
@@ -77,11 +77,11 @@ describe("loadAllGames", () => {
         };
 
         storage.setItem(
-            "gameState-dinosaur-#00001",
+            "gameState-bird-#00001",
             JSON.stringify(dailyState)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00002",
+            "gameState-practice-bird-#00002",
             JSON.stringify(practiceState)
         );
 
@@ -106,7 +106,7 @@ describe("loadAllGames", () => {
         };
 
         storage.setItem(
-            "gameState-dinosaur-#00001",
+            "gameState-bird-#00001",
             JSON.stringify(incompleteState)
         );
 
@@ -164,7 +164,7 @@ describe("loadAllGames", () => {
         const originalWarn = console.warn;
         console.warn = jest.fn();
 
-        storage.setItem("gameState-dinosaur-#00001", "invalid json");
+        storage.setItem("gameState-bird-#00001", "invalid json");
 
         const games = loadAllGames(gameData, storage, "daily");
         expect(games).toEqual([]);
@@ -206,7 +206,7 @@ describe("computeGameStats", () => {
         expect(stats.guessDistribution.size).toBe(0);
         expect(stats.currentStreak).toBe(0);
         expect(stats.longestStreak).toBe(0);
-        expect(stats.uniqueDinosaursDiscovered).toBe(0);
+        expect(stats.uniqueBirdsDiscovered).toBe(0);
     });
 
     test("calculates stats for wins", () => {
@@ -228,8 +228,8 @@ describe("computeGameStats", () => {
             seed: 2,
         };
 
-        storage.setItem("gameState-dinosaur-#00001", JSON.stringify(game1));
-        storage.setItem("gameState-dinosaur-#00002", JSON.stringify(game2));
+        storage.setItem("gameState-bird-#00001", JSON.stringify(game1));
+        storage.setItem("gameState-bird-#00002", JSON.stringify(game2));
 
         const stats = computeGameStats(gameData, storage, "daily");
 
@@ -254,7 +254,7 @@ describe("computeGameStats", () => {
             seed: 1,
         };
 
-        storage.setItem("gameState-dinosaur-#00001", JSON.stringify(lossGame));
+        storage.setItem("gameState-bird-#00001", JSON.stringify(lossGame));
 
         const stats = computeGameStats(gameData, storage, "daily");
 
@@ -264,7 +264,7 @@ describe("computeGameStats", () => {
         expect(stats.averageGuesses).toBe(0); // Only wins count towards average
     });
 
-    test("tracks unique discovered dinosaurs", () => {
+    test("tracks unique discovered birds", () => {
         const game1 = {
             targetId: "species1",
             guesses: ["species1"],
@@ -283,17 +283,17 @@ describe("computeGameStats", () => {
             seed: 2,
         };
 
-        storage.setItem("gameState-dinosaur-#00001", JSON.stringify(game1));
-        storage.setItem("gameState-dinosaur-#00002", JSON.stringify(game2));
+        storage.setItem("gameState-bird-#00001", JSON.stringify(game1));
+        storage.setItem("gameState-bird-#00002", JSON.stringify(game2));
 
         const stats = computeGameStats(gameData, storage, "daily");
 
-        expect(stats.uniqueDinosaursDiscovered).toBe(2);
-        expect(stats.discoveredDinosaurs.has("species1")).toBe(true);
-        expect(stats.discoveredDinosaurs.has("species2")).toBe(true);
+        expect(stats.uniqueBirdsDiscovered).toBe(2);
+        expect(stats.discoveredBirds.has("species1")).toBe(true);
+        expect(stats.discoveredBirds.has("species2")).toBe(true);
     });
 
-    test("tracks all guessed dinosaurs across games", () => {
+    test("tracks all guessed birds across games", () => {
         const game1 = {
             targetId: "species1",
             guesses: ["species2", "species1"],
@@ -312,15 +312,15 @@ describe("computeGameStats", () => {
             seed: 2,
         };
 
-        storage.setItem("gameState-dinosaur-#00001", JSON.stringify(game1));
-        storage.setItem("gameState-dinosaur-#00002", JSON.stringify(game2));
+        storage.setItem("gameState-bird-#00001", JSON.stringify(game1));
+        storage.setItem("gameState-bird-#00002", JSON.stringify(game2));
 
         const stats = computeGameStats(gameData, storage, "daily");
 
-        expect(stats.allGuessedDinosaurs.size).toBe(3);
-        expect(stats.allGuessedDinosaurs.has("species1")).toBe(true);
-        expect(stats.allGuessedDinosaurs.has("species2")).toBe(true);
-        expect(stats.allGuessedDinosaurs.has("species3")).toBe(true);
+        expect(stats.allGuessedBirds.size).toBe(3);
+        expect(stats.allGuessedBirds.has("species1")).toBe(true);
+        expect(stats.allGuessedBirds.has("species2")).toBe(true);
+        expect(stats.allGuessedBirds.has("species3")).toBe(true);
     });
 
     test("calculates current streak for consecutive daily wins", () => {
@@ -350,11 +350,11 @@ describe("computeGameStats", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(game1)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00002",
+            "gameState-practice-bird-#00002",
             JSON.stringify(game2)
         );
 
@@ -379,7 +379,7 @@ describe("computeGameStats", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(game)
         );
 
@@ -443,19 +443,19 @@ describe("computeGameStats", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(game1)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00002",
+            "gameState-practice-bird-#00002",
             JSON.stringify(game2)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00003",
+            "gameState-practice-bird-#00003",
             JSON.stringify(game3)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00004",
+            "gameState-practice-bird-#00004",
             JSON.stringify(game4)
         );
 
@@ -623,9 +623,9 @@ describe("the shared stat formatters", () => {
             guessDistribution: new Map(),
             currentStreak: 0,
             longestStreak: 0,
-            uniqueDinosaursDiscovered: 0,
-            discoveredDinosaurs: new Set(),
-            allGuessedDinosaurs: new Set(),
+            uniqueBirdsDiscovered: 0,
+            discoveredBirds: new Set(),
+            allGuessedBirds: new Set(),
             ...partial,
         };
     }

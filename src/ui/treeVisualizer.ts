@@ -30,7 +30,7 @@ const el = (tag: string, className?: string, text?: string): HTMLElement => {
 function describeNode(node: TreeNode): string {
     if (node.type === "clade") return `${node.name}, clade`;
     if (node.isTarget) {
-        if (node.isPlaceholder) return "the mystery dinosaur, not found yet";
+        if (node.isPlaceholder) return "the mystery bird, not found yet";
         if (node.isRevealed) return `${node.name}, the answer, revealed`;
         return `${node.name}, the answer, found`;
     }

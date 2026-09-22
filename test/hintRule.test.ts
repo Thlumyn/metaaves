@@ -1,5 +1,5 @@
 // The hint reveal rule, exercised over the REAL content graph
-// (`src/jurassic/index.json`) rather than a hand-written mock - a threshold rule
+// (`src/aves/index.json`) rather than a hand-written mock - a threshold rule
 // is a claim about the SHAPE of the actual lineage ladder, and a four-species
 // fixture cannot falsify it (LESSONS.md
 // `mock-fixtures-hide-real-data-defects-test-the-real-payload`).
@@ -10,7 +10,7 @@ import { buildGameData } from "../src/jsonLoader";
 import { GameState, consistentCandidates } from "../src/gameState";
 import { findNextHintCladeId } from "../src/hintRule";
 import { HINT_SPLIT_FRACTION } from "../src/constants";
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 import type { Species } from "../src/types";
 
 const data = buildGameData(rawGameData);

@@ -1,5 +1,5 @@
 import { test, expect, Page } from "@playwright/test";
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 import { guessNamedSpecies } from "./helpers/guessing";
 import { pinDailyClock } from "./helpers/clock";
 
@@ -385,7 +385,7 @@ test.describe("practice new game and seed mode", () => {
         // e2e/seed.spec.ts. It must not have been written: the seeded round was
         // never guessed in, and New game did not adopt it either.
         expect(
-            await rawRound(page, "gameState-practice-dinosaur-#00043")
+            await rawRound(page, "gameState-practice-bird-#00043")
         ).toBeNull();
     });
 

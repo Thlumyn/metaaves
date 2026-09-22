@@ -20,7 +20,7 @@
 import { findMatches, setupAutocomplete } from "../src/ui/autocomplete";
 import { buildGameData } from "../src/jsonLoader";
 import type { RawGameData } from "../src/jsonLoader";
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 
 // The real species list, in the order the game builds it (`src/game.ts`:
 // `data.species.map(s => s.species)`), for the same reason

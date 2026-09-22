@@ -8,7 +8,7 @@ import {
 import { parseSeedParam } from "../src/puzzleKey";
 import { formatGameStateForSharing } from "../src/shareText";
 import { StorageProvider } from "../src/storage";
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 
 // Seed mode - the deterministic practice primitive. These tests exercise the
 // contract that E2E fixtures and playtests depend on: a chosen seed reproduces
@@ -103,7 +103,7 @@ describe("seeded rounds are isolated from daily storage", () => {
 
         // Pre-seed a real daily round for the same seed so a leaky key prefix
         // would collide and clobber it.
-        const dailyKey = "gameState-dinosaur-#00043";
+        const dailyKey = "gameState-bird-#00043";
         const daily = new GameState(realData, "daily-target", new Set(["a"]));
         saveGameState(daily, seed, storage, "daily");
         expect(storage.keys()).toContain(dailyKey); // guards the key shape
@@ -116,7 +116,7 @@ describe("seeded rounds are isolated from daily storage", () => {
         // The daily value is byte-for-byte untouched, and the practice write
         // landed under its own prefixed key.
         expect(storage.getItem(dailyKey)).toBe(dailyBefore);
-        expect(storage.keys()).toContain("gameState-practice-dinosaur-#00043");
+        expect(storage.keys()).toContain("gameState-practice-bird-#00043");
     });
 });
 
@@ -130,7 +130,7 @@ describe("seeded share text does not masquerade as the daily", () => {
             seed: 42,
         });
 
-        expect(message).toContain("Practice Dinosaur #43"); // reflects the seed
+        expect(message).toContain("Practice Bird #43"); // reflects the seed
     });
 
     test("daily mode output is unchanged (no Practice label)", () => {
@@ -141,6 +141,6 @@ describe("seeded share text does not masquerade as the daily", () => {
         });
 
         expect(message).not.toContain("Practice");
-        expect(message).toContain("✅ Dinosaur #2");
+        expect(message).toContain("✅ Bird #2");
     });
 });

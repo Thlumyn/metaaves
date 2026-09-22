@@ -49,5 +49,5 @@ and this project adheres to
 - FAQ page covering the daily game, the tree, the info panel, hints, the round
   summary, practice and seeds, sharing, the profile page, and the archives.
 
-[Unreleased]: https://github.com/alexjercan/metajurassic/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/alexjercan/metajurassic/releases/tag/v1.0.0
+[Unreleased]: https://github.com/thlumyn/metaaves/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/thlumyn/metaaves/releases/tag/v1.0.0

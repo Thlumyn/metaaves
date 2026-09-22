@@ -1,6 +1,6 @@
-# Metajurassic
+# Metaaves
 
-A daily dinosaur guessing game, in the shape of
+A daily wingspan guessing game, in the shape of
 [Metazooa](https://metazooa.com). Guess a species; the phylogenetic tree shows
 how close you landed.
 
@@ -24,7 +24,7 @@ npm run ci         # the full gate
 
 ## More
 
-- [Documentation site](https://alexjercan.github.io/metajurassic/docs/) -
+- [Documentation site](https://thlumyn.github.io/metaaves/docs/) -
   gameplay, practice seeds, the content pipeline, and the architecture. Sources
   in [docs/](docs/); `npm run docs:dev` to serve it locally.
 - [CHANGELOG.md](CHANGELOG.md) - releases and what shipped in each.

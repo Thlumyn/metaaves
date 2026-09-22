@@ -161,7 +161,7 @@ vite.config.ts.timestamp-*
 
 # Extra stuff
 tmp
-*metajurassic.json
+*metaaves.json
 *.csv
 
 # Playtest screen captures (scripts/playtest/walkthrough.ts) - evidence for one

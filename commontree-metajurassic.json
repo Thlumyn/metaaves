@@ -1,0 +1,240 @@
+{
+    "scientific": "Aves",
+    "name": "Aves",
+    "children": [
+        {
+            "scientific": "Neognathae",
+            "name": "Neognathae",
+            "children": [
+                {
+                    "scientific": "Neoaves",
+                    "name": "Neoaves",
+                    "children": [
+                        {
+                            "scientific": "Passerea",
+                            "name": "Passerea",
+                            "children": [
+                                {
+                                    "scientific": "Telluraves",
+                                    "name": "Telluraves",
+                                    "children": [
+                                        {
+                                            "scientific": "Australaves",
+                                            "name": "Australaves",
+                                            "children": [
+                                                {
+                                                    "scientific": "Eufalconimorphae",
+                                                    "name": "Eufalconimorphae",
+                                                    "children": [
+                                                        {
+                                                            "scientific": "Psittacopasseres",
+                                                            "name": "Psittacopasseres",
+                                                            "children": [
+                                                                {
+                                                                    "scientific": "Passeriformes",
+                                                                    "name": "Passeriformes",
+                                                                    "children": [
+                                                                        {
+                                                                            "scientific": "Eupasseres",
+                                                                            "name": "Eupasseres",
+                                                                            "children": [
+                                                                                {
+                                                                                    "scientific": "Passeri",
+                                                                                    "name": "Passeri",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "scientific": "Passerida",
+                                                                                            "name": "Passerida",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "scientific": "Emberizoidea",
+                                                                                                    "name": "Emberizoidea",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "scientific": "Thraupidae",
+                                                                                                            "name": "Thraupidae",
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "scientific": "Saltator",
+                                                                                                                    "name": "Saltator",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "scientific": "Black-cowled Saltator",
+                                                                                                                            "name": "Black-cowled Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Black-headed Saltator",
+                                                                                                                            "name": "Black-headed Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Black-throated Grosbeak",
+                                                                                                                            "name": "Black-throated Grosbeak"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Black-throated Saltator",
+                                                                                                                            "name": "Black-throated Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Black-winged Saltator",
+                                                                                                                            "name": "Black-winged Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Bluish-gray Saltator",
+                                                                                                                            "name": "Bluish-gray Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Buff-throated Saltator",
+                                                                                                                            "name": "Buff-throated Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Cinnamon-bellied Saltator",
+                                                                                                                            "name": "Cinnamon-bellied Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Golden-billed Saltator",
+                                                                                                                            "name": "Golden-billed Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Green-winged Saltator",
+                                                                                                                            "name": "Green-winged Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Lesser Antillean Saltator",
+                                                                                                                            "name": "Lesser Antillean Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Masked Saltator",
+                                                                                                                            "name": "Masked Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Olive-gray Saltator",
+                                                                                                                            "name": "Olive-gray Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Orinocan Saltator",
+                                                                                                                            "name": "Orinocan Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Slate-colored Grosbeak",
+                                                                                                                            "name": "Slate-colored Grosbeak"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Streaked Saltator",
+                                                                                                                            "name": "Streaked Saltator"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "scientific": "Thick-billed Saltator",
+                                                                                                                            "name": "Thick-billed Saltator"
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "scientific": "Saltatricula",
+                                                                                                                    "name": "Saltatricula",
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "scientific": "Many-colored Chaco Finch",
+                                                                                                                            "name": "Many-colored Chaco Finch"
+                                                                                                                        }
+                                                                                                                    ]
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "scientific": "Palaeognathae",
+            "name": "Palaeognathae",
+            "children": [
+                {
+                    "scientific": "Casuariiformes",
+                    "name": "Casuariiformes",
+                    "children": [
+                        {
+                            "scientific": "Casuariidae",
+                            "name": "Casuariidae",
+                            "children": [
+                                {
+                                    "scientific": "Casuarius",
+                                    "name": "Casuarius",
+                                    "children": [
+                                        {
+                                            "scientific": "Dwarf Cassowary",
+                                            "name": "Dwarf Cassowary"
+                                        },
+                                        {
+                                            "scientific": "Northern Cassowary",
+                                            "name": "Northern Cassowary"
+                                        },
+                                        {
+                                            "scientific": "Southern Cassowary",
+                                            "name": "Southern Cassowary"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "scientific": "Dromaius",
+                                    "name": "Dromaius",
+                                    "children": [
+                                        {
+                                            "scientific": "Emu",
+                                            "name": "Emu"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "scientific": "Struthioniformes",
+                    "name": "Struthioniformes",
+                    "children": [
+                        {
+                            "scientific": "Struthionidae",
+                            "name": "Struthionidae",
+                            "children": [
+                                {
+                                    "scientific": "Struthio",
+                                    "name": "Struthio",
+                                    "children": [
+                                        {
+                                            "scientific": "Common Ostrich",
+                                            "name": "Common Ostrich"
+                                        },
+                                        {
+                                            "scientific": "Somali Ostrich",
+                                            "name": "Somali Ostrich"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -5,7 +5,7 @@ import {
 } from "../ui/card";
 import { GameData } from "../gameData";
 
-export function renderGuessedDinosaurs(
+export function renderGuessedBirds(
     guessedIds: Set<string>,
     discoveredIds: Set<string>,
     gameData: GameData

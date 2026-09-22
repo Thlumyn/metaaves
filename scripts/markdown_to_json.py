@@ -4,8 +4,8 @@ import os
 import re
 import sys
 
-DEFAULT_JURASSIC_PATH = os.path.join("src", "jurassic")
-DEFAULT_TREE_PATH = "commontree-metajurassic.json"
+DEFAULT_JURASSIC_PATH = os.path.join("src", "aves")
+DEFAULT_TREE_PATH = "commontree-metaaves.json"
 
 # A frontmatter value is a plain scalar. Every one of the 150 species `icon`
 # fields once held a stringified Python list (`['https://...svg']`) that leaked
@@ -132,10 +132,10 @@ def load_directory(path: str) -> dict:
     return entries
 
 
-def main(jurassic_path: str, index_path: str, tree_path: str) -> None:
+def main(aves_path: str, index_path: str, tree_path: str) -> None:
     data = {
-        "species": load_directory(os.path.join(jurassic_path, "species")),
-        "clades": load_directory(os.path.join(jurassic_path, "clades")),
+        "species": load_directory(os.path.join(aves_path, "species")),
+        "clades": load_directory(os.path.join(aves_path, "clades")),
     }
 
     tree = build_tree(data)
@@ -155,14 +155,14 @@ if __name__ == "__main__":
         description="Generate the served content graph from the markdown source"
     )
     parser.add_argument(
-        "--jurassic-path",
+        "--aves-path",
         default=DEFAULT_JURASSIC_PATH,
-        help="content root holding species/ and clades/ (default: src/jurassic)",
+        help="content root holding species/ and clades/ (default: src/aves)",
     )
     parser.add_argument(
         "--index-path",
         default=None,
-        help="output index.json (default: <jurassic-path>/index.json)",
+        help="output index.json (default: <aves-path>/index.json)",
     )
     parser.add_argument(
         "--tree-path",
@@ -171,10 +171,10 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    index_path = args.index_path or os.path.join(args.jurassic_path, "index.json")
+    index_path = args.index_path or os.path.join(args.aves_path, "index.json")
 
     try:
-        main(args.jurassic_path, index_path, args.tree_path)
+        main(args.aves_path, index_path, args.tree_path)
     except ContentError as exc:
         # Exit non-zero and name the offending file, so a defect in the authored
         # frontmatter stops the pipeline instead of being laundered into JSON.

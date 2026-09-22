@@ -11,9 +11,9 @@ export interface GameStats {
     guessDistribution: Map<number, number>;
     currentStreak: number;
     longestStreak: number;
-    uniqueDinosaursDiscovered: number;
-    discoveredDinosaurs: Set<string>;
-    allGuessedDinosaurs: Set<string>;
+    uniqueBirdsDiscovered: number;
+    discoveredBirds: Set<string>;
+    allGuessedBirds: Set<string>;
 }
 
 export interface GameResult {
@@ -182,11 +182,11 @@ export function computeGameStats(
 
     const streaks = calculateStreak(results);
 
-    const discoveredDinosaurs = new Set(
+    const discoveredBirds = new Set(
         results.filter((r) => r.isWin).map((r) => r.targetId)
     );
 
-    const allGuessedDinosaurs = new Set<string>();
+    const allGuessedBirds = new Set<string>();
 
     const storageLength = storage.length();
     for (let i = 0; i < storageLength; i++) {
@@ -206,12 +206,12 @@ export function computeGameStats(
             };
             if (data.guesses && Array.isArray(data.guesses)) {
                 (data.guesses as string[]).forEach((guessId: string) => {
-                    allGuessedDinosaurs.add(guessId);
+                    allGuessedBirds.add(guessId);
                 });
             }
         } catch (error) {
             console.warn(
-                `Failed to parse game state for key ${key} when computing guessed dinosaurs`,
+                `Failed to parse game state for key ${key} when computing guessed birds`,
                 error
             );
         }
@@ -225,8 +225,8 @@ export function computeGameStats(
         guessDistribution,
         currentStreak: streaks.current,
         longestStreak: streaks.longest,
-        uniqueDinosaursDiscovered: discoveredDinosaurs.size,
-        discoveredDinosaurs,
-        allGuessedDinosaurs,
+        uniqueBirdsDiscovered: discoveredBirds.size,
+        discoveredBirds,
+        allGuessedBirds,
     };
 }

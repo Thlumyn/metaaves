@@ -44,7 +44,7 @@ export function createLockedSpeciesCard(
                     <strong>wingspan:</strong> <span>???</span>
                 </div>
                 <div class="card-fact">
-                    <strong>Museum Fact:</strong> <span>This dinosaur remains a mystery. Play more to unlock!</span>
+                    <strong>Museum Fact:</strong> <span>This bird remains a mystery. Play more to unlock!</span>
                 </div>
             </div>
         </div>

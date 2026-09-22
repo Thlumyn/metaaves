@@ -18,7 +18,7 @@ export const WIDE_TREE_SEED = 42;
 // The same seed 42 round, guessed so that all five closeness tiers land on the
 // board at once: seed 42 resolves to Camarasaurus, whose 10-clade lineage has
 // real species at every rung. Coldest to hottest; derived from the shipped
-// src/jurassic/index.json by running `guessTier` over every species against
+// src/aves/index.json by running `guessTier` over every species against
 // that target, so a content change that moves one of them fails in
 // e2e/closeness.spec.ts and says which rung it was.
 //
@@ -39,7 +39,7 @@ export const CLOSENESS_LADDER = [
 // Twelve species covering all four branches under the root clade
 // (eusaurischia, genasauria, herrerasauridae, ornithischia) at a spread of
 // lineage depths, chosen to make the tree WIDE rather than deep. Derived from
-// src/jurassic/index.json; if the content graph changes enough that these stop
+// src/aves/index.json; if the content graph changes enough that these stop
 // spanning the tree, the width assertion in `playWideTree` fails and says so.
 export const WIDE_TREE_GUESSES = [
     "Ceratosaurus",
@@ -90,7 +90,7 @@ export async function playWideTree(page: Page): Promise<string> {
 // The species name for a species id, read from the real served payload.
 async function speciesNameById(page: Page, id: string): Promise<string> {
     return page.evaluate(async (speciesId) => {
-        const res = await fetch("/jurassic/index.json");
+        const res = await fetch("/aves/index.json");
         const raw = (await res.json()) as {
             species: Record<string, { species: string }>;
         };

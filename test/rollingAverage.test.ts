@@ -44,7 +44,7 @@ describe("calculateRollingAverage", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(lossGame)
         );
 
@@ -69,7 +69,7 @@ describe("calculateRollingAverage", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(game)
         );
 
@@ -115,15 +115,15 @@ describe("calculateRollingAverage", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(game1)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00002",
+            "gameState-practice-bird-#00002",
             JSON.stringify(game2)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00003",
+            "gameState-practice-bird-#00003",
             JSON.stringify(game3)
         );
 
@@ -165,7 +165,7 @@ describe("calculateRollingAverage", () => {
 
         games.forEach((game, i) => {
             storage.setItem(
-                `gameState-practice-dinosaur-#${String(i + 1).padStart(5, "0")}`,
+                `gameState-practice-bird-#${String(i + 1).padStart(5, "0")}`,
                 JSON.stringify(game)
             );
         });
@@ -203,11 +203,11 @@ describe("calculateRollingAverage", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(game1)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00002",
+            "gameState-practice-bird-#00002",
             JSON.stringify(game2)
         );
 
@@ -245,11 +245,11 @@ describe("calculateRollingAverage", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(game1)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00002",
+            "gameState-practice-bird-#00002",
             JSON.stringify(game2)
         );
 
@@ -295,15 +295,15 @@ describe("calculateRollingAverage", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(game1)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00002",
+            "gameState-practice-bird-#00002",
             JSON.stringify(game2)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00003",
+            "gameState-practice-bird-#00003",
             JSON.stringify(game3)
         );
 
@@ -357,15 +357,15 @@ describe("calculateRollingAverage", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(game1)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00002",
+            "gameState-practice-bird-#00002",
             JSON.stringify(game2)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00003",
+            "gameState-practice-bird-#00003",
             JSON.stringify(game3)
         );
 
@@ -409,11 +409,11 @@ describe("calculateRollingAverage", () => {
         };
 
         storage.setItem(
-            "gameState-practice-dinosaur-#00001",
+            "gameState-practice-bird-#00001",
             JSON.stringify(game1)
         );
         storage.setItem(
-            "gameState-practice-dinosaur-#00002",
+            "gameState-practice-bird-#00002",
             JSON.stringify(game2)
         );
 

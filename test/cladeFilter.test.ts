@@ -5,10 +5,10 @@
 // Cerapoda" at all. That is the whole point of the filter, and a mock fixture
 // with three species cannot show it (LESSONS.md
 // `mock-fixtures-hide-real-data-defects-test-the-real-payload`). So this suite
-// runs the shipped `buildGameData` over `src/jurassic/index.json`, the same
+// runs the shipped `buildGameData` over `src/aves/index.json`, the same
 // normalization the browser gets.
 
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 import { buildGameData, RawGameData } from "../src/jsonLoader";
 import { speciesInClade, cladeFilterOptions } from "../src/cladeFilter";
 
@@ -32,7 +32,7 @@ describe("speciesInClade", () => {
     });
 
     it("returns every species for the root clade", () => {
-        expect(speciesInClade(data, "dinosauria")).toHaveLength(
+        expect(speciesInClade(data, "aves")).toHaveLength(
             data.species.length
         );
         expect(data.species).toHaveLength(150);

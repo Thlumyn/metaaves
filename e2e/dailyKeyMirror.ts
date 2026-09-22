@@ -28,5 +28,5 @@ export function dailyKeyForNow(): string {
     const modulus = Math.pow(10, 5);
     const index = ((seed % modulus) + modulus) % modulus;
     const display = (index + 1) % modulus;
-    return `gameState-dinosaur-#${display.toString().padStart(5, "0")}`;
+    return `gameState-bird-#${display.toString().padStart(5, "0")}`;
 }

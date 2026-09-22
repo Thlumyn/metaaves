@@ -18,7 +18,7 @@ async function main() {
     // The nav listeners bind to the carousel element, not to its cards, so they
     // are attached ONCE here and survive every re-render. Re-running this from
     // inside the render stacks a duplicate listener set per change, which is
-    // what `src/profile/dinosaurList.ts` does; do not copy it.
+    // what `src/profile/birdList.ts` does; do not copy it.
     const refreshNav = setupCarouselNav(carousel);
 
     if (!filter) {

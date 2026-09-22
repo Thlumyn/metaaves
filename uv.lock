@@ -62,7 +62,7 @@ wheels = [
 ]
 
 [[package]]
-name = "metajurassic"
+name = "metaaves"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

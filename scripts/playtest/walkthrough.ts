@@ -460,7 +460,7 @@ async function loadNames(browser: Browser): Promise<void> {
     // Read the species list straight off the served payload rather than the
     // autocomplete, which truncates to 8.
     ALL_NAMES = await page.evaluate(async () => {
-        const res = await fetch("jurassic/index.json");
+        const res = await fetch("aves/index.json");
         const raw = (await res.json()) as {
             species: Record<string, { species: string }>;
         };
@@ -472,7 +472,7 @@ async function loadNames(browser: Browser): Promise<void> {
 
 async function main(): Promise<void> {
     fs.mkdirSync(OUT_DIR, { recursive: true });
-    console.log(`Metajurassic playtest walkthrough`);
+    console.log(`Metaaves playtest walkthrough`);
     console.log(`base: ${BASE_URL}   shots: ${OUT_DIR}`);
     console.log(`rules: MAX_GUESSES=${MAX_GUESSES}\n`);
 

@@ -29,7 +29,7 @@ test.describe("onboarding brief", () => {
         // four separate elements rather than one blob so a regression names
         // which fact went missing.
         await expect(page.locator("#brief-objective")).toContainText(
-            /find the mystery dinosaur/i
+            /find the mystery bird/i
         );
         await expect(page.locator("#brief-mystery")).toContainText(/\?/);
         await expect(page.locator("#brief-feedback")).toContainText(

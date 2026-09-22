@@ -1,7 +1,7 @@
 // The AUTHORED content, checked where it is written.
 //
-// `src/jurassic/index.json` is generated from the markdown under
-// `src/jurassic/species` and `src/jurassic/clades`; the markdown is the source
+// `src/aves/index.json` is generated from the markdown under
+// `src/aves/species` and `src/aves/clades`; the markdown is the source
 // of truth. Validating only the JSON catches a defect one step downstream of
 // where it can be fixed, and catches nothing at all if the JSON is stale.
 //
@@ -17,13 +17,13 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 import { RawGameData } from "../src/jsonLoader";
 import { isSerializedCollection, parseFrontMatter } from "../src/frontMatter";
 
 const raw = rawGameData as unknown as RawGameData;
 
-const JURASSIC_DIR = path.join(__dirname, "..", "src", "jurassic");
+const JURASSIC_DIR = path.join(__dirname, "..", "src", "aves");
 const SPECIES_DIR = path.join(JURASSIC_DIR, "species");
 const CLADES_DIR = path.join(JURASSIC_DIR, "clades");
 
@@ -146,7 +146,7 @@ describe("authored markdown source", () => {
         }
 
         expect(missing).toEqual([]);
-        expect(rootless).toEqual(["dinosauria"]);
+        expect(rootless).toEqual(["aves"]);
     });
 
     it("carries no frontmatter value that is a serialized collection", () => {
@@ -173,14 +173,14 @@ describe("authored markdown source", () => {
         // matching would make the test above pass for the wrong reason.
         expect(
             isSerializedCollection(
-                "['https://alexjercan.github.io/metajurassic-images/clades/ceratosauria.svg']"
+                "['https://thlumyn.github.io/metaaves-images/clades/ceratosauria.svg']"
             )
         ).toBe(true);
         expect(isSerializedCollection('{"a": 1}')).toBe(true);
         expect(isSerializedCollection("('a', 'b')")).toBe(true);
         expect(
             isSerializedCollection(
-                "https://alexjercan.github.io/metajurassic-images/clades/ceratosauria.svg"
+                "https://thlumyn.github.io/metaaves-images/clades/ceratosauria.svg"
             )
         ).toBe(false);
         expect(isSerializedCollection("Late Jurassic (153-148 Ma)")).toBe(false);

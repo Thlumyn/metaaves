@@ -7,10 +7,10 @@ import { test, expect } from "@playwright/test";
 // tasks/20260729-101819.
 
 const SEED = 42;
-// Practice rounds are keyed `gameState-practice-dinosaur-#<seed+1, padded>`;
+// Practice rounds are keyed `gameState-practice-bird-#<seed+1, padded>`;
 // for seed 42 that is #00043. Distinct from the daily key by the `practice-`
 // prefix, which is what isolates seeded rounds from the real daily state.
-const PRACTICE_KEY = "gameState-practice-dinosaur-#00043";
+const PRACTICE_KEY = "gameState-practice-bird-#00043";
 
 // Force a save so the chosen target lands in localStorage where the walkthrough
 // can read it. The app persists on the first guess; "saurus" is a substring of
@@ -84,7 +84,7 @@ test.describe("seeded practice round", () => {
 
         const keys = await page.evaluate(() => Object.keys(localStorage));
         // The only game-state key written is the practice-prefixed one; no
-        // daily `gameState-dinosaur-#...` key was created (other app keys such
+        // daily `gameState-bird-#...` key was created (other app keys such
         // as preferences are irrelevant to daily isolation).
         const gameStateKeys = keys.filter((k) => k.startsWith("gameState-"));
         expect(gameStateKeys).toEqual([PRACTICE_KEY]);

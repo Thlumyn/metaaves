@@ -130,7 +130,7 @@ test.describe("round summary", () => {
 
         const input = page.locator("#player-input");
         await input.click();
-        await input.fill("Notadinosaurus");
+        await input.fill("Notabirdus");
         await input.press("Enter");
 
         await expect(page.locator("#input-error")).toBeVisible();

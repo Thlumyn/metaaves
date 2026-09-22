@@ -3,10 +3,10 @@ import { formatGameStateForSharing } from "../src/shareText";
 import { buildGameData } from "../src/jsonLoader";
 import { shareResult } from "../src/ui/share";
 import { MAX_GUESSES } from "../src/constants";
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 
 // The share message is the game's only growth loop, so these tests run against
-// the REAL content graph (`src/jurassic/index.json`), not a hand-written mock:
+// the REAL content graph (`src/aves/index.json`), not a hand-written mock:
 // the closeness grid is a claim about the shipped taxonomy, and a fixture tree
 // would only prove the arithmetic. See LESSONS.md
 // `mock-fixtures-hide-real-data-defects-test-the-real-payload`.
@@ -269,8 +269,8 @@ describe("share message shape", () => {
             { mode: "practice", seed: 42 }
         );
 
-        expect(daily.split("\n")[0]).toBe("✅ Dinosaur #211 🦖");
-        expect(practice.split("\n")[0]).toBe("✅ Practice Dinosaur #43 🦖");
+        expect(daily.split("\n")[0]).toBe("✅ Bird #211 🦖");
+        expect(practice.split("\n")[0]).toBe("✅ Practice Bird #43 🦖");
     });
 
     test("practice is labelled and carries its seed id, not a daily number", () => {
@@ -279,7 +279,7 @@ describe("share message shape", () => {
             { mode: "practice", seed: 42 }
         );
 
-        expect(message).toContain("Practice Dinosaur #43");
+        expect(message).toContain("Practice Bird #43");
     });
 
     test("every message ends with the link and the tag", () => {
@@ -289,9 +289,9 @@ describe("share message shape", () => {
         );
 
         expect(message).toContain(
-            "https://alexjercan.github.io/metajurassic"
+            "https://thlumyn.github.io/metaaves"
         );
-        expect(message.endsWith("#metajurassic")).toBe(true);
+        expect(message.endsWith("#metaaves")).toBe(true);
     });
 });
 

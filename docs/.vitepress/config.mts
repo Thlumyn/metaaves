@@ -8,14 +8,14 @@ import { defineConfig } from "vitepress";
 // writes into the same `dist/` webpack does, and the existing Pages workflow
 // uploads that one directory. See tasks/20260804-151403/DECISION.md.
 export default defineConfig({
-    title: "Metajurassic",
+    title: "Metaaves",
     description:
-        "How Metajurassic plays, how its content is built, and how the repository fits together.",
+        "How Metaaves plays, how its content is built, and how the repository fits together.",
 
     // Mirrors webpack's `PUBLIC_PATH` with `docs/` appended, rather than being
     // hardcoded to the Pages value: `PUBLIC_PATH` is unset locally, so
     // `npm run docs:dev` serves from `/docs/` and the deploy serves from
-    // `/metajurassic/docs/` off the same config.
+    // `/metaaves/docs/` off the same config.
     base: process.env.PUBLIC_PATH
         ? `${process.env.PUBLIC_PATH}docs/`
         : "/docs/",
@@ -33,7 +33,7 @@ export default defineConfig({
 
     themeConfig: {
         nav: [
-            { text: "Play", link: "https://alexjercan.github.io/metajurassic" },
+            { text: "Play", link: "https://thlumyn.github.io/metaaves" },
             { text: "How to play", link: "/how-to-play" },
             { text: "Architecture", link: "/architecture" },
         ],
@@ -67,7 +67,7 @@ export default defineConfig({
         socialLinks: [
             {
                 icon: "github",
-                link: "https://github.com/alexjercan/metajurassic",
+                link: "https://github.com/thlumyn/metaaves",
             },
         ],
 

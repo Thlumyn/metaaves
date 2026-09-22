@@ -169,7 +169,7 @@ export class GameState {
         const guessSpecies = this.gameData.findSpeciesByName(species);
         if (!guessSpecies) {
             throw new Error(
-                `No dinosaur called "${species}" - check the spelling, or pick one from the list.`
+                `No bird called "${species}" - check the spelling, or pick one from the list.`
             );
         }
 

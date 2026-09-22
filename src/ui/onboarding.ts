@@ -45,10 +45,10 @@ export function briefCopy(): {
     howToPlay: string;
 } {
     return {
-        // "the mystery dinosaur", not "today's": the practice page renders this
+        // "the mystery bird", not "today's": the practice page renders this
         // same template (webpack.config.js) against a random target, where
         // "today's" would be false.
-        objective: "Find the mystery dinosaur.",
+        objective: "Find the mystery bird.",
         mystery: "? is the answer, hidden in the tree above.",
         feedback:
             "Each guess joins the tree at the clade it shares with the answer. " +
@@ -109,11 +109,11 @@ export function buildHowToPlayCard(): HTMLElement {
             <div class="card-content">
                 <div class="card-fact">
                     <strong>Goal:</strong>
-                    <span>Find the mystery dinosaur, marked <strong>?</strong> on the tree.</span>
+                    <span>Find the mystery bird, marked <strong>?</strong> on the tree.</span>
                 </div>
                 <div class="card-fact">
                     <strong>Guessing:</strong>
-                    <span>Type a dinosaur name and press Enter, or pick one from the list.</span>
+                    <span>Type a bird name and press Enter, or pick one from the list.</span>
                 </div>
                 <div class="card-fact">
                     <strong>Reading the tree:</strong>

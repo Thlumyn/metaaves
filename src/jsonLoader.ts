@@ -26,7 +26,7 @@ export interface RawGameData {
 }
 
 export async function loadGameData(): Promise<GameData> {
-    const url = require("./jurassic/index.json") as string;
+    const url = require("./aves/index.json") as string;
     const response = await fetch(url);
     const raw = (await response.json()) as RawGameData;
 
@@ -34,7 +34,7 @@ export async function loadGameData(): Promise<GameData> {
 }
 
 // The raw payload -> GameData mapping, split out from the fetch so tests can
-// build the shipped graph straight from `src/jurassic/index.json` without
+// build the shipped graph straight from `src/aves/index.json` without
 // re-implementing this shape. A hand-copied mirror in a test file is a second
 // seam that rots (LESSONS.md
 // `hand-copied-logic-mirrors-rot-update-them-in-the-same-change`).

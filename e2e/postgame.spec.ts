@@ -1,5 +1,5 @@
 import { test, expect, Page } from "@playwright/test";
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 import { HINT_COST, MAX_GUESSES } from "../src/constants";
 import { seedFinishedDailyGame, wrongGuessIds } from "./helpers/content";
 import { pinDailyClock, pinnedDayAt } from "./helpers/clock";

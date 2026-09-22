@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 // The archive's clade filter, at the browser level. Counts are measured against
-// the checked-in `src/jurassic/index.json`; the assertions after each count are
+// the checked-in `src/aves/index.json`; the assertions after each count are
 // the invariants the feature exists for, and hold at any content size.
 const CERAPODA_MEMBERS = 35;
 const ALL_SPECIES = 150;
@@ -187,7 +187,7 @@ test("one wheel notch scrolls the same distance after a filter change as before"
     page,
 }) => {
     // Attaching `setupCarouselNav` from inside the render - which is what
-    // `src/profile/dinosaurList.ts` does - stacks a second listener set per
+    // `src/profile/birdList.ts` does - stacks a second listener set per
     // change. The nav BUTTONS hide that: their `scrollBy` is smooth, and two
     // smooth scrolls issued in one tick resolve to the same target rather than
     // adding up. The wheel handler scrolls instantly, so there duplicates

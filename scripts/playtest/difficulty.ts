@@ -1,6 +1,6 @@
 // Difficulty simulation: how hard is a round, for how good a player?
 //
-// Plays every target in the REAL content graph (`src/jurassic/index.json`) with
+// Plays every target in the REAL content graph (`src/aves/index.json`) with
 // several player policies and reports the guess distribution, the loss rate at
 // MAX_GUESSES, and what a hint is worth against its HINT_COST.
 //
@@ -33,7 +33,7 @@ import type { Species } from "../../src/types";
 // ---------------------------------------------------------------------------
 
 const REPO_ROOT = path.resolve(__dirname, "..", "..");
-const PAYLOAD = path.join(REPO_ROOT, "src", "jurassic", "index.json");
+const PAYLOAD = path.join(REPO_ROOT, "src", "aves", "index.json");
 
 function loadRealGameData(): GameData {
     const raw = JSON.parse(fs.readFileSync(PAYLOAD, "utf8")) as RawGameData;
@@ -340,7 +340,7 @@ function main(): void {
     const data = loadRealGameData();
     const targets = data.species.map((s) => s.id);
 
-    console.log(`Metajurassic difficulty simulation`);
+    console.log(`Metaaves difficulty simulation`);
     console.log(
         `payload: ${path.relative(REPO_ROOT, PAYLOAD)}  species: ${data.species.length}  clades: ${Object.keys(data.clades).length}`
     );

@@ -1,6 +1,6 @@
 // What is a hint WORTH, in the same currency as a guess - and does it RESCUE
 // the player it is aimed at? Compares the shipped hint rule against candidate
-// alternatives over the REAL content graph (`src/jurassic/index.json`).
+// alternatives over the REAL content graph (`src/aves/index.json`).
 //
 // Prints six numbered sections (pacing is emitted before full-round cost):
 //   0. shape of the lineage ladder - how much of the field each level holds
@@ -35,7 +35,7 @@ import { MAX_GUESSES, HINT_SPLIT_FRACTION } from "../../src/constants";
 import type { Species } from "../../src/types";
 
 const REPO_ROOT = path.resolve(__dirname, "..", "..");
-const PAYLOAD = path.join(REPO_ROOT, "src", "jurassic", "index.json");
+const PAYLOAD = path.join(REPO_ROOT, "src", "aves", "index.json");
 
 function loadRealGameData(): GameData {
     const raw = JSON.parse(fs.readFileSync(PAYLOAD, "utf8")) as RawGameData;
@@ -816,7 +816,7 @@ function rescue(data: GameData, trials: number): void {
 
 function main(): void {
     const data = loadRealGameData();
-    console.log("Metajurassic hint-value report");
+    console.log("Metaaves hint-value report");
     console.log(
         `payload: ${path.relative(REPO_ROOT, PAYLOAD)}  species: ${data.species.length}  clades: ${Object.keys(data.clades).length}  trials/target: ${TRIALS}\n`
     );

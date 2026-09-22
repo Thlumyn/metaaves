@@ -16,7 +16,7 @@ test.describe("daily game first screen", () => {
 
     test("shows the header title", async ({ page }) => {
         await expect(page.locator("header .game-title")).toHaveText(
-            "Metajurassic"
+            "Metaaves"
         );
     });
 

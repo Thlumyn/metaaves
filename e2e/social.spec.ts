@@ -16,7 +16,7 @@ test.beforeEach(async ({ page }) => {
 //
 // Third copy of the origin, after SITE_URL in webpack.config.js and SHARE_URL
 // in src/shareText.ts; kept in sync by hand.
-const SITE_URL = "https://alexjercan.github.io/metajurassic";
+const SITE_URL = "https://thlumyn.github.io/metaaves";
 
 // Every page emitted by webpack, keyed by the path segment `og:url` must end
 // with. The daily page and `/practice/` share one template and must still
@@ -58,7 +58,7 @@ for (const social of PAGES) {
 
         expect(await metaName(page, "description")).toBe(description);
         expect(await metaProperty(page, "og:type")).toBe("website");
-        expect(await metaProperty(page, "og:site_name")).toBe("Metajurassic");
+        expect(await metaProperty(page, "og:site_name")).toBe("Metaaves");
 
         // Absolute and pointing at this page, not at whatever host served it.
         const url = await metaProperty(page, "og:url");

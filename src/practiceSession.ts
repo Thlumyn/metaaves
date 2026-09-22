@@ -202,7 +202,7 @@ export function abandonPracticeRound(
 //
 // `gameStateKey` folds a seed through `seed mod PUZZLE_ID_MODULUS` but the
 // TARGET is `seed mod species.length` - two moduli, so `?seed=42` and
-// `?seed=100042` share one storage key while naming DIFFERENT dinosaurs.
+// `?seed=100042` share one storage key while naming DIFFERENT birds.
 // Folding at the boundary makes seed, key and target agree, and it is the
 // IDENTITY on [0, PUZZLE_ID_MODULUS), so every seed in the docs, the E2E
 // fixtures and the playtests is unaffected

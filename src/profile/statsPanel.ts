@@ -1,6 +1,6 @@
 import { GameStats, formatAverageGuesses, formatWinRate } from "../gameStats";
 import { GameData } from "../gameData";
-import { renderGuessedDinosaurs } from "./dinosaurList";
+import { renderGuessedBirds } from "./birdList";
 
 export function updateStatsUI(
     statsDaily: GameStats,
@@ -28,12 +28,12 @@ export function updateStatsUI(
     document.getElementById("total-losses-daily").textContent =
         statsDaily.losses.toString();
 
-    const totalDinosaurs = gameData.species.length;
-    const unlockedDinosaurs = statsDaily.allGuessedDinosaurs.size;
+    const totalBirds = gameData.species.length;
+    const unlockedBirds = statsDaily.allGuessedBirds.size;
     const unlockedPercentage =
-        totalDinosaurs > 0 ? (unlockedDinosaurs / totalDinosaurs) * 100 : 0;
+        totalBirds > 0 ? (unlockedBirds / totalBirds) * 100 : 0;
     document.getElementById("unique-dinos-daily").textContent =
-        `${unlockedDinosaurs}/${totalDinosaurs}`;
+        `${unlockedBirds}/${totalBirds}`;
     const progressBarDaily = document.getElementById(
         "unique-dinos-progress-daily"
     );
@@ -69,9 +69,9 @@ export function updateStatsUI(
     );
 
     // Daily stats only: practice guesses do not unlock collection cards.
-    renderGuessedDinosaurs(
-        statsDaily.allGuessedDinosaurs,
-        statsDaily.discoveredDinosaurs,
+    renderGuessedBirds(
+        statsDaily.allGuessedBirds,
+        statsDaily.discoveredBirds,
         gameData
     );
 }

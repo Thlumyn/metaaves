@@ -4,7 +4,7 @@ A static TypeScript site built by webpack, deployed to GitHub Pages. No server,
 no account, no network calls at runtime beyond fetching the content graph and
 the images it points at.
 
-[`AGENTS.md`](https://github.com/alexjercan/metajurassic/blob/master/AGENTS.md)
+[`AGENTS.md`](https://github.com/thlumyn/metaaves/blob/master/AGENTS.md)
 is the authoritative repository map, command list and convention set. This page
 is the shape of the build; it links there rather than copying it.
 
@@ -15,7 +15,7 @@ is the shape of the build; it links there rather than copying it.
 | `src/`                                         | App source. Core: `game/`, `gameState.ts`, `gameData.ts`, `treeBuilder.ts`, `hintRule.ts`, `puzzleKey.ts`, `shareText.ts`, `rankLadder.ts` |
 | `src/ui/`                                      | UI widgets: tree rendering and navigation, panel, cards, modal, share                                                                      |
 | `src/*.html`, `src/style.css`, `src/partials/` | Page templates and Tailwind styles                                                                                                         |
-| `src/jurassic/`                                | Authored content and the generated graph - see [Content pipeline](/content-pipeline)                                                       |
+| `src/aves/`                                | Authored content and the generated graph - see [Content pipeline](/content-pipeline)                                                       |
 | `scripts/*.py`                                 | Content conversion and its tests                                                                                                           |
 | `scripts/playtest/*.ts`                        | Game simulations and a visual walkthrough. Outside CI                                                                                      |
 | `test/`                                        | Jest                                                                                                                                       |
@@ -26,7 +26,7 @@ is the shape of the build; it links there rather than copying it.
 ## Pages and bundles
 
 Six entry points, one bundle each, wired in
-[`webpack.config.js`](https://github.com/alexjercan/metajurassic/blob/master/webpack.config.js).
+[`webpack.config.js`](https://github.com/thlumyn/metaaves/blob/master/webpack.config.js).
 Each gets its own `HtmlWebpackPlugin` instance and its own entry in the
 `PAGES` table, which supplies the per-page title, description and served path.
 
@@ -57,7 +57,7 @@ substitution mechanisms, and they use different syntax:
 Partials are injected **after** the EJS pass, so they cannot reach
 `htmlWebpackPlugin.options` and get their own bare-placeholder substitution
 instead. See
-[`webpack-partials.js`](https://github.com/alexjercan/metajurassic/blob/master/webpack-partials.js).
+[`webpack-partials.js`](https://github.com/thlumyn/metaaves/blob/master/webpack-partials.js).
 
 `src/_head.html` is the shared social/SEO block, injected at each page's
 `<!-- social-head -->` marker. Its URLs are absolute and built from `SITE_URL`,
@@ -67,7 +67,7 @@ production even in a dev build. `SITE_URL` is duplicated by `SHARE_URL` in
 `src/shareText.ts` and `SITE_URL` in `e2e/social.spec.ts`; the three are kept in
 sync by hand, because having the runtime bundle import build config would be the
 worse coupling. See
-[`tasks/20260729-101751/DECISION.md`](https://github.com/alexjercan/metajurassic/blob/master/tasks/20260729-101751/DECISION.md).
+[`tasks/20260729-101751/DECISION.md`](https://github.com/thlumyn/metaaves/blob/master/tasks/20260729-101751/DECISION.md).
 
 ## Styles
 
@@ -78,7 +78,7 @@ after every rule they modify. Do not alphabetise it.
 
 ## Base path
 
-`PUBLIC_PATH` is `/` locally and `/metajurassic/` on Pages. It reaches:
+`PUBLIC_PATH` is `/` locally and `/metaaves/` on Pages. It reaches:
 
 - webpack's `output.publicPath`, and through it the runtime
   `__webpack_public_path__` that page code builds links from;
@@ -90,19 +90,19 @@ after every rule they modify. Do not alphabetise it.
 ## Storage keys
 
 Everything is `localStorage`, behind the `StorageProvider` seam in
-[`src/storage.ts`](https://github.com/alexjercan/metajurassic/blob/master/src/storage.ts)
+[`src/storage.ts`](https://github.com/thlumyn/metaaves/blob/master/src/storage.ts)
 so logic can be tested without a DOM.
 
 | Key                                  | Holds                                      |
 | ------------------------------------ | ------------------------------------------ |
-| `gameState-dinosaur-#NNNNN`          | One daily round                            |
-| `gameState-practice-dinosaur-#NNNNN` | One practice round                         |
+| `gameState-bird-#NNNNN`          | One daily round                            |
+| `gameState-practice-bird-#NNNNN` | One practice round                         |
 | `practice-current`                   | The seed of the practice round in progress |
 
 There is no separate stats record. The saved rounds **are** the stats -
 `loadAllGames` scans storage keys and rebuilds each finished round. Key format
 and parse are exact inverses, in
-[`src/puzzleKey.ts`](https://github.com/alexjercan/metajurassic/blob/master/src/puzzleKey.ts).
+[`src/puzzleKey.ts`](https://github.com/thlumyn/metaaves/blob/master/src/puzzleKey.ts).
 
 ## Build and deploy
 
@@ -110,14 +110,14 @@ and parse are exact inverses, in
 | -------------------------- | ---------------------------------------------------------------------------------------- |
 | Local gate                 | `npm run ci` - format check, lint, Python pipeline tests, Jest with coverage, Playwright |
 | `.github/workflows/ci.yml` | The gate on Node 20 and 22, plus a separate `build` job on Node 22                       |
-| Pages workflow             | `npm run build` with `PUBLIC_PATH=/metajurassic/`, then deploys `dist/`                  |
+| Pages workflow             | `npm run build` with `PUBLIC_PATH=/metaaves/`, then deploys `dist/`                  |
 
 `npm run build` runs **two** builders into one output directory: webpack for the
 game, then VitePress for this site into `dist/docs/`. The order is load-bearing.
 `webpack.config.js` sets `output.clean: true`, so webpack run second would
 delete `dist/docs/` while both builders still exited 0 - a green build that
 ships a 404. `test/docsGate.test.ts` pins the order; the reasoning is in
-[`tasks/20260804-151403/DECISION.md`](https://github.com/alexjercan/metajurassic/blob/master/tasks/20260804-151403/DECISION.md).
+[`tasks/20260804-151403/DECISION.md`](https://github.com/thlumyn/metaaves/blob/master/tasks/20260804-151403/DECISION.md).
 
 `docs/` is deliberately outside the ESLint globs and the root
 `tsconfig.json` `include`, and inside the Prettier globs only. Its one
@@ -133,4 +133,4 @@ Rigs that exist but do not run in the gate:
 import the shipped game logic rather than reimplementing it, and the hint rig
 cross-checks its rule reproduction against `findNextHintCladeId`. Findings live
 in the task records, not in the rigs. See
-[`AGENTS.md`](https://github.com/alexjercan/metajurassic/blob/master/AGENTS.md).
+[`AGENTS.md`](https://github.com/thlumyn/metaaves/blob/master/AGENTS.md).

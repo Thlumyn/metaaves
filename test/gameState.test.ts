@@ -49,12 +49,12 @@ const makeGameData = () => {
         theropoda: {
             id: "theropoda",
             name: "Theropoda",
-            parent: "dinosauria",
+            parent: "aves",
             description: "",
         },
-        dinosauria: {
-            id: "dinosauria",
-            name: "Dinosauria",
+        aves: {
+            id: "aves",
+            name: "Aves",
             description: "",
         },
     };
@@ -316,7 +316,7 @@ describe("formatGameStateForSharing", () => {
         expect(message).toContain("✅");
         expect(message).toContain("1 guess!");
         expect(message).toContain("🦖");
-        expect(message).toContain("#metajurassic");
+        expect(message).toContain("#metaaves");
     });
 
     test("formats loss message correctly", () => {

@@ -15,13 +15,13 @@ export function computeDailyKey(page: Page): Promise<string> {
 }
 
 // Read the real served content graph from the browser. Uses the actual payload
-// (src/jurassic/index.json copied to /jurassic/index.json) rather than a mock,
+// (src/aves/index.json copied to /aves/index.json) rather than a mock,
 // per the repo lesson mock-fixtures-hide-real-data-defects.
 export function loadContent(
     page: Page
 ): Promise<{ speciesIds: string[]; speciesNames: string[] }> {
     return page.evaluate(async () => {
-        const res = await fetch("/jurassic/index.json");
+        const res = await fetch("/aves/index.json");
         const raw = (await res.json()) as {
             species: Record<string, { species: string }>;
         };

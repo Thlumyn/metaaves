@@ -5,12 +5,12 @@
 // species icons ship as stringified Python lists for months while the loader
 // tests stayed green (LESSONS.md
 // `mock-fixtures-hide-real-data-defects-test-the-real-payload`). So this file
-// loads `src/jurassic/index.json` and runs it through the SHIPPED
+// loads `src/aves/index.json` and runs it through the SHIPPED
 // `buildGameData` - the same normalization the browser gets - and asserts over
 // the result. A failure here is a content defect or a loader change, and both
 // are worth a red gate.
 
-import rawGameData from "../src/jurassic/index.json";
+import rawGameData from "../src/aves/index.json";
 import { buildGameData, RawGameData } from "../src/jsonLoader";
 import { isSerializedCollection } from "../src/frontMatter";
 import { Species } from "../src/types";
@@ -97,7 +97,7 @@ describe("Jurassic content graph", () => {
         expect(unresolved).toEqual([]);
         // `scripts/markdown_to_json.py` raises without a root, and the tree
         // builder needs exactly one; two roots would silently orphan a subtree.
-        expect(roots).toEqual(["dinosauria"]);
+        expect(roots).toEqual(["aves"]);
     });
 
     it("walks every species up to the root without cycles", () => {
@@ -105,7 +105,7 @@ describe("Jurassic content graph", () => {
         // a parent cycle shows up as a lineage that stops short of the root -
         // which would quietly wreck every LCA closeness score.
         const broken = data.species
-            .filter((s) => !data.lineage(s.clade).includes("dinosauria"))
+            .filter((s) => !data.lineage(s.clade).includes("aves"))
             .map((s) => s.id);
 
         expect(broken).toEqual([]);

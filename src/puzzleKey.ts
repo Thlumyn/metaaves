@@ -49,10 +49,10 @@ function puzzleDisplayNumber(seed: number): number {
 // `parseGameStateKey` is its exact inverse over a fixed-width key.
 export function formatPuzzleId(seed: number): string {
     const display = puzzleDisplayNumber(seed);
-    return `dinosaur-#${display.toString().padStart(PADDING_LENGTH, "0")}`;
+    return `bird-#${display.toString().padStart(PADDING_LENGTH, "0")}`;
 }
 
-// Prose-facing puzzle number for the share headline. No `dinosaur-` prefix and
+// Prose-facing puzzle number for the share headline. No `bird-` prefix and
 // no padding: nothing parses this back, and "#00211" reads like a serial
 // number in the text players paste in public.
 export function formatPuzzleNumber(seed: number): string {
@@ -75,7 +75,7 @@ export function parseGameStateKey(
     key: string
 ): { puzzleId: string; seed: number; gameMode: "daily" | "practice" } | null {
     const match = key.match(
-        new RegExp(`^gameState-(practice-)?(dinosaur-#\\d{${PADDING_LENGTH}})$`)
+        new RegExp(`^gameState-(practice-)?(bird-#\\d{${PADDING_LENGTH}})$`)
     );
     if (!match) return null;
 
@@ -84,7 +84,7 @@ export function parseGameStateKey(
 
     const puzzleId = match[2];
     const indexMatch = puzzleId.match(
-        new RegExp(`^dinosaur-#(\\d{${PADDING_LENGTH}})$`)
+        new RegExp(`^bird-#(\\d{${PADDING_LENGTH}})$`)
     );
     if (!indexMatch) return null;
 

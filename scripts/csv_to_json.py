@@ -17,7 +17,7 @@ CSV_FIELDS = [
     "Scientific",
     "Range",
     "InfoContent",
-    "MuseumFact",
+    "Description",
 ]
 
 
@@ -33,7 +33,7 @@ def read_csv_data(csv_path: str) -> Dict[str, Dict[str, str]]:
                 "scientific": row["Scientific"],
                 "range": row["Range"],
                 "info_content": row["InfoContent"],
-                "museum_fact": row["MuseumFact"],
+                "description": row["Description"],
             }
 
     return data
@@ -53,13 +53,13 @@ def merge_csv(csv_path: str) -> None:
             species_size, species_weight = tuple(map(str.strip, new_data["info_content"].split("/")))
             species["size"] = species_size
             species["wingspan"] = species_wingspan
-            species["description"] = new_data["museum_fact"]
+            species["description"] = new_data["description"]
 
     for clade_id, clade in data["clades"].items():
         new_data = csv_data.get(clade_id)
         if new_data:
             clade["clade"] = new_data["name"]
-            clade["description"] = new_data["museum_fact"]
+            clade["description"] = new_data["description"]
 
     # This script is the THIRD pipeline entry point, and the only one that
     # writes index.json without going through the markdown source, so an

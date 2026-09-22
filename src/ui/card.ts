@@ -44,7 +44,7 @@ export function createLockedSpeciesCard(
                     <strong>wingspan:</strong> <span>???</span>
                 </div>
                 <div class="card-fact">
-                    <strong>Museum Fact:</strong> <span>This bird remains a mystery. Play more to unlock!</span>
+                    <strong>Description:</strong> <span>This bird remains a mystery. Play more to unlock!</span>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@ export function createSpeciesCard(
                     <strong>wingspan:</strong> <span>${species.wingspan || "—"}</span>
                 </div>
                 <div class="card-fact">
-                    <strong>Museum Fact:</strong> <span>${species.description || "—"}</span>
+                    <strong>Description:</strong> <span>${species.description || "—"}</span>
                 </div>
             </div>
         </div>

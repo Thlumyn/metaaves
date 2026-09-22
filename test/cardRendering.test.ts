@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-// Museum cards against MISSING optional media.
+// Description cards against MISSING optional media.
 //
 // `src/ui/card.ts` interpolates `species.icon`, `species.image` and
 // `clade.image` straight into an `img src`, and the `Species`/`Clade` types

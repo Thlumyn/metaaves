@@ -25,6 +25,13 @@
         white-space: nowrap;
     }
 
+     .helper-box {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
     /* Third item in a bar that is pinned to ONE row (see the .top-bar note
        above), so every pixel it takes comes out of the hint chip's flex share -
        and once the chip is squeezed far enough its sentence wraps to another

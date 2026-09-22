@@ -53,6 +53,10 @@ export function initGame({ data, state, saveState, share }: GameOptions) {
         "autocomplete-box"
     ) as HTMLDivElement;
     const statBox = document.getElementById("stat-box") as HTMLDivElement;
+    const helperBox = document.getElementById("helper-box") as HTMLDivElement;
+    const helperRange = document.getElementById("helper-range") as HTMLParagraphElement;
+    const helperBill = document.getElementById("helper-bill") as HTMLParagraphElement;
+    const helperColor = document.getElementById("helper-color") as HTMLParagraphElement;
     const openPanelBtn = document.getElementById(
         "open-panel"
     ) as HTMLButtonElement;
@@ -176,6 +180,24 @@ export function initGame({ data, state, saveState, share }: GameOptions) {
 
         if (statBox) {
             statBox.textContent = `Guesses Left: ${state.guessesLeft()}`;
+        }
+
+        if (helperBox) {
+            const target = data.findSpeciesById(state.targetId);
+            const targetRange = target ? target.range : "Unknown";
+            const targetColor = target ? target.color_male : "Unknown";
+            const targetBill = target ? target.bill : "Unknown";
+            if (helperRange) {
+                helperRange.textContent = `Range: ${targetRange}`;
+            }else{
+                helperBox.textContent = `Unable to load helpers`;
+            }
+            if (helperColor) {
+                helperColor.textContent = `Color: ${targetColor}`;
+             }
+            if (helperBill) {
+                helperBill.textContent = `Bill: ${targetBill}`;
+            }
         }
 
         updateHintButton(state, hintBox, hintPractice);

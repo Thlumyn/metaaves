@@ -23,6 +23,7 @@ main {
 
 .top-bar {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     gap: 16px;
@@ -35,6 +36,11 @@ main {
        the moment the chip named its product. */
     box-sizing: border-box;
     margin: 20px auto;
+}
+
+.float-box {
+    float: left;
+    width: 60%;
 }
 
 .stat-box {
@@ -56,6 +62,33 @@ main {
     font-weight: bold;
     color: var(--amber-glow);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.helper-box {
+    pointer-events: auto;
+    /* The chip ships EMPTY and is filled by updateUI() (src/index.html), so
+       without a floor the pre-hydration frame paints a collapsed box that jumps
+       to full width on hydration - and .top-bar is space-around, so the hint
+       chip shifts with it. Same guard as .hint-box's min-height below, which is
+       why emptying #hint-text shifted nothing.
+       8em is the MEASURED content width of "Guesses Left: 25" at both the
+       1.2rem desktop and 0.9rem mobile sizes (8.02em / 7.99em), so in `em` one
+       value serves both and the floor never exceeds the hydrated width. */
+    min-width: 8em;
+    max-width: 13em;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--amber-glow);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    float:left;
+}
+
+.helper-text {
+    margin-block-start: 0.1em;
+    margin-block-end: 0.1em;
 }
 
 /* The explicit "start another round" action on the practice page. It ships in
@@ -80,6 +113,7 @@ main {
     white-space: nowrap;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     transition: 0.2s;
+    float:left;
 }
 
 .new-game-btn:hover {
@@ -115,6 +149,7 @@ main {
     gap: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     transition: 0.2s;
+    float:right;
 }
 
 .hint-box:hover:not(:disabled) {

@@ -1,5 +1,5 @@
 ---
-clade: 	Emberizoidea
+clade: Emberizoidea
 parent: passerida
 image: https://en.wikipedia.org/wiki/Emberizoidea#/media/File:Goldammer_(1)_(34888569141).jpg
 ---

@@ -20,6 +20,8 @@ SPECIES_FIELDS = [
     "color_male",
     "image",
     "icon",
+    "ebird",
+    "observations",
 ]
 CLADE_FIELDS = ["clade", "parent", "image"]
 

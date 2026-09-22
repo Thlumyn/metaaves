@@ -1,6 +1,6 @@
 # Metaaves
 
-A daily wingspan guessing game, in the shape of
+A daily bird guessing game, in the shape of
 [Metazooa](https://metazooa.com). Guess a species; the phylogenetic tree shows
 how close you landed.
 

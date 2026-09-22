@@ -383,6 +383,84 @@
             "image": "",
             "icon": "",
             "description": "A grosbeaklike bird found in the canopy of montane forests; often accompanies mixed-species flocks. Note the broad white eyebrow and black mustache, which in males contrasts with a dark gray head and back and a buff throat and belly. Females have an olive-green back, a gray face, and a buff throat and belly. Females resemble Green-winged Saltator, but with a buff (not white) throat and a heavier bill."
+        },
+        "yellow-shouldered_grosbeak": {
+            "species": "Yellow-shouldered Grosbeak",
+            "scientific": "Parkerthraustes humeralis ",
+            "clade": "parkerthraustes ",
+            "observations": "1300",
+            "range": "south america",
+            "size": "x",
+            "wingspan": "x",
+            "color_male": "yellow and gray",
+            "bill": "thick and strong",
+            "ebird": "https://ebird.org/species/yesgro2",
+            "description": "Distinctive large-billed tanager "
+        },
+        "genovesa_cactus-finch": {
+            "species": "Genovesa Cactus-Finch",
+            "scientific": "Geospiza propinqua ",
+            "clade": "geospiza",
+            "observations": "1200",
+            "range": "galapagos",
+            "size": "x",
+            "wingspan": "x",
+            "color_male": "black",
+            "bill": "large and thick and elongated",
+            "ebird": "https://ebird.org/species/gencaf1",
+            "description": "This finch is confined to the island of Genovesa "
+        },
+        "espanola_ground-finch": {
+            "species": "Espanola Ground-Finch",
+            "scientific": "Geospiza conirostris ",
+            "clade": "geospiza",
+            "observations": "1800",
+            "range": "galapagos",
+            "size": "x",
+            "wingspan": "x",
+            "color_male": "black",
+            "bill": "large and thick",
+            "ebird": "https://ebird.org/species/larcaf2",
+            "description": "A large and stout-billed galapagos finch"
+        },
+        "medium_ground-finch": {
+            "species": "Medium Ground-Finch",
+            "scientific": "Geospiza fortis ",
+            "clade": "geospiza",
+            "observations": "13000",
+            "range": "galapagos",
+            "size": "x",
+            "wingspan": "x",
+            "color_male": "black",
+            "bill": "large and thick",
+            "ebird": "https://ebird.org/species/megfin1",
+            "description": "One of the most common and conspicuous of the Galapagos finches "
+        },
+        "common_cactus-finch": {
+            "species": "Common Cactus-Finch",
+            "scientific": "Geospiza scandens ",
+            "clade": "geospiza",
+            "observations": "6000",
+            "range": "galapagos",
+            "size": "x",
+            "wingspan": "x",
+            "color_male": "black",
+            "bill": "Large elongated and conical",
+            "ebird": "https://ebird.org/species/cocfin3",
+            "description": "This cactus-loving Galapagos finch has an especially distinctive bill "
+        },
+        "sharp-beaked_ground-finch": {
+            "species": "Sharp-beaked Ground-Finch",
+            "scientific": "Geospiza difficilis ",
+            "clade": "geospiza",
+            "observations": "150",
+            "range": "galapagos",
+            "size": "x",
+            "wingspan": "x",
+            "color_male": "black",
+            "bill": "large and conical",
+            "ebird": "https://ebird.org/species/shbgrf3",
+            "description": "A wedge-billed Galapagos finch "
         }
     },
     "clades": {
@@ -528,6 +606,16 @@
             "parent": "emberizoidea",
             "image": "https://en.wikipedia.org/wiki/Tanager#/media/File:Thraupidae_Diversity.jpg",
             "description": "The tanagers comprise the bird family Thraupidae, in the order Passeriformes. The family has a Neotropical distribution and is the second-largest family of birds. It represents about 4% of all avian species and 12% of the Neotropical birds."
+        },
+        "parkerthraustes": {
+            "clade": "Parkerthraustes",
+            "parent": "thraupidae",
+            "description": "The yellow-shouldered grosbeak is the only member of its genus and has no subspecies"
+        },
+        "geospiza": {
+            "clade": "Geospiza",
+            "parent": "thraupidae",
+            "description": "Geospiza is a genus of bird in the tanager family Thraupidae. All species in the genus are endemic to the Galapagos Islands. Together with related genera they are collectively known as Darwins finches."
         }
     }
 }

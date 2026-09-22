@@ -3,11 +3,11 @@ import { GameData } from "./gameData";
 
 interface RawSpecies {
     species: string;
-    translation: string;
+    scientific: string;
     clade: string;
-    period: string;
+    range: string;
     size: string;
-    weight: string;
+    wingspan: string;
     description: string;
     image?: string;
     icon?: string;
@@ -42,11 +42,11 @@ export function buildGameData(raw: RawGameData): GameData {
     const species: Species[] = Object.entries(raw.species).map(([id, s]) => ({
         id,
         species: s.species || "",
-        translation: s.translation || "",
+        scientific: s.scientific || "",
         clade: s.clade || "",
-        period: s.period || "",
+        range: s.range || "",
         size: s.size || "",
-        weight: s.weight || "",
+        wingspan: s.wingspan || "",
         description: s.description || "",
         image: s.image || undefined,
         icon: s.icon || undefined,

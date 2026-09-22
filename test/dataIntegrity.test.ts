@@ -57,10 +57,10 @@ const TYPOGRAPHIC =
 function textFieldsOf(species: Species): [string, string][] {
     return [
         ["species", species.species],
-        ["translation", species.translation],
-        ["period", species.period],
+        ["scientific", species.scientific],
+        ["range", species.range],
         ["size", species.size],
-        ["weight", species.weight],
+        ["wingspan", species.wingspan],
         ["description", species.description],
     ];
 }

@@ -29,11 +29,11 @@ const CLADES_DIR = path.join(JURASSIC_DIR, "clades");
 
 const SPECIES_FIELDS = [
     "species",
-    "translation",
+    "scientific",
     "clade",
-    "period",
+    "range",
     "size",
-    "weight",
+    "wingspan",
     "image",
     "icon",
 ];

@@ -37,11 +37,11 @@ export function createLockedSpeciesCard(
             <div class="card-image-area card-locked-image-area">${imageHtml}</div>
             <div class="card-content">
                 <div class="card-stats">
-                    <strong>Translation:</strong> <span>???</span><br/>
+                    <strong>Scientific Name</strong> <span>???</span><br/>
                     <strong>Clade:</strong> <span>???</span><br/>
-                    <strong>Era:</strong> <span>???</span><br/>
+                    <strong>Range:</strong> <span>???</span><br/>
                     <strong>Size:</strong> <span>???</span><br/>
-                    <strong>Weight:</strong> <span>???</span>
+                    <strong>wingspan:</strong> <span>???</span>
                 </div>
                 <div class="card-fact">
                     <strong>Museum Fact:</strong> <span>This dinosaur remains a mystery. Play more to unlock!</span>
@@ -95,11 +95,11 @@ export function createSpeciesCard(
             <div class="card-image-area">${imageHtml}</div>
             <div class="card-content">
                 <div class="card-stats">
-                    <strong>Translation:</strong> <span>${species.translation || "—"}</span><br/>
+                    <strong>Scientific Name:</strong> <span>${species.scientific || "—"}</span><br/>
                     <strong>Clade:</strong> <span>${clade ? clade.name : "—"}</span><br/>
-                    <strong>Era:</strong> <span>${species.period || "—"}</span><br/>
+                    <strong>Range:</strong> <span>${species.range || "—"}</span><br/>
                     <strong>${species.size ? "Size" : "Info"}:</strong> <span>${species.size || "—"}</span><br/>
-                    <strong>Weight:</strong> <span>${species.weight || "—"}</span>
+                    <strong>wingspan:</strong> <span>${species.wingspan || "—"}</span>
                 </div>
                 <div class="card-fact">
                     <strong>Museum Fact:</strong> <span>${species.description || "—"}</span>

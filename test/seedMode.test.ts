@@ -22,11 +22,11 @@ const species: Species[] = Object.entries(rawGameData.species).map(
     ([id, s]) => ({
         id,
         species: s.species || "",
-        translation: s.translation || "",
+        scientific: s.scientific || "",
         clade: s.clade || "",
-        period: s.period || "",
+        range: s.range || "",
         size: s.size || "",
-        weight: s.weight || "",
+        wingspan: s.wingspan || "",
         description: s.description || "",
     })
 );

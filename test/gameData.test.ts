@@ -6,21 +6,21 @@ const species: Species[] = [
     {
         id: "trex",
         species: "Tyrannosaurus rex",
-        translation: "Tyrant Lizard King",
+        scientific: "Tyrant Lizard King",
         clade: "tyrannosauroidea",
-        period: "Cretaceous",
+        range: "Cretaceous",
         size: "12 m",
-        weight: "8 t",
+        wingspan: "8 t",
         description: "",
     },
     {
         id: "allosaurus",
         species: "Allosaurus",
-        translation: "Different Lizard",
+        scientific: "Different Lizard",
         clade: "theropoda",
-        period: "Jurassic",
+        range: "Jurassic",
         size: "8.5 m",
-        weight: "2 t",
+        wingspan: "2 t",
         description: "",
     },
 ];
@@ -181,11 +181,11 @@ describe("daily species mapping", () => {
         const list: Species[] = Array.from({ length: n }, (_, i) => ({
             id: `sp${i}`,
             species: `Species ${i}`,
-            translation: "",
-            clade: "dinosauria",
-            period: "",
+            scientific: "",
+            clade: "aves",
+            range: "",
             size: "",
-            weight: "",
+            wingspan: "",
             description: "",
         }));
         return new GameData(list, clades);
@@ -257,11 +257,11 @@ describe("daily species mapping on the real species list", () => {
         ([id, s]) => ({
             id,
             species: s.species || "",
-            translation: s.translation || "",
+            scientific: s.scientific || "",
             clade: s.clade || "",
-            period: s.period || "",
+            range: s.range || "",
             size: s.size || "",
-            weight: s.weight || "",
+            wingspan: s.wingspan || "",
             description: s.description || "",
         })
     );

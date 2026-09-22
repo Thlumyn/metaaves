@@ -14,8 +14,8 @@ INDEX_JSON_PATH = os.path.join(JURASSIC_PATH, "index.json")
 
 CSV_FIELDS = [
     "NodeName",
-    "Translation",
-    "Era",
+    "Scientific",
+    "Range",
     "InfoContent",
     "MuseumFact",
 ]
@@ -30,8 +30,8 @@ def read_csv_data(csv_path: str) -> Dict[str, Dict[str, str]]:
             node_name = row["NodeName"].strip().lower().replace(" ", "_")
             data[node_name] = {
                 "name": row["NodeName"],
-                "translation": row["Translation"],
-                "era": row["Era"],
+                "scientific": row["Scientific"],
+                "range": row["Range"],
                 "info_content": row["InfoContent"],
                 "museum_fact": row["MuseumFact"],
             }
@@ -48,11 +48,11 @@ def merge_csv(csv_path: str) -> None:
         new_data = csv_data.get(species_id)
         if new_data:
             species["species"] = new_data["name"]
-            species["translation"] = new_data["translation"]
-            species["period"] = new_data["era"]
+            species["scientific"] = new_data["scientific"]
+            species["range"] = new_data["range"]
             species_size, species_weight = tuple(map(str.strip, new_data["info_content"].split("/")))
             species["size"] = species_size
-            species["weight"] = species_weight
+            species["wingspan"] = species_wingspan
             species["description"] = new_data["museum_fact"]
 
     for clade_id, clade in data["clades"].items():

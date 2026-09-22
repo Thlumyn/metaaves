@@ -11,11 +11,11 @@ INDEX_JSON_PATH = os.path.join(JURASSIC_PATH, "index.json")
 
 SPECIES_FIELDS = [
     "species",
-    "translation",
+    "scientific",
     "clade",
-    "period",
+    "range",
     "size",
-    "weight",
+    "wingspan",
     "image",
     "icon",
 ]

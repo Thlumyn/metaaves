@@ -1,11 +1,11 @@
 export interface Species {
     id: string;
     species: string;
-    translation: string;
+    scientific: string;
     clade: string;
-    period: string;
+    range: string;
     size: string;
-    weight: string;
+    wingspan: string;
     description: string;
     image?: string;
     icon?: string;

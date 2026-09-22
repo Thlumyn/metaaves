@@ -31,7 +31,7 @@ translation: Zuni Horned Face
 clade: ceratopsoidea
 period: Late Cretaceous (91 Ma)
 size: 3.5 meters
-weight: 150 kilograms
+wingspan: 150 kilograms
 image: https://example.com/species/zuniceratops.png
 icon: {icon}
 ---
@@ -225,7 +225,7 @@ class JsonToMarkdownTest(unittest.TestCase):
                     "clade": "ceratopsoidea",
                     "period": "Late Cretaceous (91 Ma)",
                     "size": "3.5 meters",
-                    "weight": "150 kilograms",
+                    "wingspan": "150 kilograms",
                     "image": "https://example.com/species/zuniceratops.png",
                     "icon": icon,
                     "description": "A small horned dinosaur.",

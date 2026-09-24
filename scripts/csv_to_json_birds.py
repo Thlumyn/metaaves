@@ -135,16 +135,18 @@ def merge_csv(csv_path: str) -> None:
 
 if __name__ == "__main__":
     try:
-        merge_csv("birdspecies.csv")
+        merge_csv("cladeslist.csv")
     except ContentError as exc:
         print(f"error: {exc}", file=sys.stderr)
         sys.exit(1)
 
     try:
-        merge_csv("cladeslist.csv")
+        merge_csv("birdspecies.csv")
     except ContentError as exc:
         print(f"error: {exc}", file=sys.stderr)
         sys.exit(1)
+
+  
 
     #parser = argparse.ArgumentParser(description="Merge a data CSV into index.json")
     #parser.add_argument("csv_file", help="Path to the input CSV file")

@@ -61,14 +61,14 @@ const PAGES = {
 module.exports = async () => {
     // Get a random port in 7XXX for the UI app; useful when having multiple things running in dev.
     try {
-        process.env.METAJURASSIC_PORT = await getPort.default({
+        process.env.METAAVES_PORT = await getPort.default({
             port: getPort.portNumbers(7000, 7999),
         });
     } catch (e) {
         console.error("Failed to get a random port for the UI app:", e);
     }
 
-    const port = process.env.METAJURASSIC_PORT || 7000;
+    const port = process.env.METAAVES_PORT || 7000;
 
     return {
         entry: {

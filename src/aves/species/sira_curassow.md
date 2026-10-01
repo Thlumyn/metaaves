@@ -1,0 +1,14 @@
+---
+species: Sira Curassow
+scientific: Pauxi koepckeae
+clade: pauxi
+range: Peru
+size: x
+wingspan: x
+bill: strong and tapered with curve
+color_male: Black
+ebird: x
+observations: x
+---
+
+x

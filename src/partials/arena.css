@@ -86,8 +86,6 @@
     filter: brightness(1.2);
 }
 
-
-
 /* With the brief present the tree is anchored near the top of the arena, so the
    brief below it is readable without a scroll. The desktop 120px pushed the
    two-node starting tree far enough down that the brief fell past the fold -

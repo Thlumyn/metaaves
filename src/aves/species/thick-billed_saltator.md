@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large, short
 color_male: olive gray
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/thbsal1
 observations: 3900
 ---

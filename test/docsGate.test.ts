@@ -21,9 +21,7 @@ interface PackageJson {
 }
 
 const packageJsonPath = path.join(__dirname, "..", "package.json");
-const pkg = JSON.parse(
-    fs.readFileSync(packageJsonPath, "utf8"),
-) as PackageJson;
+const pkg = JSON.parse(fs.readFileSync(packageJsonPath, "utf8")) as PackageJson;
 
 describe("the build script", () => {
     it("builds the docs site", () => {

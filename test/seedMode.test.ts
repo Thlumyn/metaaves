@@ -1,10 +1,6 @@
 import { GameData } from "../src/gameData";
 import { Species } from "../src/types";
-import {
-    createNewGameState,
-    saveGameState,
-    GameState,
-} from "../src/gameState";
+import { createNewGameState, saveGameState, GameState } from "../src/gameState";
 import { parseSeedParam } from "../src/puzzleKey";
 import { formatGameStateForSharing } from "../src/shareText";
 import { StorageProvider } from "../src/storage";

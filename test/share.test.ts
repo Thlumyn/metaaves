@@ -260,10 +260,10 @@ describe("share message shape", () => {
     });
 
     test("the headline names the puzzle once, in both modes", () => {
-        const daily = formatGameStateForSharing(
-            playedGame(["Tyrannosaurus"]),
-            { mode: "daily", seed: 210 }
-        );
+        const daily = formatGameStateForSharing(playedGame(["Tyrannosaurus"]), {
+            mode: "daily",
+            seed: 210,
+        });
         const practice = formatGameStateForSharing(
             playedGame(["Tyrannosaurus"]),
             { mode: "practice", seed: 42 }
@@ -288,9 +288,7 @@ describe("share message shape", () => {
             { mode: "daily", seed: 1 }
         );
 
-        expect(message).toContain(
-            "https://thlumyn.github.io/metaaves"
-        );
+        expect(message).toContain("https://thlumyn.github.io/metaaves");
         expect(message.endsWith("#metaaves")).toBe(true);
     });
 });

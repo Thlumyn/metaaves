@@ -21,9 +21,11 @@ function ladderFor(
 
 describe("buildRankLadder", () => {
     it("orders rows root-first down the target's revealed chain", () => {
-        const ladder = ladderFor("species2", ["species1", "species3"], [
-            "claded",
-        ]);
+        const ladder = ladderFor(
+            "species2",
+            ["species1", "species3"],
+            ["claded"]
+        );
 
         expect(ladder.rows.map((row) => row.cladeId)).toEqual([
             "cladea",
@@ -38,9 +40,11 @@ describe("buildRankLadder", () => {
     });
 
     it("buckets each guess under the chain clade it joined the target at", () => {
-        const ladder = ladderFor("species2", ["species1", "species3"], [
-            "claded",
-        ]);
+        const ladder = ladderFor(
+            "species2",
+            ["species1", "species3"],
+            ["claded"]
+        );
 
         const bucketed = ladder.rows.map((row) => [
             row.cladeId,
@@ -54,9 +58,11 @@ describe("buildRankLadder", () => {
     });
 
     it("labels each row's provenance", () => {
-        const ladder = ladderFor("species2", ["species1", "species3"], [
-            "claded",
-        ]);
+        const ladder = ladderFor(
+            "species2",
+            ["species1", "species3"],
+            ["claded"]
+        );
 
         expect(ladder.rows.map((row) => row.provenance)).toEqual([
             "root",
@@ -66,9 +72,11 @@ describe("buildRankLadder", () => {
     });
 
     it("counts the guesses spent and the hints bought", () => {
-        const ladder = ladderFor("species2", ["species1", "species3"], [
-            "claded",
-        ]);
+        const ladder = ladderFor(
+            "species2",
+            ["species1", "species3"],
+            ["claded"]
+        );
 
         expect(ladder.guessCount).toBe(2);
         expect(ladder.hintCount).toBe(1);
@@ -174,9 +182,11 @@ describe("buildRankLadder", () => {
     // must be counted once. Its tier stays undefined - the answer is not a
     // temperature (SpeciesNode.closenessTier).
     it("lists a winning guess under the deepest revealed clade", () => {
-        const ladder = ladderFor("species2", ["species1", "species2"], [
-            "claded",
-        ]);
+        const ladder = ladderFor(
+            "species2",
+            ["species1", "species2"],
+            ["claded"]
+        );
 
         const deepest = ladder.rows[ladder.rows.length - 1];
         expect(deepest.cladeId).toBe("claded");

@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: short, robust, pointed
 color_male: brown
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/emu1
 observations: 38000
 ---

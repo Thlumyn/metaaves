@@ -1,9 +1,5 @@
 import { GameState } from "../src/gameState";
-import {
-    buildGuessTree,
-    isCladeNode,
-    isSpeciesNode,
-} from "../src/treeBuilder";
+import { buildGuessTree, isCladeNode, isSpeciesNode } from "../src/treeBuilder";
 import { makeGameData, makeState } from "./treeFixtures";
 
 describe("buildGuessTree", () => {

@@ -46,22 +46,20 @@ pattern to copy, line 124 in the same function is one of the defects.
       module.
 - [x] Add `test/constantPlurals.test.ts`, the guard, in two describes. Follow
       `test/markupConstants.test.ts` for the source scan and
-      `test/hintCap.test.ts` for the reprice half.
-      - *source scan*: recursively walk `src/` for `*.ts` (real readdir, not a
-        hardcoded list - `src/ui`, `src/game`, `src/profile` are subdirs), assert
-        the file list is non-empty before asserting over it, then assert no file
-        matches `/\$\{[^}]*\} (guess|guesses|hint|hints|attempt|attempts)\b/`.
-        Assert the matched text, not a boolean, so a failure names the site.
-        Exempt nothing; verified to have exactly the nine hits on base and no
-        false positive. This is the only guard that reaches the how-to-play
-        card template (`onboarding.ts:127,132`), which `testEnvironment: "node"`
-        puts out of unit-test reach.
-      - *reprice to 1*: `jest.isolateModules` + `jest.doMock("../src/constants",
-        ...)` with `HINT_COST: 1, MAX_GUESSES: 1`, then `require` the four
-        constant-reading copy modules and assert the exact singular sentences -
-        `hintCostAnswer()`, `guessBudgetAnswer()`, `hintChipCopy().detail`,
-        `briefCopy().budget`, `winSummary(1, 0)`, `lossSummary(1, 0)`, and the
-        loss branch of `formatGameStateForSharing()`.
+      `test/hintCap.test.ts` for the reprice half. - _source scan_: recursively walk `src/` for `*.ts` (real readdir, not a
+      hardcoded list - `src/ui`, `src/game`, `src/profile` are subdirs), assert
+      the file list is non-empty before asserting over it, then assert no file
+      matches `/\$\{[^}]*\} (guess|guesses|hint|hints|attempt|attempts)\b/`.
+      Assert the matched text, not a boolean, so a failure names the site.
+      Exempt nothing; verified to have exactly the nine hits on base and no
+      false positive. This is the only guard that reaches the how-to-play
+      card template (`onboarding.ts:127,132`), which `testEnvironment: "node"`
+      puts out of unit-test reach. - _reprice to 1_: `jest.isolateModules` + `jest.doMock("../src/constants",
+      ...)` with `HINT_COST: 1, MAX_GUESSES: 1`, then `require` the four
+      constant-reading copy modules and assert the exact singular sentences -
+      `hintCostAnswer()`, `guessBudgetAnswer()`, `hintChipCopy().detail`,
+      `briefCopy().budget`, `winSummary(1, 0)`, `lossSummary(1, 0)`, and the
+      loss branch of `formatGameStateForSharing()`.
 - [x] Create `src/plural.ts`: move `plural()` out of `src/gameOverCopy.ts:11-13`
       verbatim and export it, with a doc comment naming why it is its own module
       (DECISION.md). Import it back into `gameOverCopy.ts`; `split()` is
@@ -98,7 +96,7 @@ pattern to copy, line 124 in the same function is one of the defects.
   / "1 attempt". (test: jest `test/constantPlurals.test.ts` reprice to 1)
 - Every shipped sentence is unchanged at the current values - this is a latent
   fix, not a copy change. (cmd: `npx jest test/faqCopy test/onboarding
-  test/gameOverCopy test/share test/markupConstants`)
+test/gameOverCopy test/share test/markupConstants`)
 - Coverage gate still clears with a new module and two new suites in scope.
   (cmd: `npm run ci`)
 - Production bundle builds. (cmd: `npm run build`)

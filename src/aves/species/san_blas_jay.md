@@ -8,7 +8,7 @@ wingspan: x
 bill: long sharp and slightly curved
 color_male: blue and black
 ebird: x
-observations: 
+observations:
 ---
 
 A jay

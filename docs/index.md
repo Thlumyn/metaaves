@@ -14,7 +14,7 @@ answers with how close you landed.
 | Replay a specific round, or play more than once a day | [Practice and seeds](/practice-and-seeds) |
 | Browse every species and clade in the game            | [Archives](/archives)                     |
 | Understand your stats, streaks and the round summary  | [Profile and ranks](/profile-and-ranks)   |
-| Add or correct a bird                             | [Content pipeline](/content-pipeline)     |
+| Add or correct a bird                                 | [Content pipeline](/content-pipeline)     |
 | Find your way around the repository                   | [Architecture](/architecture)             |
 
 ## What this site is not

@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large, short
 color_male: gray
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/bltgro2
 observations: 10000
 ---

@@ -44,10 +44,7 @@ describe("loadAllGames", () => {
             seed: 1,
         };
 
-        storage.setItem(
-            "gameState-bird-#00001",
-            JSON.stringify(gameState1)
-        );
+        storage.setItem("gameState-bird-#00001", JSON.stringify(gameState1));
 
         const games = loadAllGames(gameData, storage, "daily");
 
@@ -76,10 +73,7 @@ describe("loadAllGames", () => {
             seed: 2,
         };
 
-        storage.setItem(
-            "gameState-bird-#00001",
-            JSON.stringify(dailyState)
-        );
+        storage.setItem("gameState-bird-#00001", JSON.stringify(dailyState));
         storage.setItem(
             "gameState-practice-bird-#00002",
             JSON.stringify(practiceState)
@@ -378,10 +372,7 @@ describe("computeGameStats", () => {
             seed: 1,
         };
 
-        storage.setItem(
-            "gameState-practice-bird-#00001",
-            JSON.stringify(game)
-        );
+        storage.setItem("gameState-practice-bird-#00001", JSON.stringify(game));
 
         const stats = computeGameStats(gameData, storage, "practice");
 

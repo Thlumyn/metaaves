@@ -32,9 +32,7 @@ describe("speciesInClade", () => {
     });
 
     it("returns every species for the root clade", () => {
-        expect(speciesInClade(data, "aves")).toHaveLength(
-            data.species.length
-        );
+        expect(speciesInClade(data, "aves")).toHaveLength(data.species.length);
         expect(data.species).toHaveLength(150);
     });
 

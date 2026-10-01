@@ -11,8 +11,8 @@ puzzle. Edit the Markdown and regenerate.
 
 ## The shape of it
 
-| Path                        | What it is                                   |
-| --------------------------- | -------------------------------------------- |
+| Path                    | What it is                                   |
+| ----------------------- | -------------------------------------------- |
 | `src/aves/species/*.md` | One file per species. Canonical.             |
 | `src/aves/clades/*.md`  | One file per clade. Canonical.               |
 | `src/aves/index.json`   | Generated runtime graph. Loaded by the game. |
@@ -91,11 +91,11 @@ given that no shipped browser path parses frontmatter, is recorded in
 
 Content tests run against the **real** `src/aves/index.json`, never a mock.
 
-| Test                                                                                                              | Checks                                              |
-| ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| Test                                                                                                       | Checks                                              |
+| ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | [`test/contentSource.test.ts`](https://github.com/thlumyn/metaaves/blob/master/test/contentSource.test.ts) | Markdown/JSON round-trip, and a stale-payload guard |
 | [`test/dataIntegrity.test.ts`](https://github.com/thlumyn/metaaves/blob/master/test/dataIntegrity.test.ts) | Graph shape, id uniqueness, media, render safety    |
-| `npm run test:pipeline`                                                                                           | The Python converters themselves                    |
+| `npm run test:pipeline`                                                                                    | The Python converters themselves                    |
 
 So a regenerated `index.json` that was not committed, or a Markdown edit that
 was not regenerated, fails CI rather than shipping.

@@ -2,7 +2,7 @@
 species: Mauritius Duck
 scientific: Anas theodori
 clade: anas
-range: Mauritius 
+range: Mauritius
 size: x
 wingspan: x
 bill: extinct

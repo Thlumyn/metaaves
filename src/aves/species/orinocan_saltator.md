@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large
 color_male: gray, orange
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/orisal1
 observations: 5000
 ---

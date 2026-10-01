@@ -1,6 +1,6 @@
 ---
 species: Woodpecker Finch
-scientific: Camarhynchus pallidus 
+scientific: Camarhynchus pallidus
 clade: camarhynchus
 range: galapagos
 size: x
@@ -11,4 +11,4 @@ ebird: x
 observations: x
 ---
 
-A Galapagos finch 
+A Galapagos finch

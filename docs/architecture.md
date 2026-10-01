@@ -15,7 +15,7 @@ is the shape of the build; it links there rather than copying it.
 | `src/`                                         | App source. Core: `game/`, `gameState.ts`, `gameData.ts`, `treeBuilder.ts`, `hintRule.ts`, `puzzleKey.ts`, `shareText.ts`, `rankLadder.ts` |
 | `src/ui/`                                      | UI widgets: tree rendering and navigation, panel, cards, modal, share                                                                      |
 | `src/*.html`, `src/style.css`, `src/partials/` | Page templates and Tailwind styles                                                                                                         |
-| `src/aves/`                                | Authored content and the generated graph - see [Content pipeline](/content-pipeline)                                                       |
+| `src/aves/`                                    | Authored content and the generated graph - see [Content pipeline](/content-pipeline)                                                       |
 | `scripts/*.py`                                 | Content conversion and its tests                                                                                                           |
 | `scripts/playtest/*.ts`                        | Game simulations and a visual walkthrough. Outside CI                                                                                      |
 | `test/`                                        | Jest                                                                                                                                       |
@@ -93,11 +93,11 @@ Everything is `localStorage`, behind the `StorageProvider` seam in
 [`src/storage.ts`](https://github.com/thlumyn/metaaves/blob/master/src/storage.ts)
 so logic can be tested without a DOM.
 
-| Key                                  | Holds                                      |
-| ------------------------------------ | ------------------------------------------ |
+| Key                              | Holds                                      |
+| -------------------------------- | ------------------------------------------ |
 | `gameState-bird-#NNNNN`          | One daily round                            |
 | `gameState-practice-bird-#NNNNN` | One practice round                         |
-| `practice-current`                   | The seed of the practice round in progress |
+| `practice-current`               | The seed of the practice round in progress |
 
 There is no separate stats record. The saved rounds **are** the stats -
 `loadAllGames` scans storage keys and rebuilds each finished round. Key format
@@ -110,7 +110,7 @@ and parse are exact inverses, in
 | -------------------------- | ---------------------------------------------------------------------------------------- |
 | Local gate                 | `npm run ci` - format check, lint, Python pipeline tests, Jest with coverage, Playwright |
 | `.github/workflows/ci.yml` | The gate on Node 20 and 22, plus a separate `build` job on Node 22                       |
-| Pages workflow             | `npm run build` with `PUBLIC_PATH=/metaaves/`, then deploys `dist/`                  |
+| Pages workflow             | `npm run build` with `PUBLIC_PATH=/metaaves/`, then deploys `dist/`                      |
 
 `npm run build` runs **two** builders into one output directory: webpack for the
 game, then VitePress for this site into `dist/docs/`. The order is load-bearing.

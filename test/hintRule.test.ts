@@ -120,9 +120,7 @@ describe("findNextHintCladeId over the real payload", () => {
             const state = new GameState(data, target.id);
             const hint = findNextHintCladeId(state);
             if (!hint) continue;
-            const inside = data.species.filter((s) =>
-                inClade(s, hint)
-            ).length;
+            const inside = data.species.filter((s) => inClade(s, hint)).length;
             if (inside <= data.species.length * HINT_SPLIT_FRACTION) halved++;
         }
         // Not all: the fallback branch exists precisely because some lineages

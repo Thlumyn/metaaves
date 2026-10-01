@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large
 color_male: olive-green
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/leasal1
 observations: 14000
 ---

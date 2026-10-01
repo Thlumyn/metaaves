@@ -1,6 +1,6 @@
 ---
 species: Mangrove Finch
-scientific: Camarhynchus heliobates 
+scientific: Camarhynchus heliobates
 clade: camarhynchus
 range: galapagos
 size: x
@@ -11,4 +11,4 @@ ebird: x
 observations: x
 ---
 
-A Galapagos finch 
+A Galapagos finch

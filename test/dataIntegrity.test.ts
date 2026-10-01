@@ -51,8 +51,7 @@ const HTMLISH = /[<>]|&[a-zA-Z]+;|&#\d+;/;
 // correct, so a blanket rule would delete real information. Written with
 // `\uXXXX` escapes so this file stays ASCII and does not trip its own rule.
 // U+2010-U+2015 dashes, curly quotes, ellipsis, minus sign.
-const TYPOGRAPHIC =
-    /[\u2010-\u2015\u2018\u2019\u201C\u201D\u2026\u2212]/;
+const TYPOGRAPHIC = /[\u2010-\u2015\u2018\u2019\u201C\u201D\u2026\u2212]/;
 
 function textFieldsOf(species: Species): [string, string][] {
     return [

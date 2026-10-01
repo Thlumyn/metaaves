@@ -41,9 +41,7 @@ for (const route of routes) {
         page,
     }) => {
         await page.goto(route.path);
-        await expect(page.locator("header .game-title")).toHaveText(
-            "Metaaves"
-        );
+        await expect(page.locator("header .game-title")).toHaveText("Metaaves");
         await expect(route.primary(page).first()).toBeVisible();
     });
 }

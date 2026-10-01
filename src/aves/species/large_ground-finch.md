@@ -1,7 +1,7 @@
 ---
 species: Large Ground-Finch
-scientific: Geospiza magnirostris 
-clade: geospiza 
+scientific: Geospiza magnirostris
+clade: geospiza
 range: galapagos
 size: x
 wingspan: x
@@ -11,4 +11,4 @@ ebird: x
 observations: x
 ---
 
-A Galapagos finch 
+A Galapagos finch

@@ -1,6 +1,6 @@
 ---
 species: Plush-crested Jay
-scientific: Cyanocorax chrysops 
+scientific: Cyanocorax chrysops
 clade: cyanocorax
 range: south america
 size: x
@@ -8,7 +8,7 @@ wingspan: x
 bill: long sharp and slightly curved
 color_male: blue
 ebird: x
-observations: 
+observations:
 ---
 
 A jay

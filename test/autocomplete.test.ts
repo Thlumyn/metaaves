@@ -89,11 +89,7 @@ describe("findMatches truncation vs guessed species", () => {
         const first = findMatches(speciesNames, "saur", noneGuessed);
         expect(first).toHaveLength(MAX_SUGGESTIONS);
 
-        const second = findMatches(
-            speciesNames,
-            "saur",
-            guessedFrom(first)
-        );
+        const second = findMatches(speciesNames, "saur", guessedFrom(first));
 
         expect(second).toHaveLength(MAX_SUGGESTIONS);
         expect(second.filter((name) => first.includes(name))).toEqual([]);

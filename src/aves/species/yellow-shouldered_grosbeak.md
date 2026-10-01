@@ -1,7 +1,7 @@
 ---
 species: Yellow-shouldered Grosbeak
-scientific: Parkerthraustes humeralis 
-clade: parkerthraustes 
+scientific: Parkerthraustes humeralis
+clade: parkerthraustes
 range: south america
 size: x
 wingspan: x
@@ -11,4 +11,4 @@ ebird: https://ebird.org/species/yesgro2
 observations: 1300
 ---
 
-Distinctive large-billed tanager 
+Distinctive large-billed tanager

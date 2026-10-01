@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large
 color_male: yellow, gray
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/blhsal1
 observations: 183000
 ---

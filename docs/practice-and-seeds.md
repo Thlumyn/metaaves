@@ -77,11 +77,11 @@ only cleared when it actually names the seed being finished, so completing a
 
 ## Storage and retention
 
-| Key                                  | Holds                                       |
-| ------------------------------------ | ------------------------------------------- |
+| Key                              | Holds                                       |
+| -------------------------------- | ------------------------------------------- |
 | `gameState-bird-#NNNNN`          | A daily round                               |
 | `gameState-practice-bird-#NNNNN` | A practice round                            |
-| `practice-current`                   | The seed of the practice round being played |
+| `practice-current`               | The seed of the practice round being played |
 
 Key formatting and parsing are exact inverses over the residue ring, in
 [`src/puzzleKey.ts`](https://github.com/thlumyn/metaaves/blob/master/src/puzzleKey.ts).

@@ -21,14 +21,14 @@ renders it.
 Daily and practice are computed **separately** and shown on their own tabs, so
 practice can never inflate a daily streak.
 
-| Shown                                                 | Computed by                                    |
-| ----------------------------------------------------- | ---------------------------------------------- |
-| Games played, wins, losses, win rate                  | `computeGameStats`                             |
-| Average guesses                                       | `formatAverageGuesses`                         |
-| Current and longest streak                            | `calculateStreak`                              |
-| Guess distribution over winning rounds                | `renderGuessDistribution`                      |
+| Shown                                             | Computed by                                |
+| ------------------------------------------------- | ------------------------------------------ |
+| Games played, wins, losses, win rate              | `computeGameStats`                         |
+| Average guesses                                   | `formatAverageGuesses`                     |
+| Current and longest streak                        | `calculateStreak`                          |
+| Guess distribution over winning rounds            | `renderGuessDistribution`                  |
 | birds discovered, as a fraction of the collection | `allGuessedbirds` against the species list |
-| Rolling average of recent rounds                      | `calculateRollingAverage`                      |
+| Rolling average of recent rounds                  | `calculateRollingAverage`                  |
 
 All of the stats functions live in
 [`src/gameStats.ts`](https://github.com/thlumyn/metaaves/blob/master/src/gameStats.ts).

@@ -22,9 +22,7 @@ interface PackageJson {
 }
 
 const packageJsonPath = path.join(__dirname, "..", "package.json");
-const pkg = JSON.parse(
-    fs.readFileSync(packageJsonPath, "utf8"),
-) as PackageJson;
+const pkg = JSON.parse(fs.readFileSync(packageJsonPath, "utf8")) as PackageJson;
 
 // `npm run <step>` where <step> ends there - so `lint` does not match
 // `lint:fix`, and `test` does not match `test:e2e`.
@@ -57,7 +55,7 @@ describe("the lint script", () => {
         // comment.
         const workflow = fs.readFileSync(
             path.join(__dirname, "..", ".github", "workflows", "ci.yml"),
-            "utf8",
+            "utf8"
         );
         expect(workflow).toMatch(/run:\s*npm run lint(?![:\w-])/);
     });

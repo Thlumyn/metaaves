@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large
 color_male: slate-gray
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/slcgro1
 observations: 28000
 ---

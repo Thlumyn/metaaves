@@ -54,9 +54,15 @@ export function initGame({ data, state, saveState, share }: GameOptions) {
     ) as HTMLDivElement;
     const statBox = document.getElementById("stat-box") as HTMLDivElement;
     const helperBox = document.getElementById("helper-box") as HTMLDivElement;
-    const helperRange = document.getElementById("helper-range") as HTMLParagraphElement;
-    const helperBill = document.getElementById("helper-bill") as HTMLParagraphElement;
-    const helperColor = document.getElementById("helper-color") as HTMLParagraphElement;
+    const helperRange = document.getElementById(
+        "helper-range"
+    ) as HTMLParagraphElement;
+    const helperBill = document.getElementById(
+        "helper-bill"
+    ) as HTMLParagraphElement;
+    const helperColor = document.getElementById(
+        "helper-color"
+    ) as HTMLParagraphElement;
     const openPanelBtn = document.getElementById(
         "open-panel"
     ) as HTMLButtonElement;
@@ -189,12 +195,12 @@ export function initGame({ data, state, saveState, share }: GameOptions) {
             const targetBill = target ? target.bill : "Unknown";
             if (helperRange) {
                 helperRange.textContent = `Range: ${targetRange}`;
-            }else{
+            } else {
                 helperBox.textContent = `Unable to load helpers`;
             }
             if (helperColor) {
                 helperColor.textContent = `Color: ${targetColor}`;
-             }
+            }
             if (helperBill) {
                 helperBill.textContent = `Bill: ${targetBill}`;
             }

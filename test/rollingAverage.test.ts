@@ -68,10 +68,7 @@ describe("calculateRollingAverage", () => {
             seed: 1,
         };
 
-        storage.setItem(
-            "gameState-practice-bird-#00001",
-            JSON.stringify(game)
-        );
+        storage.setItem("gameState-practice-bird-#00001", JSON.stringify(game));
 
         const avg = calculateRollingAverage(
             gameData,

@@ -18,7 +18,7 @@ import { StorageProvider } from "../src/storage";
 const makeGameData = () => {
     const species: Species[] = [
         {
-        id: "emu",
+            id: "emu",
             species: "Emu",
             scientific: "Dromaius novaehollandiae",
             clade: "casuariiformes",
@@ -232,7 +232,11 @@ describe("saveGameState and loadGameState", () => {
     });
 
     test("saves and loads game state correctly", () => {
-        const state = new GameState(gameData, "emu", new Set(["common_ostrich"]));
+        const state = new GameState(
+            gameData,
+            "emu",
+            new Set(["common_ostrich"])
+        );
         state.lastGuessId = "common_ostrich";
 
         saveGameState(state, 1, storage, "daily");
@@ -275,7 +279,11 @@ describe("saveGameState and loadGameState", () => {
     });
 
     test("saves practice mode state separately", () => {
-        const state = new GameState(gameData, "emu", new Set(["common_ostrich"]));
+        const state = new GameState(
+            gameData,
+            "emu",
+            new Set(["common_ostrich"])
+        );
 
         saveGameState(state, 1, storage, "practice");
         const loadedPractice = loadGameState(gameData, 1, storage, "practice");
@@ -419,9 +427,7 @@ describe("gameStateKey <-> parseGameStateKey round-trip", () => {
         // seed 99999 previously rendered as a 6-digit "100000" key that the
         // parse regex rejected outright; the wrap keeps it 5 digits.
         expect(gameStateKey(99999, "daily")).toBe("gameState-bird-#00000");
-        expect(parseGameStateKey("gameState-bird-#00000")?.seed).toBe(
-            99999
-        );
+        expect(parseGameStateKey("gameState-bird-#00000")?.seed).toBe(99999);
     });
 
     test("normalizes negative practice seeds into the modulus", () => {

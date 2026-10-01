@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large
 color_male: olive-brown
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/bltsal1
 observations: 11000
 ---

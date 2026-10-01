@@ -1,6 +1,6 @@
 ---
 species: Genovesa Cactus-Finch
-scientific: Geospiza propinqua 
+scientific: Geospiza propinqua
 clade: geospiza
 range: galapagos
 size: x
@@ -11,4 +11,4 @@ ebird: https://ebird.org/species/gencaf1
 observations: 1200
 ---
 
-This finch is confined to the island of Genovesa 
+This finch is confined to the island of Genovesa

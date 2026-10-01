@@ -1,6 +1,6 @@
 ---
 species: Espanola Ground-Finch
-scientific: Geospiza conirostris 
+scientific: Geospiza conirostris
 clade: geospiza
 range: galapagos
 size: x

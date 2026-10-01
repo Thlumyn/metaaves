@@ -1,6 +1,6 @@
 ---
 species: Medium Ground-Finch
-scientific: Geospiza fortis 
+scientific: Geospiza fortis
 clade: geospiza
 range: galapagos
 size: x
@@ -11,4 +11,4 @@ ebird: https://ebird.org/species/megfin1
 observations: 13000
 ---
 
-One of the most common and conspicuous of the Galapagos finches 
+One of the most common and conspicuous of the Galapagos finches

@@ -1,6 +1,6 @@
 ---
 species: Common Cactus-Finch
-scientific: Geospiza scandens 
+scientific: Geospiza scandens
 clade: geospiza
 range: galapagos
 size: x
@@ -11,4 +11,4 @@ ebird: https://ebird.org/species/cocfin3
 observations: 6000
 ---
 
-This cactus-loving Galapagos finch has an especially distinctive bill 
+This cactus-loving Galapagos finch has an especially distinctive bill

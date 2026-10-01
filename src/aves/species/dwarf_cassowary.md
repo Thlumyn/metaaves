@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: short, robust, pointed
 color_male: black
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/dwacas1
 observations: 100
 ---

@@ -1,6 +1,6 @@
 ---
 species: Large Tree-Finch
-scientific: Camarhynchus psittacula 
+scientific: Camarhynchus psittacula
 clade: camarhynchus
 range: galapagos
 size: x
@@ -11,4 +11,4 @@ ebird: x
 observations: x
 ---
 
-A Galapagos finch 
+A Galapagos finch

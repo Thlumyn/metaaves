@@ -4,7 +4,7 @@ import rawGameData from "../src/aves/index.json";
 
 const species: Species[] = [
     {
-       id: "emu",
+        id: "emu",
         species: "Emu",
         scientific: "Dromaius novaehollandiae",
         clade: "casuariiformes",
@@ -53,9 +53,7 @@ describe("GameData", () => {
     const gameData = new GameData(species, clades);
 
     test("finds species by name case-insensitively", () => {
-        expect(gameData.findSpeciesByName("emu")?.id).toBe(
-            "emu"
-        );
+        expect(gameData.findSpeciesByName("emu")?.id).toBe("emu");
         expect(gameData.findSpeciesByName("EMU")?.id).toBe("emu");
         expect(gameData.findSpeciesByName("unknown")).toBeNull();
     });
@@ -63,12 +61,14 @@ describe("GameData", () => {
     test("computes lineage from clade to root", () => {
         expect(gameData.lineage("struthiformes")).toEqual([
             "struthiformes",
-            "palaeognathae"
+            "palaeognathae",
         ]);
     });
 
     test("computes lowest common ancestor between species", () => {
-        expect(gameData.computeLCA("emu", "common_ostrich")).toBe("palaeognathae");
+        expect(gameData.computeLCA("emu", "common_ostrich")).toBe(
+            "palaeognathae"
+        );
     });
 
     test("returns deterministic daily index", () => {
@@ -81,9 +81,7 @@ describe("GameData", () => {
     });
 
     test("findSpeciesById returns correct species", () => {
-        expect(gameData.findSpeciesById("emu")?.species).toBe(
-            "Emu"
-        );
+        expect(gameData.findSpeciesById("emu")?.species).toBe("Emu");
         expect(gameData.findSpeciesById("common_ostrich")?.species).toBe(
             "Common Ostrich"
         );
@@ -97,14 +95,18 @@ describe("GameData", () => {
         expect(gameData.findCladeById("casuariiformes")?.name).toBe(
             "Casuariiformes"
         );
-        expect(gameData.findCladeById("palaeognathae")?.name).toBe("Palaeognathae");
+        expect(gameData.findCladeById("palaeognathae")?.name).toBe(
+            "Palaeognathae"
+        );
     });
 
     test("findCladeById is case-insensitive", () => {
         expect(gameData.findCladeById("palaeognathae")?.name).toBe(
             "Palaeognathae"
         );
-        expect(gameData.findCladeById("pAlAeOgnathAe")?.name).toBe("Palaeognathae");
+        expect(gameData.findCladeById("pAlAeOgnathAe")?.name).toBe(
+            "Palaeognathae"
+        );
     });
 
     test("findCladeById returns null for non-existent id", () => {

@@ -1,7 +1,7 @@
 ---
 species: Genovesa Ground-Finch
-scientific: Geospiza acutirostris 
-clade: geospiza 
+scientific: Geospiza acutirostris
+clade: geospiza
 range: galapagos
 size: x
 wingspan: x
@@ -11,4 +11,4 @@ ebird: x
 observations: x
 ---
 
-A wedge-billed Galapagos finch 
+A wedge-billed Galapagos finch

@@ -45,7 +45,9 @@ describe("the E2E daily-key mirror tracks the shipped formula", () => {
             const real = gameStateKey(getTodaySeed(), "daily");
             const mirrored = dailyKeyForNow();
             if (real !== mirrored) {
-                mismatches.push(`${instant.toString()}: ${real} != ${mirrored}`);
+                mismatches.push(
+                    `${instant.toString()}: ${real} != ${mirrored}`
+                );
             }
         }
 

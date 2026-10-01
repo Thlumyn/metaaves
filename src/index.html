@@ -22,11 +22,11 @@
             <div class="game-container">
                 <div class="top-bar">
                     <div class="float-box">
-                    <!-- Filled by updateUI() in src/game/index.ts, which runs
+                        <!-- Filled by updateUI() in src/game/index.ts, which runs
                          unconditionally at init; the count comes from
                          MAX_GUESSES rather than being typed in here. -->
-                    <div class="stat-box" id="stat-box"></div>
-                    <!-- Practice-only, and hidden by default. This template is
+                        <div class="stat-box" id="stat-box"></div>
+                        <!-- Practice-only, and hidden by default. This template is
                             registered TWICE in webpack.config.js - once as the
                             daily page, once as /practice/ - so a practice-only
                             control has to ship inert on the daily page rather than
@@ -54,7 +54,7 @@
                                 HINT_COST rather than being typed in here. -->
                             <div class="hint-text" id="hint-text"></div>
                         </button>
-                    <!-- The game-over occupant of the same slot. A link inside a
+                        <!-- The game-over occupant of the same slot. A link inside a
                          button is invalid and resolves unpredictably, so the
                          practice route is a sibling <a> and the two swap
                          `hidden`. See tasks/20260729-212743/DECISION.md, fork 2.
@@ -65,7 +65,9 @@
                             href="<%= htmlWebpackPlugin.options.basePath %>practice"
                             hidden
                         >
-                            <div class="hint-text"><strong>Practice</strong></div>
+                            <div class="hint-text">
+                                <strong>Practice</strong>
+                            </div>
                         </a>
                     </div>
                 </div>

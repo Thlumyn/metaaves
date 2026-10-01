@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large
 color_male: rufous
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/mccfin1
 observations: 11000
 ---

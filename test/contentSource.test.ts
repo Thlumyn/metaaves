@@ -183,7 +183,9 @@ describe("authored markdown source", () => {
                 "https://thlumyn.github.io/metaaves-images/clades/ceratosauria.svg"
             )
         ).toBe(false);
-        expect(isSerializedCollection("Late Jurassic (153-148 Ma)")).toBe(false);
+        expect(isSerializedCollection("Late Jurassic (153-148 Ma)")).toBe(
+            false
+        );
     });
 });
 

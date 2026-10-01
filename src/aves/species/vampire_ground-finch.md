@@ -1,7 +1,7 @@
 ---
 species: Vampire Ground-Finch
-scientific: Geospiza septentrionalis 
-clade: geospiza 
+scientific: Geospiza septentrionalis
+clade: geospiza
 range: galapagos
 size: x
 wingspan: x
@@ -11,4 +11,4 @@ ebird: x
 observations: x
 ---
 
-A Galapagos finch 
+A Galapagos finch

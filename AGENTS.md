@@ -16,18 +16,18 @@ Start here, then run `tatr ls --sort priority`.
 
 ## Repository map
 
-| Path | Purpose |
-|------|---------|
-| `src/` | App source. Core: `game/` (DOM wiring and the round's units), `gameState.ts`, `gameData.ts`, `treeBuilder.ts`, `hintRule.ts`, `puzzleKey.ts`, `shareText.ts`, `rankLadder.ts`. UI widgets: `src/ui/`. |
-| `src/*.html`, `src/style.css`, `src/partials/` | Page templates and Tailwind styles. `src/style.css` is the entry: `@tailwind` directives plus one `@import` per surface partial, in cascade order. `webpack-partials.js` adds the shared header/footer and injects `src/_head.html` (social/SEO metadata) at each page's `<!-- social-head -->` marker, filling per-page options from `webpack.config.js`. |
-| `src/aves/species/*.md`, `src/aves/clades/*.md` | Canonical content. |
-| `src/aves/index.json` | Generated runtime graph. Never hand-edit. `species` and `clades` are in sorted id order, and that order picks the daily answer, so a re-order re-points every puzzle. |
-| `scripts/*.py` | Content conversion and pipeline tests. |
-| `scripts/playtest/*.ts` | Game simulations and visual walkthrough. Outside CI. |
-| `scripts/og-image.ts` | Renders `src/assets/og-image.html` to the committed `src/assets/og-image.png` link-preview card. Outside CI. |
-| `test/` | Jest tests. |
-| `e2e/` | Playwright browser tests. |
-| `tasks/` | Versioned tatr task, review, decision, retro, and notes records. |
+| Path                                            | Purpose                                                                                                                                                                                                                                                                                                                                                    |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/`                                          | App source. Core: `game/` (DOM wiring and the round's units), `gameState.ts`, `gameData.ts`, `treeBuilder.ts`, `hintRule.ts`, `puzzleKey.ts`, `shareText.ts`, `rankLadder.ts`. UI widgets: `src/ui/`.                                                                                                                                                      |
+| `src/*.html`, `src/style.css`, `src/partials/`  | Page templates and Tailwind styles. `src/style.css` is the entry: `@tailwind` directives plus one `@import` per surface partial, in cascade order. `webpack-partials.js` adds the shared header/footer and injects `src/_head.html` (social/SEO metadata) at each page's `<!-- social-head -->` marker, filling per-page options from `webpack.config.js`. |
+| `src/aves/species/*.md`, `src/aves/clades/*.md` | Canonical content.                                                                                                                                                                                                                                                                                                                                         |
+| `src/aves/index.json`                           | Generated runtime graph. Never hand-edit. `species` and `clades` are in sorted id order, and that order picks the daily answer, so a re-order re-points every puzzle.                                                                                                                                                                                      |
+| `scripts/*.py`                                  | Content conversion and pipeline tests.                                                                                                                                                                                                                                                                                                                     |
+| `scripts/playtest/*.ts`                         | Game simulations and visual walkthrough. Outside CI.                                                                                                                                                                                                                                                                                                       |
+| `scripts/og-image.ts`                           | Renders `src/assets/og-image.html` to the committed `src/assets/og-image.png` link-preview card. Outside CI.                                                                                                                                                                                                                                               |
+| `test/`                                         | Jest tests.                                                                                                                                                                                                                                                                                                                                                |
+| `e2e/`                                          | Playwright browser tests.                                                                                                                                                                                                                                                                                                                                  |
+| `tasks/`                                        | Versioned tatr task, review, decision, retro, and notes records.                                                                                                                                                                                                                                                                                           |
 
 Ignored outputs: `dist/`, `*.csv`, `*metaaves.json`, `coverage/`,
 `test-results/`, `playtest-shots/`.
@@ -69,11 +69,11 @@ npm run ci                # required local gate
 
 Author markdown first. Regenerate the checked-in runtime graph.
 
-| Command | Direction |
-|---------|-----------|
-| `python3 scripts/markdown_to_json.py` | Markdown -> `src/aves/index.json` plus ignored tree JSON |
-| `python3 scripts/json_to_markdown.py` | JSON -> markdown source layout |
-| `python3 scripts/csv_to_json.py <csv>` | CSV merge -> JSON; sync changes back to markdown |
+| Command                                | Direction                                                |
+| -------------------------------------- | -------------------------------------------------------- |
+| `python3 scripts/markdown_to_json.py`  | Markdown -> `src/aves/index.json` plus ignored tree JSON |
+| `python3 scripts/json_to_markdown.py`  | JSON -> markdown source layout                           |
+| `python3 scripts/csv_to_json.py <csv>` | CSV merge -> JSON; sync changes back to markdown         |
 
 - Pipeline rejects non-string values and serialized collections before writes.
 - After an intended CSV merge: run `json_to_markdown.py`, review markdown, then
@@ -102,12 +102,12 @@ Author markdown first. Regenerate the checked-in runtime graph.
 
 Outside `npm run ci`.
 
-| Command | Purpose |
-|---------|---------|
-| `npm run playtest:difficulty` | Simulate all targets and guess distribution. |
-| `npm run playtest:hint` | Compare hint value and cost. |
-| `npm run playtest:walkthrough` | Capture real screens to `playtest-shots/`; requires dev server. |
-| `npm run og:image` | Re-render the link-preview card to `src/assets/og-image.png`; commit the result. |
+| Command                        | Purpose                                                                          |
+| ------------------------------ | -------------------------------------------------------------------------------- |
+| `npm run playtest:difficulty`  | Simulate all targets and guess distribution.                                     |
+| `npm run playtest:hint`        | Compare hint value and cost.                                                     |
+| `npm run playtest:walkthrough` | Capture real screens to `playtest-shots/`; requires dev server.                  |
+| `npm run og:image`             | Re-render the link-preview card to `src/assets/og-image.png`; commit the result. |
 
 - Difficulty and hint rigs import shipped game logic.
 - Hint rig cross-checks its rule reproduction against `findNextHintCladeId`.
@@ -117,11 +117,11 @@ Outside `npm run ci`.
 
 ## CI and deploy
 
-| Path | Environment | Checks |
-|------|-------------|--------|
-| Local | Nix dev shell | `npm run ci`; run `npm run build` when relevant |
-| `.github/workflows/ci.yml` | Ubuntu, Node 20 and 22 | Gate steps separately; build job on Node 22 |
-| `.github/workflows/gh-pages.yaml` | Ubuntu, Node 18 | Build with `PUBLIC_PATH=/metaaves/`; deploy `dist/` from `master` |
+| Path                              | Environment            | Checks                                                            |
+| --------------------------------- | ---------------------- | ----------------------------------------------------------------- |
+| Local                             | Nix dev shell          | `npm run ci`; run `npm run build` when relevant                   |
+| `.github/workflows/ci.yml`        | Ubuntu, Node 20 and 22 | Gate steps separately; build job on Node 22                       |
+| `.github/workflows/gh-pages.yaml` | Ubuntu, Node 18        | Build with `PUBLIC_PATH=/metaaves/`; deploy `dist/` from `master` |
 
 Environment-specific failure: check Node-version drift first.
 
@@ -130,21 +130,21 @@ Environment-specific failure: check Node-version drift first.
 Keep a comment for what a reader cannot recover without it. Not for what it
 took to learn, and not for who learned it.
 
-| Keep | Form |
-|------|------|
-| Public API contract | docstring above the exported symbol |
-| Non-obvious constraint or guard: "do not change this", a browser quirk, an ordering or specificity dependency | one compact line or short block at the site |
-| Why an assertion has its particular form: exact values not a property, this viewport, both branches, here and not there | at the assertion, at whatever length it needs |
-| A defect shape, value, or invariant the code still defends | at the site |
-| Record pointer | one line, after the constraint it explains |
-| Live tracker marker | `NOTE:` / `FIXME:` / `TODO:` / `BUG:` plus the tatr ID |
+| Keep                                                                                                                    | Form                                                   |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Public API contract                                                                                                     | docstring above the exported symbol                    |
+| Non-obvious constraint or guard: "do not change this", a browser quirk, an ordering or specificity dependency           | one compact line or short block at the site            |
+| Why an assertion has its particular form: exact values not a property, this viewport, both branches, here and not there | at the assertion, at whatever length it needs          |
+| A defect shape, value, or invariant the code still defends                                                              | at the site                                            |
+| Record pointer                                                                                                          | one line, after the constraint it explains             |
+| Live tracker marker                                                                                                     | `NOTE:` / `FIXME:` / `TODO:` / `BUG:` plus the tatr ID |
 
-| Discard | Why |
-|---------|-----|
-| Narration of what the code plainly does | the code says it |
-| "task `<id>` wanted me to...", "found in review R1.4", "was `test.fixme` while..." | archaeology; the record holds it |
-| Rationale reproducing a `DECISION.md` | compact to one line plus the pointer |
-| Every clause describes behaviour that no longer ships | actively misleading; delete outright |
+| Discard                                                                            | Why                                  |
+| ---------------------------------------------------------------------------------- | ------------------------------------ |
+| Narration of what the code plainly does                                            | the code says it                     |
+| "task `<id>` wanted me to...", "found in review R1.4", "was `test.fixme` while..." | archaeology; the record holds it     |
+| Rationale reproducing a `DECISION.md`                                              | compact to one line plus the pointer |
+| Every clause describes behaviour that no longer ships                              | actively misleading; delete outright |
 
 Compaction, not deletion, when a comment is partly load-bearing: split it at
 the constraint, keep the constraint, drop the story.

@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large
 color_male: olive gray
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/gobsal1
 observations: 106000
 ---

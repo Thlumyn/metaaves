@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large
 color_male: olive, black
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/blwsal1
 observations: 56000
 ---

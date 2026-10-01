@@ -1,6 +1,6 @@
 ---
 species: Small Tree-Finch
-scientific: Camarhynchus parvulus 
+scientific: Camarhynchus parvulus
 clade: camarhynchus
 range: galapagos
 size: x
@@ -11,4 +11,4 @@ ebird: x
 observations: x
 ---
 
-A Galapagos finch 
+A Galapagos finch

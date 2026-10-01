@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large
 color_male: gray
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/grasal2
 observations: 265000
 ---

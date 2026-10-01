@@ -1,6 +1,6 @@
 ---
 species: Sharp-beaked Ground-Finch
-scientific: Geospiza difficilis 
+scientific: Geospiza difficilis
 clade: geospiza
 range: galapagos
 size: x
@@ -11,4 +11,4 @@ ebird: https://ebird.org/species/shbgrf3
 observations: 150
 ---
 
-A wedge-billed Galapagos finch 
+A wedge-billed Galapagos finch

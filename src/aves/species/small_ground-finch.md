@@ -1,7 +1,7 @@
 ---
 species: Small Ground-Finch
-scientific: Geospiza fuliginosa 
-clade: geospiza 
+scientific: Geospiza fuliginosa
+clade: geospiza
 range: galapagos
 size: x
 wingspan: x
@@ -11,4 +11,4 @@ ebird: x
 observations: x
 ---
 
-A Galapagos finch 
+A Galapagos finch

@@ -39,7 +39,7 @@ describe("e2e specs that open the daily page", () => {
 
     it("pin the daily clock", () => {
         const opensDailyPage = specs.filter((spec) =>
-            spec.source.includes('goto("/")'),
+            spec.source.includes('goto("/")')
         );
         expect(opensDailyPage.length).toBeGreaterThan(0);
 

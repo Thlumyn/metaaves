@@ -7,8 +7,8 @@ size: x
 wingspan: x
 bill: thick, large
 color_male: olive-green
-image: 
-icon: 
+image:
+icon:
 ebird: https://ebird.org/species/grwsal1
 observations: 83000
 ---

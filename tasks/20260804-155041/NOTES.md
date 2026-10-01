@@ -9,14 +9,14 @@ Nothing changes on screen today. `MAX_GUESSES` is 25 and `HINT_COST` is 3, so
 every hardcoded plural currently reads correctly. The change is entirely about
 what happens when either constant becomes 1:
 
-| Surface | Today | After a reprice to 1, before | After a reprice to 1, after |
-|-|-|-|-|
-| FAQ hint price | `A hint costs 3 guesses.` | `A hint costs 1 guesses.` | `A hint costs 1 guess.` |
-| FAQ budget | `You have 25 attempts...` | `You have 1 attempts...` | `You have 1 attempt...` |
-| Hint chip | `Spend 3 guesses to reveal a clade` | `Spend 1 guesses...` | `Spend 1 guess...` |
-| Brief budget | `You have 25 guesses.` | `You have 1 guesses.` | `You have 1 guess.` |
-| How-to-play card (x2) | `25 guesses. A name...` / `A hint spends 3 guesses...` | `1 guesses` / `1 guesses` | `1 guess` / `1 guess` |
-| Loss share text | `I couldn't figure it out in 25 guesses.` | `...in 1 guesses.` | `...in 1 guess.` |
+| Surface                    | Today                                                  | After a reprice to 1, before      | After a reprice to 1, after   |
+| -------------------------- | ------------------------------------------------------ | --------------------------------- | ----------------------------- |
+| FAQ hint price             | `A hint costs 3 guesses.`                              | `A hint costs 1 guesses.`         | `A hint costs 1 guess.`       |
+| FAQ budget                 | `You have 25 attempts...`                              | `You have 1 attempts...`          | `You have 1 attempt...`       |
+| Hint chip                  | `Spend 3 guesses to reveal a clade`                    | `Spend 1 guesses...`              | `Spend 1 guess...`            |
+| Brief budget               | `You have 25 guesses.`                                 | `You have 1 guesses.`             | `You have 1 guess.`           |
+| How-to-play card (x2)      | `25 guesses. A name...` / `A hint spends 3 guesses...` | `1 guesses` / `1 guesses`         | `1 guess` / `1 guess`         |
+| Loss share text            | `I couldn't figure it out in 25 guesses.`              | `...in 1 guesses.`                | `...in 1 guess.`              |
 | Game-over win/loss summary | `Solved in 4 / 25 guesses` / `You used all 25 guesses` | `1 / 1 guesses` / `all 1 guesses` | `1 / 1 guess` / `all 1 guess` |
 
 Second, smaller change: four sites already pluralize correctly but each
@@ -42,17 +42,17 @@ the choice is only visible in the code.
 
 ## Surfaces
 
-| File | Why |
-|-|-|
-| `src/plural.ts` | New. Home for the `plural()` helper, currently module-private in `gameOverCopy.ts`. |
-| `src/gameOverCopy.ts` | `plural()` moves out; `winSummary`/`lossSummary` agree their nouns with `MAX_GUESSES`. |
-| `src/faqCopy.ts` | Both answers: "guesses" (l.24) and "attempts" (l.17). |
-| `src/ui/onboarding.ts` | Four sites: hint chip (l.27), brief budget (l.55), card budget (l.127), card hint (l.132). |
-| `src/shareText.ts` | Loss line (l.124) hardcodes the plural; win line (l.108) and hint count (l.114) drop their inline ternaries for the helper. |
-| `src/ui/ladderCard.ts` | Two inline ternaries (l.17, l.19) fold into the helper. No constant involved; included so one helper owns every plural. |
-| `test/plural.test.ts` | New. Exhaustive unit test of the helper: 0, 1, 2. |
-| `test/constantRepricing.test.ts` | New. The actual guard - re-imports the copy modules under `HINT_COST`/`MAX_GUESSES` of 1 and asserts no "1 guesses"/"1 attempts". |
-| `test/faqCopy.test.ts`, `test/onboarding.test.ts`, `test/gameOverCopy.test.ts`, `test/share.test.ts` | Untouched if they stay green; they assert the shipped values, which do not move. |
+| File                                                                                                 | Why                                                                                                                               |
+| ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `src/plural.ts`                                                                                      | New. Home for the `plural()` helper, currently module-private in `gameOverCopy.ts`.                                               |
+| `src/gameOverCopy.ts`                                                                                | `plural()` moves out; `winSummary`/`lossSummary` agree their nouns with `MAX_GUESSES`.                                            |
+| `src/faqCopy.ts`                                                                                     | Both answers: "guesses" (l.24) and "attempts" (l.17).                                                                             |
+| `src/ui/onboarding.ts`                                                                               | Four sites: hint chip (l.27), brief budget (l.55), card budget (l.127), card hint (l.132).                                        |
+| `src/shareText.ts`                                                                                   | Loss line (l.124) hardcodes the plural; win line (l.108) and hint count (l.114) drop their inline ternaries for the helper.       |
+| `src/ui/ladderCard.ts`                                                                               | Two inline ternaries (l.17, l.19) fold into the helper. No constant involved; included so one helper owns every plural.           |
+| `test/plural.test.ts`                                                                                | New. Exhaustive unit test of the helper: 0, 1, 2.                                                                                 |
+| `test/constantRepricing.test.ts`                                                                     | New. The actual guard - re-imports the copy modules under `HINT_COST`/`MAX_GUESSES` of 1 and asserts no "1 guesses"/"1 attempts". |
+| `test/faqCopy.test.ts`, `test/onboarding.test.ts`, `test/gameOverCopy.test.ts`, `test/share.test.ts` | Untouched if they stay green; they assert the shipped values, which do not move.                                                  |
 
 `src/*.html` needs no change: `test/markupConstants.test.ts` already forbids a
 game constant as a literal in any page template, so all this prose is in `.ts`

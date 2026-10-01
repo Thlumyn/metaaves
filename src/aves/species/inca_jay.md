@@ -1,6 +1,6 @@
 ---
 species: Inca Jay
-scientific: Cyanocorax yncas 
+scientific: Cyanocorax yncas
 clade: cyanocorax
 range: south america
 size: x
@@ -8,7 +8,7 @@ wingspan: x
 bill: long sharp and slightly curved
 color_male: green
 ebird: x
-observations: 
+observations:
 ---
 
 A jay

@@ -75,14 +75,14 @@ export function createSpeciesCard(
     const iconSrc = species.icon || defaultIcon;
     let imageHtml = "";
     if (species.image) {
-        if (species.image.endsWith(".svg")){
+        if (species.image.endsWith(".svg")) {
             imageHtml = species.image
                 ? `<img class="svg-img" src="${species.image}" alt="${species.species}">`
                 : "[ Hologram Render ]";
         } else if (species.image.length > 2) {
             imageHtml = species.image
                 ? `<img src="${species.image}" alt="${species.species}">`
-                : "[ Hologram Render ]";    
+                : "[ Hologram Render ]";
         }
     }
 

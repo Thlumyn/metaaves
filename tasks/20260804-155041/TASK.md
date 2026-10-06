@@ -55,7 +55,7 @@ pattern to copy, line 124 in the same function is one of the defects.
       false positive. This is the only guard that reaches the how-to-play
       card template (`onboarding.ts:127,132`), which `testEnvironment: "node"`
       puts out of unit-test reach. - _reprice to 1_: `jest.isolateModules` + `jest.doMock("../src/constants",
-      ...)` with `HINT_COST: 1, MAX_GUESSES: 1`, then `require` the four
+    ...)` with `HINT_COST: 1, MAX_GUESSES: 1`, then `require` the four
       constant-reading copy modules and assert the exact singular sentences -
       `hintCostAnswer()`, `guessBudgetAnswer()`, `hintChipCopy().detail`,
       `briefCopy().budget`, `winSummary(1, 0)`, `lossSummary(1, 0)`, and the

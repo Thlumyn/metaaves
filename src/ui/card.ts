@@ -74,14 +74,16 @@ export function createSpeciesCard(
 
     const iconSrc = species.icon || defaultIcon;
     let imageHtml = "";
-    if (species.image && species.image.endsWith(".svg")) {
-        imageHtml = species.image
-            ? `<img class="svg-img" src="${species.image}" alt="${species.species}">`
-            : "[ Hologram Render ]";
-    } else {
-        imageHtml = species.image
-            ? `<img src="${species.image}" alt="${species.species}">`
-            : "[ Hologram Render ]";
+    if (species.image) {
+        if (species.image.endsWith(".svg")){
+            imageHtml = species.image
+                ? `<img class="svg-img" src="${species.image}" alt="${species.species}">`
+                : "[ Hologram Render ]";
+        } else if (species.image.length > 2) {
+            imageHtml = species.image
+                ? `<img src="${species.image}" alt="${species.species}">`
+                : "[ Hologram Render ]";    
+        }
     }
 
     const rarityStarHtml =
@@ -126,10 +128,12 @@ export function createCladeCard(
     card.className = `museum-card${extraClasses ? ` ${extraClasses}` : ""}`;
 
     let imageHtml = "";
-    if (clade.image && clade.image.endsWith(".svg")) {
-        imageHtml = `<img class="svg-img" src="${clade.image}" alt="${clade.name}">`;
-    } else if (clade.image) {
-        imageHtml = `<img src="${clade.image}" alt="${clade.name}">`;
+    if (clade.image) {
+        if (clade.image.endsWith(".svg")) {
+            imageHtml = `<img class="svg-img" src="${clade.image}" alt="${clade.name}">`;
+        } else {
+            imageHtml = `<img src="${clade.image}" alt="${clade.name}">`;
+        }
     } else {
         imageHtml = "[ No Image ]";
     }

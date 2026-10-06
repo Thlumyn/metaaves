@@ -1,1 +1,26 @@
 Clade,Parent,Description
+Pangalliformes,galloanserae,It is defined as all birds more closely related to chickens than to ducks
+Galliformes,pangalliformes,Landfowl
+Megapodiidae,galliformes,Megapodes also known as incubator birds or mound-builders
+Alectura,megapodiidae,Australian Brushturkey
+Aepypodius,megapodiidae,A genus of Brushturkeys
+Talegalla,megapodiidae,A genus of Brushturkeys
+Leipoa,megapodiidae,Malleefowl
+Macrocephalon,megapodiidae,Maleo
+Eulipoa,megapodiidae,Moluccan Megapode
+Megapodius,megapodiidae,Megapodes
+Cracidae,galliformes,Chachalacas Curassows and Guans
+Cracinae,cracidae,Chachalacas and Currasows
+Penelopinae,cracidae,Guans
+Ortalis,cracinae,Chachalacas 
+Penelope,penelopinae,Guans
+Pipile,penelopinae,Piping guans
+Aburria,penelopinae,Wattled guan
+Chamaepetes,penelopinae,Guans
+Penelopina,penelopinae,Highland guan
+Oreophasinae,cracidae,Horned guan
+Oreophasis,oreophasinae,Horned guan
+Nothocrax,cracinae,Nocturnal currasow
+Mitu,cracinae,Mitu currasows
+Pauxi,cracinae,Helmeted currasows
+Crax,cracinae,Currasows

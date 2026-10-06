@@ -173,8 +173,8 @@
 }
 
 .card-image-area {
-    height: clamp(150px, 20vh, 250px);
-    min-height: clamp(150px, 20vh, 250px);
+    height: clamp(16px, 20vh, 18px);
+    min-height: clamp(16px, 20vh, 18px);
     flex-shrink: 0;
     background: #1a1f29;
     display: flex;
@@ -189,6 +189,8 @@
 }
 
 .card-image-area:has(img) {
+    height: clamp(150px, 20vh, 250px);
+    min-height: clamp(150px, 20vh, 250px);
     padding: 0;
 }
 

@@ -123,7 +123,7 @@ describe("every constant-reading sentence reads in the singular at 1", () => {
             buildGameData: typeof import("../src/jsonLoader").buildGameData;
         };
         const data = buildGameData(require("../src/aves/index.json"));
-        const wrong = data.findSpeciesByName("Stegosaurus");
+        const wrong = data.findSpeciesByName("Common Ostrich");
         if (!wrong) throw new Error("test fixture species missing");
 
         // One wrong guess exhausts a one-guess budget, so the round is a loss.

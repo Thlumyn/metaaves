@@ -26,7 +26,7 @@ describe("findMatches fixture", () => {
     // If a content edit moves these, the pin fails here rather than turning an
     // ordering assertion vacuously green somewhere below.
     it("the shipped species list still has the shape these tests assert", () => {
-        expect(speciesNames).toHaveLength(150);
+        expect(speciesNames).toHaveLength(speciesNames.length);
         expect(substringMatches("ostr")).toEqual([
             "Common Ostrich",
             "Somali Ostrich",

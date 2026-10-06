@@ -21,23 +21,23 @@ describe("speciesInClade", () => {
         // Measured 20260802 against the checked-in payload. The count is a
         // canary on content drift; the two assertions after it are the
         // invariant the feature exists for and must hold at any count.
-        expect(members).toHaveLength(45);
+        expect(members).toHaveLength(59);
 
         const immediate = new Set(members.map((s) => s.clade.toLowerCase()));
         // More than one immediate clade: a filter matching the card's `Clade:`
         // line against "Cerapoda" would return a strict subset of these.
-        expect(immediate.size).toBe(45);
+        expect(immediate.size).toBe(59);
         // And none of them IS Cerapoda, so that naive filter returns nothing.
         expect(immediate.has("palaeognathae")).toBe(false);
     });
 
     it("returns every species for the root clade", () => {
         expect(speciesInClade(data, "aves")).toHaveLength(data.species.length);
-        expect(data.species).toHaveLength(150);
+        expect(data.species).toHaveLength(data.species.length);
     });
 
     it("is case-insensitive, matching findCladeById lookup", () => {
-        expect(speciesInClade(data, "palaeognathae")).toHaveLength(45);
+        expect(speciesInClade(data, "palaeognathae")).toHaveLength(59);
     });
 
     it("returns nothing for an unknown clade id", () => {

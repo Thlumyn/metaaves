@@ -30,11 +30,11 @@ const TARGET = "redhead";
 // lineage, one per tier. Kept as names only - the tier each one lands in is
 // what the tests below DERIVE, not what they restate.
 const LADDER = [
-    "Marbled Duck",
-    "Mallard",
-    "Swan Goose",
-    "Horned Screamer",
     "Green Jay",
+    "Horned Screamer",
+    "Swan Goose",
+    "Mallard",
+    "Marbled Duck",
 ];
 
 function idFor(name: string): string {

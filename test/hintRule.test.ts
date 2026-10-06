@@ -133,9 +133,9 @@ describe("findNextHintCladeId over the real payload", () => {
         // 150 species) as its first hint; whatever it is offered now must be a
         // real cut.
         const trex = data.species.find((s) =>
-            s.species.toLowerCase().includes("tyrannosaurus")
+            s.species.toLowerCase().includes("redhead")
         );
-        if (!trex) throw new Error("Tyrannosaurus not in the payload");
+        if (!trex) throw new Error("Redhead not in the payload");
 
         const state = new GameState(data, trex.id);
         const hint = findNextHintCladeId(state);

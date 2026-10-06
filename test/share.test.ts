@@ -12,17 +12,17 @@ import rawGameData from "../src/aves/index.json";
 // `mock-fixtures-hide-real-data-defects-test-the-real-payload`.
 const data = buildGameData(rawGameData);
 
-const TARGET = "tyrannosaurus";
+const TARGET = "redhead";
 
 // A ladder of real species whose LCA with Tyrannosaurus sits at a known depth
 // in its 14-clade lineage, one per tier. The comment on each line is the
 // closeness value (lcaDepth / lineageDepth) that puts it in that bin.
 const LADDER: [string, string][] = [
-    ["Stegosaurus", "⬛"], // 0.071, meets only at dinosauria
-    ["Brachiosaurus", "🟦"], // 0.214, eusaurischia
-    ["Allosaurus", "🟨"], // 0.500, avetheropoda
-    ["Guanlong", "🟧"], // 0.643, tyrannosauroidea
-    ["Albertosaurus", "🟩"], // 0.857, tyrannosauridae
+    ["Common Ostrich", "⬛"], // 0.071, meets only at dinosauria
+    ["Swan Goose", "🟦"], // 0.214, eusaurischia
+    ["Mallard", "🟨"], // 0.500, avetheropoda
+    ["Marbled Duck", "🟧"], // 0.643, tyrannosauroidea
+    ["Canvasback", "🟩"], // 0.857, tyrannosauridae
 ];
 
 function idFor(name: string): string {
@@ -60,11 +60,11 @@ describe("share grid", () => {
 
     test("distinct games tell distinct stories", () => {
         const lucky = formatGameStateForSharing(
-            playedGame(["Albertosaurus", "Tyrannosaurus"]),
+            playedGame(["Canvasback", "Redhead"]),
             { mode: "daily", seed: 1 }
         );
         const slog = formatGameStateForSharing(
-            playedGame(["Stegosaurus", "Brachiosaurus", "Tyrannosaurus"]),
+            playedGame(["Common Ostrich", "Swan Goose", "Redhead"]),
             { mode: "daily", seed: 1 }
         );
 
@@ -75,7 +75,7 @@ describe("share grid", () => {
 
     test("the winning guess is the dinosaur, wherever it lands", () => {
         const message = formatGameStateForSharing(
-            playedGame(["Tyrannosaurus"]),
+            playedGame(["Redhead"]),
             { mode: "daily", seed: 1 }
         );
 
@@ -84,7 +84,7 @@ describe("share grid", () => {
 
     test("a hint adds one bulb after the guesses", () => {
         const message = formatGameStateForSharing(
-            playedGame(["Stegosaurus", "Tyrannosaurus"], ["coelurosauria"]),
+            playedGame(["Common Ostrich", "Redhead"], ["neognathae"]),
             { mode: "daily", seed: 1 }
         );
 
@@ -126,7 +126,7 @@ describe("share grid", () => {
 describe("share stats", () => {
     test("real streak and average are rendered when they exist", () => {
         const message = formatGameStateForSharing(
-            playedGame(["Stegosaurus", "Tyrannosaurus"]),
+            playedGame(["Common Ostrich", "Redhead"]),
             { mode: "daily", seed: 1 },
             { currentStreak: 4, averageGuesses: 7.14, wins: 9 }
         );
@@ -146,7 +146,7 @@ describe("share stats", () => {
 
     test("a first-ever share prints no zero placeholders", () => {
         const message = formatGameStateForSharing(
-            playedGame(["Tyrannosaurus"]),
+            playedGame(["Redhead"]),
             { mode: "daily", seed: 1 },
             { currentStreak: 0, averageGuesses: 0, wins: 0 }
         );
@@ -182,7 +182,7 @@ describe("share stats", () => {
 
     test("practice shares carry the average but no day streak", () => {
         const message = formatGameStateForSharing(
-            playedGame(["Tyrannosaurus"]),
+            playedGame(["Redhead"]),
             { mode: "practice", seed: 42 },
             { currentStreak: 6, averageGuesses: 5, wins: 12 }
         );
@@ -193,7 +193,7 @@ describe("share stats", () => {
 
     test("omitting stats omits the line entirely", () => {
         const message = formatGameStateForSharing(
-            playedGame(["Tyrannosaurus"]),
+            playedGame(["Redhead"]),
             { mode: "daily", seed: 1 }
         );
 
@@ -207,7 +207,7 @@ describe("share stats", () => {
             { currentStreak: 2, averageGuesses: 8.25, wins: 5 },
         ]) {
             const message = formatGameStateForSharing(
-                playedGame(["Stegosaurus", "Tyrannosaurus"]),
+                playedGame(["Common Ostrich", "Redhead"]),
                 { mode: "daily", seed: 1 },
                 stats
             );
@@ -219,12 +219,12 @@ describe("share stats", () => {
 
 describe("share message shape", () => {
     test("a win counts the guesses it took, pluralized", () => {
-        const solo = formatGameStateForSharing(playedGame(["Tyrannosaurus"]), {
+        const solo = formatGameStateForSharing(playedGame(["Redhead"]), {
             mode: "daily",
             seed: 1,
         });
         const pair = formatGameStateForSharing(
-            playedGame(["Stegosaurus", "Tyrannosaurus"]),
+            playedGame(["Common Ostrich", "Redhead"]),
             { mode: "daily", seed: 1 }
         );
 
@@ -237,11 +237,11 @@ describe("share message shape", () => {
         // sentence says so rather than leaving a reader to count cells and
         // arrive at a different number.
         const one = formatGameStateForSharing(
-            playedGame(["Tyrannosaurus"], ["coelurosauria"]),
+            playedGame(["Redhead"], ["neognathae"]),
             { mode: "daily", seed: 1 }
         );
         const two = formatGameStateForSharing(
-            playedGame(["Tyrannosaurus"], ["coelurosauria", "theropoda"]),
+            playedGame(["Redhead"], ["neognathae", "galloanserae"]),
             { mode: "daily", seed: 1 }
         );
 
@@ -251,7 +251,7 @@ describe("share message shape", () => {
 
     test("a hintless win says nothing about hints", () => {
         const message = formatGameStateForSharing(
-            playedGame(["Stegosaurus", "Tyrannosaurus"]),
+            playedGame(["Common Ostrich", "Redhead"]),
             { mode: "daily", seed: 1 }
         );
 
@@ -260,12 +260,12 @@ describe("share message shape", () => {
     });
 
     test("the headline names the puzzle once, in both modes", () => {
-        const daily = formatGameStateForSharing(playedGame(["Tyrannosaurus"]), {
+        const daily = formatGameStateForSharing(playedGame(["Redhead"]), {
             mode: "daily",
             seed: 210,
         });
         const practice = formatGameStateForSharing(
-            playedGame(["Tyrannosaurus"]),
+            playedGame(["Redhead"]),
             { mode: "practice", seed: 42 }
         );
 
@@ -275,7 +275,7 @@ describe("share message shape", () => {
 
     test("practice is labelled and carries its seed id, not a daily number", () => {
         const message = formatGameStateForSharing(
-            playedGame(["Tyrannosaurus"]),
+            playedGame(["Redhead"]),
             { mode: "practice", seed: 42 }
         );
 
@@ -284,7 +284,7 @@ describe("share message shape", () => {
 
     test("every message ends with the link and the tag", () => {
         const message = formatGameStateForSharing(
-            playedGame(["Tyrannosaurus"]),
+            playedGame(["Redhead"]),
             { mode: "daily", seed: 1 }
         );
 

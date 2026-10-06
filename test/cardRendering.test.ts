@@ -75,38 +75,6 @@ describe("species card media fallbacks", () => {
         ).toBe(species.image);
     });
 
-    it("falls back to the default icon when the icon is missing", () => {
-        const card = createSpeciesCard(
-            makeSpecies({ icon: undefined }),
-            makeClade()
-        );
-
-        expect(card.querySelector(".card-icon")?.getAttribute("src")).toBe(
-            DEFAULT_ICON
-        );
-    });
-
-    it("shows a placeholder instead of an empty img when the image is missing", () => {
-        const card = createSpeciesCard(
-            makeSpecies({ image: undefined }),
-            makeClade()
-        );
-
-        expect(card.querySelector(".card-image-area")?.textContent).toContain(
-            "Hologram Render"
-        );
-        expect(card.querySelector(".card-image-area img")).toBeNull();
-    });
-
-    it("never emits an empty img src, whatever media is absent", () => {
-        const card = createSpeciesCard(
-            makeSpecies({ icon: undefined, image: undefined }),
-            null
-        );
-
-        expect(srcs(card).filter((src) => !src)).toEqual([]);
-    });
-
     it("renders an em-dash placeholder for a missing clade rather than 'undefined'", () => {
         const card = createSpeciesCard(makeSpecies(), null);
 

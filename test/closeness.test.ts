@@ -23,18 +23,18 @@ import rawGameData from "../src/aves/index.json";
 // `mock-fixtures-hide-real-data-defects-test-the-real-payload`.
 const data = buildGameData(rawGameData);
 
-const TARGET = "tyrannosaurus";
+const TARGET = "redhead";
 
 // The same ladder test/share.test.ts pins the grid against: five real species
 // whose LCA with Tyrannosaurus sits at a different depth in its 14-clade
 // lineage, one per tier. Kept as names only - the tier each one lands in is
 // what the tests below DERIVE, not what they restate.
 const LADDER = [
-    "Stegosaurus",
-    "Brachiosaurus",
-    "Allosaurus",
-    "Guanlong",
-    "Albertosaurus",
+    "Marbled Duck",
+    "Mallard",
+    "Swan Goose",
+    "Horned Screamer",
+    "Green Jay",
 ];
 
 function idFor(name: string): string {
@@ -81,7 +81,7 @@ describe("tree closeness tiers", () => {
     test("a guessed node's tier indexes the same cell the share grid prints", () => {
         // The winning guess goes last so the grid's cells line up with the
         // ladder; `Set` preserves insertion order.
-        const state = playedGame([...LADDER, "Tyrannosaurus"]);
+        const state = playedGame([...LADDER, "Redhead"]);
         const roots = buildGuessTree(state);
         const cells = gridCells(state);
 
@@ -158,14 +158,14 @@ describe("the target's node carries no temperature", () => {
         nodeFor(buildGuessTree(state, revealTarget), TARGET);
 
     test("the unsolved placeholder has no tier", () => {
-        const node = targetNode(playedGame(["Stegosaurus"]), false);
+        const node = targetNode(playedGame(["Canvasback"]), false);
         expect(node.name).toBe("?");
         expect(node.closenessTier).toBeUndefined();
     });
 
     test("the winning node has no tier", () => {
         const node = targetNode(
-            playedGame(["Stegosaurus", "Tyrannosaurus"]),
+            playedGame(["Canvasback", "Redhead"]),
             true
         );
         expect(node.closenessTier).toBeUndefined();
@@ -173,7 +173,7 @@ describe("the target's node carries no temperature", () => {
 
     test("the revealed node after a loss has no tier", () => {
         // A loss reveals the target without it ever having been guessed.
-        const node = targetNode(playedGame(["Stegosaurus"]), true);
+        const node = targetNode(playedGame(["Redhead"]), true);
         expect(node.closenessTier).toBeUndefined();
     });
 });

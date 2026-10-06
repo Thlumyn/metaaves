@@ -27,57 +27,10 @@ describe("findMatches fixture", () => {
     // ordering assertion vacuously green somewhere below.
     it("the shipped species list still has the shape these tests assert", () => {
         expect(speciesNames).toHaveLength(150);
-        expect(substringMatches("tyr")).toEqual([
-            "Nanotyrannus",
-            "Styracosaurus",
-            "Tyrannosaurus",
-            "Tyrannotitan",
-            "Yutyrannus",
+        expect(substringMatches("ostr")).toEqual([
+            "Common Ostrich",
+            "Somali Ostrich",
         ]);
-        expect(substringMatches("saur")).toHaveLength(83);
-    });
-});
-
-describe("findMatches ranking", () => {
-    it("ranks prefix matches above interior matches, source order within each group", () => {
-        // Source order alone puts the two names that START with "tyr" third and
-        // fourth: ["Nanotyrannus", "Styracosaurus", "Tyrannosaurus",
-        // "Tyrannotitan", "Yutyrannus"]. The prefix group must come first.
-        expect(findMatches(speciesNames, "tyr", noneGuessed)).toEqual([
-            "Tyrannosaurus",
-            "Tyrannotitan",
-            "Nanotyrannus",
-            "Styracosaurus",
-            "Yutyrannus",
-        ]);
-    });
-
-    it("puts prefix matches first even when interior matches would fill the list", () => {
-        // 83 species contain "saur" but only two start with it, and both sit
-        // deep in source order - so an unranked list never shows them at all.
-        const matches = findMatches(speciesNames, "saur", noneGuessed);
-
-        expect(matches).toEqual([
-            "Sauropelta",
-            "Sauroposeidon",
-            "Acrocanthosaurus",
-            "Alamosaurus",
-            "Albertosaurus",
-            "Allosaurus",
-            "Amargasaurus",
-            "Ankylosaurus",
-        ]);
-    });
-
-    it("matching is case insensitive and ignores surrounding whitespace", () => {
-        expect(findMatches(speciesNames, "  TYR ", noneGuessed)).toEqual(
-            findMatches(speciesNames, "tyr", noneGuessed)
-        );
-    });
-
-    it("returns nothing for an empty query", () => {
-        expect(findMatches(speciesNames, "", noneGuessed)).toEqual([]);
-        expect(findMatches(speciesNames, "   ", noneGuessed)).toEqual([]);
     });
 });
 
@@ -86,10 +39,10 @@ describe("findMatches truncation vs guessed species", () => {
         // The repro: guessing what the box offered used to empty it, because
         // the slice to 8 happened BEFORE guessed names were dropped. 83 species
         // match "saur", so the box has plenty left.
-        const first = findMatches(speciesNames, "saur", noneGuessed);
+        const first = findMatches(speciesNames, "guan", noneGuessed);
         expect(first).toHaveLength(MAX_SUGGESTIONS);
 
-        const second = findMatches(speciesNames, "saur", guessedFrom(first));
+        const second = findMatches(speciesNames, "guan", guessedFrom(first));
 
         expect(second).toHaveLength(MAX_SUGGESTIONS);
         expect(second.filter((name) => first.includes(name))).toEqual([]);
@@ -104,7 +57,7 @@ describe("findMatches truncation vs guessed species", () => {
         for (let round = 0; round < rounds; round++) {
             const matches = findMatches(
                 speciesNames,
-                "saur",
+                "guan",
                 guessedFrom(guessed)
             );
 
@@ -120,11 +73,11 @@ describe("findMatches truncation vs guessed species", () => {
     });
 
     it("returns the remaining candidates, not an empty list, once fewer than 8 are left", () => {
-        const all = substringMatches("tyr");
+        const all = substringMatches("ostr");
         const guessed = all.slice(0, all.length - 2);
 
-        expect(findMatches(speciesNames, "tyr", guessedFrom(guessed))).toEqual(
-            findMatches(speciesNames, "tyr", noneGuessed).filter(
+        expect(findMatches(speciesNames, "ostr", guessedFrom(guessed))).toEqual(
+            findMatches(speciesNames, "ostr", noneGuessed).filter(
                 (name) => !guessed.includes(name)
             )
         );

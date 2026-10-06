@@ -16,19 +16,19 @@ const data = buildGameData(rawGameData as RawGameData);
 
 describe("speciesInClade", () => {
     it("includes members whose immediate clade is a DESCENDANT of the filter", () => {
-        const members = speciesInClade(data, "cerapoda");
+        const members = speciesInClade(data, "palaeognathae");
 
         // Measured 20260802 against the checked-in payload. The count is a
         // canary on content drift; the two assertions after it are the
         // invariant the feature exists for and must hold at any count.
-        expect(members).toHaveLength(35);
+        expect(members).toHaveLength(45);
 
         const immediate = new Set(members.map((s) => s.clade.toLowerCase()));
         // More than one immediate clade: a filter matching the card's `Clade:`
         // line against "Cerapoda" would return a strict subset of these.
-        expect(immediate.size).toBe(22);
+        expect(immediate.size).toBe(45);
         // And none of them IS Cerapoda, so that naive filter returns nothing.
-        expect(immediate.has("cerapoda")).toBe(false);
+        expect(immediate.has("palaeognathae")).toBe(false);
     });
 
     it("returns every species for the root clade", () => {
@@ -37,7 +37,7 @@ describe("speciesInClade", () => {
     });
 
     it("is case-insensitive, matching findCladeById lookup", () => {
-        expect(speciesInClade(data, "Cerapoda")).toHaveLength(35);
+        expect(speciesInClade(data, "palaeognathae")).toHaveLength(45);
     });
 
     it("returns nothing for an unknown clade id", () => {
